@@ -4,7 +4,7 @@
   "description": "Moving thinkstack.co to gatsby.js",
   "scripts": {
     "build": "lerna run build --parallel",
-    "dev": "lerna run dev --parallel",
+    "dev": "cd web && npm run dev",
     "format": "lerna run format",
     "build-studio": "cd studio && npm run build",
     "build-web": "(cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)",

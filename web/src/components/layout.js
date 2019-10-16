@@ -43,6 +43,10 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-family: 'TTSupermolot-Regular';
   }
+
+  h2 {
+    font-family: 'TTSupermolot-Regular';
+  }
 `
 
 const Layout = ({ children }) => {

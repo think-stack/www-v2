@@ -10,8 +10,7 @@ import ServiceList from '../components/serviceList'
 
 export default function ServicesPage({ data }) {
 
-  const { hero } = data
-  // const imageData = data.desktop.childImageSharp.fluid
+  const { hero, services } = data
   const imageData = hero.imgLg.asset.fluid
 
   return(
@@ -23,7 +22,7 @@ export default function ServicesPage({ data }) {
           <StyledBody>{hero.body}</StyledBody>
         </StyledContainer>
       </StyledBgImage>
-      <ServiceList />
+      <ServiceList services={services.edges}/>
     </Layout>
   )
 }
@@ -66,20 +65,38 @@ export const query = graphql`
             ...GatsbySanityImageFluid_noBase64
           }
         }
-        # childImageSharp {
-        #   fluid(maxWidth: 2400, quality: 100) {
-        #     ...GatsbyImageSharpFluid
-        #   }
-        # }
       }
     }
-
-
 
     desktop: file(relativePath: {eq: "mario-gogh-VBLHICVh-lI-unsplash.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 2400, quality: 100) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    cardImg: file(relativePath: {eq: "temp-service-card.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    services: allSanityService {
+      edges {
+        node {
+          body
+          id
+          title
+          image {
+            asset {
+              fluid(maxWidth: 500) {
+                ...GatsbySanityImageFluid_noBase64
+              }
+            }
+          }
         }
       }
     }

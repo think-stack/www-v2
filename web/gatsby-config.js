@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Think|Stack`,
@@ -24,7 +28,17 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/ts-monogram.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: `5k1h3ecs`,
+        dataset: `prod`,
+        watchMode: true,
+        overlayDrafts: true,
+        token: process.env.SANITY_READ_TOKEN,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

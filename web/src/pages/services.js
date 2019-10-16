@@ -2,24 +2,28 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from 'styled-components'
 
+import BackgroundImage from 'gatsby-background-image'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 // import Img from "gatsby-image"
-import BackgroundImage from 'gatsby-background-image'
+import ServiceList from '../components/serviceList'
 
 export default function ServicesPage({ data }) {
 
-  const imageData = data.desktop.childImageSharp.fluid
+  const { hero } = data
+  // const imageData = data.desktop.childImageSharp.fluid
+  const imageData = hero.imgLg.asset.fluid
 
   return(
     <Layout >
       <SEO title="Services" />
       <StyledBgImage fluid={imageData}>
         <StyledContainer>
-          <StyledHeading>services</StyledHeading>
-          <StyledBody>Pellentesque libero nulla, rhoncus ultrices rhoncus vel, efficitur ac ligula. Sed ipsum risus, suscipit et diam in, feugiat pretium nisi.</StyledBody>
+          <StyledHeading>{hero.title}</StyledHeading>
+          <StyledBody>{hero.body}</StyledBody>
         </StyledContainer>
       </StyledBgImage>
+      <ServiceList />
     </Layout>
   )
 }
@@ -52,6 +56,26 @@ const StyledBody = styled.p`
 
 export const query = graphql`
   query ServicesQuery {
+    hero: sanityPageHero(title: {eq: "Services"}) {
+      title
+      body
+
+      imgLg: bgImage {
+        asset {
+          fluid(maxWidth: 1920) {
+            ...GatsbySanityImageFluid_noBase64
+          }
+        }
+        # childImageSharp {
+        #   fluid(maxWidth: 2400, quality: 100) {
+        #     ...GatsbyImageSharpFluid
+        #   }
+        # }
+      }
+    }
+
+
+
     desktop: file(relativePath: {eq: "mario-gogh-VBLHICVh-lI-unsplash.jpg"}) {
       childImageSharp {
         fluid(maxWidth: 2400, quality: 100) {

@@ -4,6 +4,7 @@
   "description": "Moving thinkstack.co to gatsby.js",
   "scripts": {
     "dev": "cd web && npm run dev",
+    "dev-studio": "cd studio && sanity start",
     "build-studio": "cd studio && npm run build",
     "build-web": "(cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)",
     "graphql-deploy": "lerna run graphql-deploy",

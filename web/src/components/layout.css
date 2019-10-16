@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -185,7 +187,7 @@ textarea {
   font: inherit;
 }
 html {
-  font: 112.5%/1.45em georgia, serif;
+  /* font: 112.5%/1.45em 'Open Sans', serif; */
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -200,7 +202,7 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  /* font-family: 'Open Sans', serif; */
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;

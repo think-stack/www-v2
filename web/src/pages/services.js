@@ -7,10 +7,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 // import Img from "gatsby-image"
 import ServiceList from '../components/serviceList'
+import FullWidthCta from "../components/fullWidthCta"
 
 export default function ServicesPage({ data }) {
 
-  const { hero, services } = data
+  const { hero, services, fullWidthCta } = data
   const imageData = hero.imgLg.asset.fluid
 
   return(
@@ -23,6 +24,7 @@ export default function ServicesPage({ data }) {
         </StyledContainer>
       </StyledBgImage>
       <ServiceList services={services.edges}/>
+      <FullWidthCta cta={fullWidthCta} />
     </Layout>
   )
 }
@@ -96,6 +98,19 @@ export const query = graphql`
                 ...GatsbySanityImageFluid_noBase64
               }
             }
+          }
+        }
+      }
+    }
+
+    fullWidthCta: sanityFullWidthCta(title: {regex: "/services/i"}) {
+      heading
+      body
+      ctaText
+      bgImg {
+        asset {
+          fluid(maxWidth: 1920) {
+            ...GatsbySanityImageFluid_noBase64
           }
         }
       }

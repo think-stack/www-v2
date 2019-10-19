@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import ContentContainer from './uContentContainer'
-import ServiceCard from './serviceItem'
+import ServiceItem from './serviceItem'
 
 export default function ServiceList ({ services }) {
 
@@ -13,7 +13,7 @@ export default function ServiceList ({ services }) {
         <StyledList>
           {services.map(item => {
             return (
-                <ServiceCard service={item} />
+                <ServiceItem service={item} />
               )
             })
           }

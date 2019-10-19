@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import ContentContainer from '../components/uContentContainer'
 import H2 from '../components/headings/h2'
+import linkArrow from '../images/link-arrow.svg'
 
 export default function FullWidthEditorial ({ content: { heading, body, img }}) {
   return (
@@ -64,10 +65,26 @@ const StyledP = styled.p`
 
 const StyledLink = styled(Link)`
   color: var(--grey);
+  display: inline;
   font-size: 1rem;
   font-weight: 900;
   line-height: 150%;
   margin-top: .875rem;
+  position: relative;
+  width: max-content;
+
+  &:after {
+    background-image: url(${linkArrow});
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: '';
+    height: .75rem;
+    left: 105%;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 1rem;
+  }
 `
 
 const StyledImgContainer = styled.div`

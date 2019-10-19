@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import ContentContainer from './uContentContainer'
 import H2 from './headings/h2'
+import linkArrow from '../images/link-arrow.svg'
 
 export default function Partners () {
   return (
@@ -51,6 +52,20 @@ const StyledLink = styled(Link)`
   font-weight: 700;
   line-height: 150%;
   margin: 0 auto;
+  position: relative;
   text-transform: capitalize;
   width: 5.875rem;
+
+  &:after {
+    background-image: url(${linkArrow});
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: '';
+    height: .75rem;
+    left: 105%;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 1rem;
+  }
 `

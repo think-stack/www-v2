@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import ContentContainer from './uContentContainer'
 import ServiceCard from './serviceItem'
 
 export default function ServiceList ({ services }) {
 
   return (
     <StyledSection>
-      <StyledContainer>
+      <ContentContainer>
         <StyledHeading>service buckets</StyledHeading>
         <StyledList>
           {services.map(item => {
@@ -17,7 +18,7 @@ export default function ServiceList ({ services }) {
             })
           }
         </StyledList>
-      </StyledContainer>
+      </ContentContainer>
     </StyledSection>
   )
 }

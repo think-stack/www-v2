@@ -10,4 +10,5 @@ export default function ContentContainer ({ children }) {
 const StyledContainer = styled.div`
   margin: 0 auto;
   max-width: 1240px;
+  width: 100%;
 `

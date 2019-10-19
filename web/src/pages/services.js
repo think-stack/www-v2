@@ -8,14 +8,15 @@ import SEO from "../components/seo"
 // import Img from "gatsby-image"
 import ServiceList from '../components/serviceList'
 import FullWidthCta from "../components/fullWidthCta"
+import FullWidthEditorial from '../components/fullWidthEditorial'
 
 export default function ServicesPage({ data }) {
 
-  const { hero, services, fullWidthCta } = data
+  const { hero, services, fullWidthCta, editorial } = data
   const imageData = hero.imgLg.asset.fluid
 
   return(
-    <Layout >
+    <Layout>
       <SEO title="Services" />
       <StyledBgImage fluid={imageData}>
         <StyledContainer>
@@ -25,6 +26,7 @@ export default function ServicesPage({ data }) {
       </StyledBgImage>
       <ServiceList services={services.edges}/>
       <FullWidthCta cta={fullWidthCta} />
+      <FullWidthEditorial content={editorial} />
     </Layout>
   )
 }
@@ -110,6 +112,18 @@ export const query = graphql`
       bgImg {
         asset {
           fluid(maxWidth: 1920) {
+            ...GatsbySanityImageFluid_noBase64
+          }
+        }
+      }
+    }
+
+    editorial: sanityEditorial(title: {regex: "/services/i"}) {
+      heading
+      body
+      img {
+        asset {
+          fluid(maxWidth: 500) {
             ...GatsbySanityImageFluid_noBase64
           }
         }

@@ -9,6 +9,7 @@ import service from './documents/service'
 
 import hero from './objects/hero'
 import fullWidthCta from './objects/fullWidthCta'
+import fullWidthEditorial from './objects/fullWidthEditorial'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,6 +20,7 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     fullWidthCta,
+    fullWidthEditorial,
     hero,
     page,
     service,

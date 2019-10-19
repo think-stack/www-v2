@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export default function H2 ({ heading, color }) {
+export default function H2 ({ heading, color, align }) {
   return (
-    <StyledHeading color={ color }>{ heading }</StyledHeading>
+    <StyledHeading color={color} align={align}>{ heading }</StyledHeading>
   )
 }
 
@@ -13,5 +13,6 @@ const StyledHeading = styled.h2`
   font-weight: 300;
   line-height: 48px;
   margin-bottom: 0;
+  text-align: ${props => props.align || 'left'};
   text-transform: capitalize;
 `

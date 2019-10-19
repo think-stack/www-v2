@@ -1,16 +1,20 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import ContentContainer from '../components/uContentContainer'
+import H2 from '../components/headings/h2'
+
 export default function FullWidthEditorial ({ content: { heading, body, img }}) {
   return (
     <StyledSection>
       <ContentContainer>
         <StyledGridContainer>
           <StyledContentContainer>
-            <StyledHeading>{heading}</StyledHeading>
+            <H2 heading={heading} color='var(--grey)' />
             <StyledP>{body}</StyledP>
+            <StyledLink to='#'>Read More</StyledLink>
           </StyledContentContainer>
           <StyledImgContainer>
             <Img fluid={img.asset.fluid} />
@@ -58,7 +62,14 @@ const StyledP = styled.p`
   line-height: 150%;
 `
 
+const StyledLink = styled(Link)`
+  color: var(--grey);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 150%;
+  margin-top: .875rem;
+`
+
 const StyledImgContainer = styled.div`
-  flex: 1 1 auto;
   width: 100%;
 `

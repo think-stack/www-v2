@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import BackgroundImage from 'gatsby-background-image'
 
 export default function FullWidthCta ({ cta: { heading, body, ctaText, bgImg }}) {

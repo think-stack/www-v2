@@ -4,11 +4,13 @@ import styled from 'styled-components'
 
 import BackgroundImage from 'gatsby-background-image'
 import Layout from "../components/layout"
+import ContentContainer from '../components/uContentContainer'
 import SEO from "../components/seo"
 // import Img from "gatsby-image"
 import ServiceList from '../components/serviceList'
 import FullWidthCta from "../components/fullWidthCta"
 import FullWidthEditorial from '../components/fullWidthEditorial'
+import Partners from '../components/partners'
 
 export default function ServicesPage({ data }) {
 
@@ -19,14 +21,15 @@ export default function ServicesPage({ data }) {
     <Layout>
       <SEO title="Services" />
       <StyledBgImage fluid={imageData}>
-        <StyledContainer>
+        <ContentContainer>
           <StyledHeading>{hero.title}</StyledHeading>
           <StyledBody>{hero.body}</StyledBody>
-        </StyledContainer>
+        </ContentContainer>
       </StyledBgImage>
       <ServiceList services={services.edges}/>
       <FullWidthCta cta={fullWidthCta} />
       <FullWidthEditorial content={editorial} />
+      <Partners />
     </Layout>
   )
 }
@@ -36,6 +39,7 @@ const StyledBgImage = styled(BackgroundImage)`
   flex-direction: column;
   justify-content: flex-end;
   min-height: 90vh;
+  padding-bottom: 4rem;
 `
 const StyledContainer = styled.div`
   margin-bottom: 48px;

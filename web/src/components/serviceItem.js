@@ -28,7 +28,20 @@ const ListItem = styled.li`
   cursor: pointer;
   flex: 1 1 auto;
   max-width: calc(25% - 1rem);
-  transition: transform 800ms ease;
+  min-width: 290px;
+  transition: transform 400ms ease;
+
+  @media screen and (max-width: 1080px) {
+    margin: 0 1rem;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
 
   @media screen and (min-width: 1024px) {
 

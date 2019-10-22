@@ -39,9 +39,12 @@ const StyledList = styled.ul`
   display: flex;
   justify-content: space-between;
   list-style: none;
+
+  @media screen and (max-width: 1080px) {
+    overflow: scroll;
+  }
 `
 
-const StyledContainer = styled.div`
-  margin: 0 auto;
-  max-width: 1240px;
+const Container = styled(ContentContainer)`
+  overflow: hidden;
 `

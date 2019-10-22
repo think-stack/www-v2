@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import ContentContainer from '../components/uContentContainer'
 import H2 from '../components/headings/h2'
@@ -26,16 +26,49 @@ export default function FullWidthEditorial ({ content: { heading, body, img }}) 
   )
 }
 
+// testing media query
+const size = {
+  small: 400,
+  med: 900,
+  large: 1280,
+}
+
+const above = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${size[label]}px) {
+      ${css(...args)}
+    }
+  `
+  return acc
+}, {})
+
+const below = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (max-width: ${size[label]}px) {
+      ${css(...args)}
+    }
+  `
+  return acc
+}, {})
+
 const StyledSection = styled.section`
   background-color: rgba(128, 176, 156, 0.2);
   overflow: hidden;
+
+  ${below.med`
+    max-height: 50vh;
+  `}
 `
 
 const StyledGridContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   grid-template-rows: 350px;
-  padding-top: 2rem;
+
+  @media screen and (min-width: 900px) {
+    padding-top: 2rem;
+  }
 `
 
 const StyledContentContainer = styled.div`

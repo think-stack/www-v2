@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/467d8ce3-85ef-48c3-aeaf-3b05d23fb41c/deploy-status)](https://app.netlify.com/sites/ts-dev-fork/deploys)
+
 # test Blog with Gatsby
 
 _Moving thinkstack.co to gatsby.js_

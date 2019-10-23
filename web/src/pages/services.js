@@ -96,6 +96,9 @@ export const query = graphql`
       edges {
         node {
           body
+          slug {
+            current
+          }
           id
           title
           image {

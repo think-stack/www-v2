@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import Layout from '../components/layout'
@@ -35,6 +35,7 @@ export default function ServiceTemplate(props) {
       )}
 
       {/* {project && <Project {...project} />} */}
+      <Link to='/services'>services</Link>
     </Layout>
   )
 }

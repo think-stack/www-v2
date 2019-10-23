@@ -40,6 +40,6 @@ export default {
       title: 'Page Excerpt',
       name: 'pageExcerpt',
       type: 'text',
-    }
+    },
   ],
 }

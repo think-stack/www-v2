@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import page from './documents/page'
 import service from './documents/service'
+import servicePage from './documents/servicePage'
 
 import hero from './objects/hero'
 import fullWidthCta from './objects/fullWidthCta'
@@ -24,5 +25,6 @@ export default createSchema({
     hero,
     page,
     service,
+    // servicePage,
   ])
 })

@@ -9,7 +9,7 @@ export default function ServiceItem ({ service: { node } }) {
   const imgData = node.image.asset.fluid
   return (
     <ListItem key={node.id}>
-      <Link to='#'>
+      <Link to={`/services/${node.slug.current}`}>
         <figure>
           <Img fluid={imgData} />
         </figure>

@@ -15,7 +15,7 @@ export default function FullWidthEditorial ({ content: { heading, body, img }}) 
           <StyledContentContainer>
             <H2 heading={heading} color='var(--grey)' />
             <StyledP>{body}</StyledP>
-            <StyledLink to='#'>Read More</StyledLink>
+            <StyledLink to='/#'>Read More</StyledLink>
           </StyledContentContainer>
           <StyledImgContainer>
             <Img fluid={img.asset.fluid} />

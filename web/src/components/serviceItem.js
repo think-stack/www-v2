@@ -8,7 +8,7 @@ import linkArrow from '../images/link-arrow.svg'
 export default function ServiceItem ({ service: { node } }) {
   const imgData = node.image.asset.fluid
   return (
-    <ListItem key={node.id}>
+    <ListItem>
       <Link to={`/services/${node.slug.current}`}>
         <figure>
           <Img fluid={imgData} />

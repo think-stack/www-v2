@@ -11,9 +11,9 @@ export default function ServiceList ({ services }) {
       <ContentContainer>
         <StyledHeading>service buckets</StyledHeading>
         <StyledList>
-          {services.map(item => {
+          {services.map((item, index) => {
             return (
-                <ServiceItem service={item} />
+                <ServiceItem service={item} key={item.node.id} />
               )
             })
           }

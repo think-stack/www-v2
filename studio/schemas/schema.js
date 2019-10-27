@@ -6,13 +6,16 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import page from './documents/page'
 import service from './documents/service'
-import servicePage from './documents/servicePage'
 
 import hero from './objects/hero'
 import fullWidthCta from './objects/fullWidthCta'
 import fullWidthEditorial from './objects/fullWidthEditorial'
+// import img from './objects/img'
+import featuredSolution from './objects/featuredSolution'
+import serviceList from './objects/serviceList'
 
 // Then we give our schema to the builder and provide the result to Sanity
+// TODO: add validation to docs and objs
 export default createSchema({
   // We name our schema
   name: 'default',
@@ -25,6 +28,8 @@ export default createSchema({
     hero,
     page,
     service,
-    // servicePage,
+    serviceList,
+    // img,
+    featuredSolution,
   ])
 })

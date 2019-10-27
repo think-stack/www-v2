@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
     --lightGreen: #dbe6df;
     --red: #b12029;
     --blue: #004877;
+    --headingFont: 'TTSupermolot-Regular';
   }
 
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
@@ -40,13 +41,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', serif;
   }
 
-  h1 {
+  h1,
+  h2,
+  h3 {
     font-family: 'TTSupermolot-Regular';
   }
 
-  h2 {
-    font-family: 'TTSupermolot-Regular';
-  }
 `
 
 const Layout = ({ children }) => {

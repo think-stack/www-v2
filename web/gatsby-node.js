@@ -19,6 +19,11 @@ exports.createPages = async ({graphql, actions, reporter}) => {
               current
             }
           }
+          next {
+            slug {
+              current
+            }
+          }
         }
       }
     }
@@ -33,12 +38,15 @@ exports.createPages = async ({graphql, actions, reporter}) => {
   serviceEdges.forEach((edge, index) => {
     const path = `/services/${edge.node.slug.current}`
 
+    const nextSlug = edge.next ? edge.next.slug.current : serviceEdges[0].node.slug.current
+
     createPage({
       path,
       component: require.resolve('./src/templates/serviceTemplate.js'),
       context: {
         slug: edge.node.slug.current,
         id: edge.node.id,
+        nextSlug,
       }
     })
   })

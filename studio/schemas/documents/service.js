@@ -41,5 +41,30 @@ export default {
       name: 'pageExcerpt',
       type: 'text',
     },
+    {
+      title: 'Solution Bundles',
+      name: 'bundles',
+      type: 'array',
+      of: [
+        {
+          type: 'featuredSolution'
+        }
+      ],
+    },
+    {
+      title: 'Service List Title',
+      name: 'serviceListTitle',
+      type: 'string',
+    },
+    {
+      title: 'Individual Services',
+      name: 'inServices',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+      ],
+    },
   ],
 }

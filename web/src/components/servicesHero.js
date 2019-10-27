@@ -48,9 +48,11 @@ const SubHead = styled.div`
   margin: 3.875rem auto 4.75rem;
 
   p {
+    color: var(--black);
     font-size: 1.25rem;
     line-height: 170%;
     margin-top: .5rem;
+    text-decoration: none;
     width: 38.125rem;
   }
 `

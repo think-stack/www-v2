@@ -170,7 +170,11 @@ const ListContainer = styled.div`
 
   li {
     flex: 1 1 auto;
-    max-width: 50%;
+    width: 80%;
+
+    @media screen and (min-width: 1280px) {
+      width: 50%;
+    }
   }
 `
 

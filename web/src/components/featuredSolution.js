@@ -62,6 +62,8 @@ const List = styled.ul`
 
 const CardCTA = styled.a`
   background-color: var(--green);
+  border: 2px solid;
+  border-color: var(--green);
   border-radius: 1.625rem;
   color: var(--white);
   display: inline-block;
@@ -72,4 +74,14 @@ const CardCTA = styled.a`
   margin: 1rem auto 2rem 0;
   padding: 1rem 2rem;
   text-transform: uppercase;
+  transition: background-color 600ms, border-color 600ms, color 600ms;
+
+  &:hover {
+    background-color: var(--white)
+    border: 2px solid;
+    border-color: var(--green);
+    color: var(--green);
+    cursor: pointer;
+
+  }
 `

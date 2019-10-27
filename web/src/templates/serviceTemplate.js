@@ -11,6 +11,7 @@ import ServicesHero from '../components/servicesHero'
 import ContentContainer from '../components/uContentContainer'
 import PortableText from '../components/portableText/portableText'
 import H2 from '../components/headings/h2'
+import ContactCTA from '../components/contactCTA'
 
 const transitionLength = 1.5
 
@@ -62,6 +63,7 @@ export default function ServiceTemplate(props) {
                 <PortableText blocks={props.data.service._rawInServices} />
               </ListContainer>
             </ContentContainer>
+            <ContactCTA />
           </MainContent>
           <TransitionLink
             to={`/services/${nextPage.slug.current}`}

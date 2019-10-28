@@ -14,7 +14,7 @@ import Partners from '../components/partners'
 
 export default function ServicesPage({ data }) {
 
-  const { hero, services, fullWidthCta, editorial } = data
+  const { hero, services, fullWidthCta, editorial, partners } = data
   const imageData = hero.imgLg.asset.fluid
 
   return(
@@ -27,9 +27,9 @@ export default function ServicesPage({ data }) {
         </ContentContainer>
       </StyledBgImage>
       <ServiceList services={services.edges}/>
-      <FullWidthCta cta={fullWidthCta} />
+      <FullWidthCta cta={fullWidthCta} link='/services/incident-and-disaster-response' />
       <FullWidthEditorial content={editorial} />
-      <Partners />
+      <Partners partners={partners} />
     </Layout>
   )
 }
@@ -92,7 +92,7 @@ export const query = graphql`
       }
     }
 
-    services: allSanityService {
+    services: allSanityService(filter: {slug: {current: {ne: "incident-and-disaster-response"}}}) {
       edges {
         node {
           body
@@ -132,6 +132,20 @@ export const query = graphql`
         asset {
           fluid(maxWidth: 500) {
             ...GatsbySanityImageFluid_noBase64
+          }
+        }
+      }
+    }
+    partners: allSanityPartner {
+      edges {
+        node {
+          name
+          logo {
+            asset {
+              fluid(maxWidth: 250) {
+                ...GatsbySanityImageFluid_noBase64
+              }
+            }
           }
         }
       }

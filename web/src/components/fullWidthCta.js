@@ -1,15 +1,16 @@
 import React from 'react'
+import { Link } from "gatsby"
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 
-export default function FullWidthCta ({ cta: { heading, body, ctaText, bgImg }}) {
+export default function FullWidthCta ({ cta: { heading, body, ctaText, bgImg }, link}) {
 
   return (
     <StyledBgImage fluid={bgImg.asset.fluid} >
       <StyledContainer>
         <StyledHeading>{heading}</StyledHeading>
         <StyledP>{body}</StyledP>
-        <StyledLink>{ctaText}</StyledLink>
+        <StyledLink to={link}>{ctaText}</StyledLink>
       </StyledContainer>
     </StyledBgImage>
   )
@@ -47,7 +48,7 @@ const StyledP = styled.p`
   text-align: center;
 `
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   align-self: center;
   background-color: var(--red);
   border-radius: 2rem;
@@ -60,4 +61,8 @@ const StyledLink = styled.a`
   max-width: 155px;
   padding: .75rem 2rem;
   text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+  }
 `

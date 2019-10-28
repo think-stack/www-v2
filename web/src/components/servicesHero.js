@@ -5,6 +5,8 @@ import BackgroundImage from 'gatsby-background-image'
 import ContentContainer from '../components/uContentContainer'
 import H2 from '../components/headings/h2'
 
+import linkArrow from '../images/link-arrow--white.svg'
+
 export default function ServicesHero ({img, title, heading, excerpt, transitionStatus}) {
 
   const shouldTruncate = ["entering", "entered"].includes(transitionStatus);
@@ -42,6 +44,19 @@ const HeroHeading = styled.h1`
   font-size: 48px;
   line-height: 60px;
   position: absolute;
+
+  &:after {
+    background-image: url(${linkArrow});
+    background-repeat: no-repeat;
+    content: '';
+    display: ${props => props.truncate ? 'block' : 'none'};
+    height: 3rem;
+    position: absolute;
+    right: -3rem;
+    top: 50%;
+    transform: rotate(.25turn) translatex(-50%);
+    width: 3rem;
+  }
 `
 
 const SubHead = styled.div`

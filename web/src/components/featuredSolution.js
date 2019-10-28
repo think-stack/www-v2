@@ -28,8 +28,10 @@ export default function FeaturedSolution ({ node }) {
 
 const BundleCard = styled.div`
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   max-width: 37.5rem;
 `
 
@@ -64,7 +66,7 @@ const CardCTA = styled.a`
   background-color: var(--green);
   border: 2px solid;
   border-color: var(--green);
-  border-radius: 1.625rem;
+  border-radius: 2.625rem;
   color: var(--white);
   display: inline-block;
   font-family: 'TTSupermolot-Regular';

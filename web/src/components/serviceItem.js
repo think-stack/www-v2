@@ -9,7 +9,7 @@ export default function ServiceItem ({ service: { node } }) {
   const imgData = node.image.asset.fluid
   return (
     <ListItem>
-      <Link to={`/services/${node.slug.current}`}>
+      <StyledLink to={`/services/${node.slug.current}`}>
         <figure>
           <Img fluid={imgData} />
         </figure>
@@ -18,7 +18,7 @@ export default function ServiceItem ({ service: { node } }) {
           <P>{node.body}</P>
           <ReadMore>learn more</ReadMore>
         </Container>
-      </Link>
+      </StyledLink>
     </ListItem>
   )
 }
@@ -52,8 +52,19 @@ const ListItem = styled.li`
   }
 `
 
+const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+`
+
 const Container = styled.div`
-  padding: 1rem;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem 1rem 3rem 1rem;
+  position: relative;
 `
 
 const Heading = styled.p`
@@ -69,13 +80,15 @@ const P = styled.p`
   font-weight: 600;
   line-height: 150%;
   margin-top: .75rem;
-  text-transform: capitalize;
 `
+
 const ReadMore = styled(P)`
+  bottom: 1rem;
   color: var(--grey);
   display: inline;
   font-weight: 900;
-  position: relative;
+  position: absolute;
+  text-transform: capitalize;
 
   &:after {
     background-image: url(${linkArrow});

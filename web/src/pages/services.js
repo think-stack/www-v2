@@ -84,14 +84,6 @@ export const query = graphql`
       }
     }
 
-    cardImg: file(relativePath: {eq: "temp-service-card.jpg"}) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-
     services: allSanityService(filter: {slug: {current: {ne: "incident-and-disaster-response"}}}) {
       edges {
         node {
@@ -101,7 +93,7 @@ export const query = graphql`
           }
           id
           title
-          image {
+          heroImage {
             asset {
               fluid(maxWidth: 500) {
                 ...GatsbySanityImageFluid_noBase64

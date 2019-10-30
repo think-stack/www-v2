@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import linkArrow from '../images/link-arrow.svg'
 
 export default function ServiceItem ({ service: { node } }) {
-  const imgData = node.image.asset.fluid
+  const imgData = node.heroImage.asset.fluid
   return (
     <ListItem>
       <StyledLink to={`/services/${node.slug.current}`}>

@@ -95,9 +95,19 @@ export const query = graphql`
           title
           heroImage {
             asset {
-              fluid(maxWidth: 500) {
+              fluid(maxWidth: 600, maxHeight: 300) {
                 ...GatsbySanityImageFluid_noBase64
               }
+            }
+            crop {
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              x
+              y
             }
           }
         }

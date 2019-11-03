@@ -10,7 +10,7 @@ export default function FeaturedSolution ({ node }) {
     {/* change node.Image to node.image */}
     {/* must update in sanity schema as well */}
       <Figure>
-        <CardImage src={node.image.asset.url} />
+        <CardImage src={`${node.image.asset.url}?fit=crop&w=600&h=200`} />
         <CardHeading>{node.title}</CardHeading>
       </Figure>
 

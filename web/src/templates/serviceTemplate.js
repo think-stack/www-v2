@@ -208,6 +208,20 @@ export const query = graphql`
       _rawBundles(resolveReferences: {maxDepth: 15})
       serviceListTitle
       _rawInServices(resolveReferences: {maxDepth: 10})
+
+
+      bundles {
+        _key
+        title
+        image {
+          asset {
+            fluid(maxWidth: 600, maxHeight: 600) {
+              ...GatsbySanityImageFluid_noBase64
+            }
+          }
+        }
+      }
+
     }
     nextPage: sanityService(slug: {current: {eq: $nextSlug}}) {
       title

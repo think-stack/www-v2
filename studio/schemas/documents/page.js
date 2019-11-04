@@ -4,9 +4,17 @@ export default {
   type: 'document',
   fields: [
     {
-      title: 'Page Heading',
-      name: 'pageHeading',
+      title: 'Page Title',
+      name: 'title',
       type: 'string'
+    },
+    {
+      title: 'Slug',
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+      },
     },
   ],
 }

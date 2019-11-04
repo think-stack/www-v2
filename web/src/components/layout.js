@@ -5,9 +5,12 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+
+import Header from '../components/header'
+import Nav from '../components/nav'
 
 import { createGlobalStyle } from 'styled-components'
 import * as fonts from '../fonts'
@@ -50,6 +53,10 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children }) => {
+
+  const [navActive, setNavActive ] = useState(false)
+  const toggle = () => setNavActive(!navActive)
+
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -62,7 +69,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+      <Header siteTitle={data.site.siteMetadata.title} navActive={navActive} navToggle={toggle} />
+      <Nav navActive={navActive}></Nav>
+
       {/* <div
         style={{
           margin: `0 auto`,

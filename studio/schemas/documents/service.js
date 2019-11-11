@@ -20,11 +20,9 @@ export default {
       title: 'Hero Image',
       name: 'heroImage',
       type: 'image',
-    },
-    {
-      title: 'Image',
-      name: 'image',
-      type: 'image',
+      options: {
+        hotspot: true,
+      }
     },
     {
       title: 'Body',
@@ -65,6 +63,16 @@ export default {
           type: 'block',
         },
       ],
+    },
+    {
+      title: 'Partner Logos',
+      name: 'partnerLogo',
+      type: 'array',
+      of: [
+        {
+          type: 'partner'
+        }
+      ]
     },
   ],
 }

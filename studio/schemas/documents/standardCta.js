@@ -1,6 +1,6 @@
 export default {
-  title: 'Page Hero',
-  name: 'pageHero',
+  title: 'Standard CTA',
+  name: 'standardCta',
   type: 'document',
   fields: [
     {
@@ -9,22 +9,19 @@ export default {
       type: 'string',
     },
     {
-      title: 'Hero Title',
-      name: 'heroTitle',
+      title: 'Heading',
+      name: 'heading',
       type: 'string',
     },
     {
-      title: 'Hero Body',
+      title: 'Body',
       name: 'body',
       type: 'text',
     },
     {
-      title: 'Hero Image',
-      name: 'bgImage',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
+      title: 'CTA Text',
+      name: 'cta',
+      type: 'string',
     },
   ],
 }

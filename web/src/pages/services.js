@@ -8,7 +8,7 @@ import ContentContainer from '../components/uContentContainer'
 import SEO from "../components/seo"
 // import Img from "gatsby-image"
 import ServiceList from '../components/serviceList'
-import FullWidthCta from "../components/fullWidthCta"
+import CtaBgImage from "../components/ctaBgImage"
 import FullWidthEditorial from '../components/fullWidthEditorial'
 import Partners from '../components/partners'
 
@@ -27,8 +27,8 @@ export default function ServicesPage({ data }) {
         </ContentContainer>
       </StyledBgImage>
       <ServiceList services={services.edges}/>
-      <FullWidthCta cta={fullWidthCta} link='/services/incident-and-disaster-response' />
-      <FullWidthEditorial content={editorial} />
+      <CtaBgImage cta={fullWidthCta} link='/services/incident-and-disaster-response' />
+      <FullWidthEditorial content={editorial} centered={false} />
       <Partners partners={partners} />
     </Layout>
   )
@@ -38,6 +38,7 @@ const StyledBgImage = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-top: 8.75rem;
   min-height: 90vh;
   padding-bottom: 4rem;
 `

@@ -7,7 +7,7 @@ import ContentContainer from '../components/uContentContainer'
 import H2 from '../components/headings/h2'
 import linkArrow from '../images/link-arrow.svg'
 
-export default function FullWidthEditorial ({ content: { heading, body, img }}) {
+export default function FullWidthEditorial ({ content: { heading, body, img }, centered}) {
   return (
     <StyledSection>
       <ContentContainer>
@@ -17,7 +17,7 @@ export default function FullWidthEditorial ({ content: { heading, body, img }}) 
             <StyledP>{body}</StyledP>
             <StyledLink to='/#'>Read More</StyledLink>
           </StyledContentContainer>
-          <StyledImgContainer>
+          <StyledImgContainer centered={centered}>
             <Img fluid={img.asset.fluid} />
           </StyledImgContainer>
         </StyledGridContainer>
@@ -122,4 +122,14 @@ const StyledLink = styled(Link)`
 
 const StyledImgContainer = styled.div`
   width: 100%;
+
+  ${props => props.centered && css`
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .gatsby-image-wrapper {
+      width: 75%;
+    }
+  `}
 `

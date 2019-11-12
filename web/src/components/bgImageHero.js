@@ -18,9 +18,7 @@ export default function BgImageHero ({ imgData, heading, body }) {
 const StyledBgImage = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
-  margin-top: 8.75rem;
   min-height: 37.5625rem;
-  padding-top: 2.1875rem;
 `
 
 const H1 = styled.h1`
@@ -28,6 +26,7 @@ const H1 = styled.h1`
   font-size: 2rem;
   font-weight: 700;
   line-height: 2.4375rem;
+  margin-top: 10.9375rem;
   text-transform: capitalize;
 `
 

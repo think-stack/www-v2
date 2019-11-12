@@ -38,7 +38,6 @@ const StyledBgImage = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-top: 8.75rem;
   min-height: 90vh;
   padding-bottom: 4rem;
 `

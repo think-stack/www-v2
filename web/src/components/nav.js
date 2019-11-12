@@ -77,7 +77,7 @@ const StyledNav = styled.nav`
   left: 0;
   opacity: ${props => props.navActive ? `1` : `0`};
   position: fixed;
-  top: 8.75rem;
+  top: 0;
   width: 100%;
   z-index: ${props => props.navActive ? `1` : `-1`};
 `
@@ -87,7 +87,7 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
   list-style: none;
-  margin-top: 1.5rem;
+  margin-top: 10.5rem;
   text-align: right;
 `
 

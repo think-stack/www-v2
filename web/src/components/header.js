@@ -1,12 +1,27 @@
 import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import debounce from '../lib/debounce'
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
 import Hamburger from '../components/hamburger'
 import Logo from '../components/logo'
 
 const Header = ({ siteTitle, navActive, navToggle }) => {
+
+  const [scrolled, setScrolled] = useState(false)
+
+  const debouncedFn = debounce(function () {
+    if (window.scrollY > 0) {
+      setScrolled(true)
+    } else {
+      setScrolled(false)
+    }
+  }, 10)
+
+  if (window !== 'undefined') {
+    window.addEventListener('scroll', debouncedFn)
+  }
 
   const data = useStaticQuery(graphql`
     query {
@@ -29,7 +44,7 @@ const Header = ({ siteTitle, navActive, navToggle }) => {
   `)
 
   return (
-    <StyledHeader bgColor={navActive}>
+    <StyledHeader navActive={navActive} isScrolled={scrolled}>
       <Container>
         <Link to="/">
           {/* {siteTitle} */}
@@ -43,9 +58,11 @@ const Header = ({ siteTitle, navActive, navToggle }) => {
 }
 
 const StyledHeader = styled.header`
-  background-color: ${props => props.bgColor ? `var(--grey)` : `var(--white)`};
-  height: 8.75rem;
+  background: ${props => props.navActive ? `transparent` : props.isScrolled ? `transparent` : `linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.30) 50%, rgba(0,0,0,0.0) 100%)`};
+  background-color: ${props => !props.navActive && props.isScrolled ? `var(--white)` : `transparent`};
+  height: ${props => props.isScrolled ? `7.75rem` : `8.75rem`};
   position: fixed;
+  transition: background-color 600ms ease;
   z-index: 2;
   width: 100%;
 `
@@ -58,11 +75,6 @@ const Container = styled.div`
   position: fixed;
   transform: translateX(-50%);
   width: 100%;
-`
-
-const StyledImg = styled(Img)`
-  width: 18.1875rem;
-  margin: 2.125rem 0 2.8125rem 1.9375rem;
 `
 
 Header.propTypes = {

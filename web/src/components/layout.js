@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from '../components/header'
 import Nav from '../components/nav'
+import Footer from '../components/footer'
 
 import { createGlobalStyle } from 'styled-components'
 import * as fonts from '../fonts'
@@ -52,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
 
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, showFooter }) => {
 
   const [navActive, setNavActive ] = useState(false)
   const toggle = () => setNavActive(!navActive)
@@ -83,10 +84,12 @@ const Layout = ({ children }) => {
         <GlobalStyle />
         <main>{children}</main>
       {/* </div> */}
+      {
+        showFooter && <Footer />
+      }
     </>
   )
 }
-
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

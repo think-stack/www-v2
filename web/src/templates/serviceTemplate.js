@@ -44,7 +44,7 @@ export default function ServiceTemplate(props) {
   return (
     <TransitionState>
       {({ transitionStatus }) => (
-        <Layout>
+        <Layout showFooter={false}>
           <MainContent pose={transitionStatus}>
             <ServicesHero
               img={service.heroImage.asset.fluid}

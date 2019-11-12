@@ -18,7 +18,7 @@ export default function ServicesPage({ data }) {
   const imageData = hero.imgLg.asset.fluid
 
   return(
-    <Layout>
+    <Layout footer={true}>
       <SEO title="Services" />
       <StyledBgImage fluid={imageData}>
         <ContentContainer>

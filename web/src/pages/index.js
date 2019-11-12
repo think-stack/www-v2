@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
   } = data
   const heroImage = bgImage.asset.fluid
   return (
-    <Layout>
+    <Layout showFooter={true}>
       <SEO title="Home" />
       <BgImageHero imgData={heroImage} heading={heroTitle} body={body}/>
       <HpFeatures data={features.edges[0].node} />

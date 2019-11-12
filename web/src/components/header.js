@@ -19,7 +19,7 @@ const Header = ({ siteTitle, navActive, navToggle }) => {
     }
   }, 10)
 
-  if (window !== 'undefined') {
+  if (typeof window !== 'undefined') {
     window.addEventListener('scroll', debouncedFn)
   }
 

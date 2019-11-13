@@ -28,7 +28,7 @@ const StyledSection = styled.section`
 `
 
 const StyledHeading = styled.h2`
-  color: var(--grey);
+  color: var(--darkGreen);
   font-size: 39px;
   font-weight: 300;
   line-height: 48px;

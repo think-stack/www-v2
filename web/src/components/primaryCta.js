@@ -20,7 +20,7 @@ const StyledContainer = styled.div`
 `
 
 const StyledHeading = styled.h2`
-  color: var(--grey);
+  color: var(--darkGreen);
   font-size: 39px;
   font-weight: 400;
   line-height: 48px;

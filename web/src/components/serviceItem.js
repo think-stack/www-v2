@@ -68,7 +68,7 @@ const Container = styled.div`
 `
 
 const Heading = styled.p`
-  color: var(--grey);
+  color: var(--darkGreen);
   font-size: 20px;
   font-weight: 600;
   line-height: 27px;
@@ -84,7 +84,7 @@ const P = styled.p`
 
 const ReadMore = styled(P)`
   bottom: 1rem;
-  color: var(--grey);
+  color: var(--darkGreen);
   display: inline;
   font-weight: 900;
   position: absolute;

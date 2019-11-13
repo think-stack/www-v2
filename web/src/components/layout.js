@@ -23,11 +23,12 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --black: #000;
     --white: #fff;
-    --grey: #244c5a;
+    --darkGreen: #244c5a;
     --green: #80b09c;
     --lightGreen: #dbe6df;
     --red: #b12029;
     --blue: #004877;
+    --grey: #d3d3d3;
     --headingFont: 'TTSupermolot-Regular';
   }
 

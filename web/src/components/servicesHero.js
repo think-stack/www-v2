@@ -20,7 +20,7 @@ export default function ServicesHero ({img, title, heading, excerpt, transitionS
       </HeroImg>
       <ContentContainer>
         <SubHead>
-          <H2 heading={heading} color='var(--grey)'></H2>
+          <H2 heading={heading} color='var(--darkGreen)'></H2>
           <p>{excerpt}</p>
         </SubHead>
       </ContentContainer>

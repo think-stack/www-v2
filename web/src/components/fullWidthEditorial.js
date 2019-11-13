@@ -13,7 +13,7 @@ export default function FullWidthEditorial ({ content: { heading, body, img }, c
       <ContentContainer>
         <StyledGridContainer>
           <StyledContentContainer>
-            <H2 heading={heading} color='var(--grey)' />
+            <H2 heading={heading} color='var(--darkGreen)' />
             <StyledP>{body}</StyledP>
             <StyledLink to='/#'>Read More</StyledLink>
           </StyledContentContainer>
@@ -83,7 +83,7 @@ const StyledContentContainer = styled.div`
 `
 
 const StyledHeading = styled.h2`
-  color: var(--grey);
+  color: var(--darkGreen);
   font-size: 39px;
   font-weight: 300;
   line-height: 48px;
@@ -97,7 +97,7 @@ const StyledP = styled.p`
 `
 
 const StyledLink = styled(Link)`
-  color: var(--grey);
+  color: var(--darkGreen);
   display: inline;
   font-size: 1rem;
   font-weight: 900;

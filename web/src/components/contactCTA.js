@@ -18,7 +18,7 @@ export default function ContactCTA () {
 }
 
 const Section = styled.section`
-  background-color: var(--grey);
+  background-color: var(--darkGreen);
   margin-bottom: 4.75rem;
   padding: 1.6875rem 0 3.1875rem;
 `
@@ -62,7 +62,7 @@ const Button = styled.button`
   background-color: var(--white);
   border: 2px solid var(--white);
   border-radius: 2rem;
-  color: var(--grey);
+  color: var(--darkGreen);
   font-family: 'TTSupermolot-Regular';
   font-weight: 600;
   padding: 0.6875rem 0;
@@ -72,7 +72,7 @@ const Button = styled.button`
   width: 9.625rem;
 
   &:hover {
-    background-color: var(--grey);
+    background-color: var(--darkGreen);
     color: var(--white);
     cursor: pointer;
   }

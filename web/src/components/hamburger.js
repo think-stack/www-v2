@@ -18,7 +18,7 @@ const Span = styled.span`
     props.isScrolled || (!props.isIndex && !props.navActive)
       ? `#4e5859`
       : `#fff`};
-  background-color: ${props => props.bgColor ? `var(--white)` : `var(--grey)`};
+  background-color: ${props => props.bgColor ? `var(--white)` : `var(--darkGreen)`};
   border-radius: 1rem;
   height: 3px;
   transition: transform 250ms ease, width 50ms ease;

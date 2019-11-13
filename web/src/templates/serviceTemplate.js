@@ -58,7 +58,7 @@ export default function ServiceTemplate(props) {
               </GridContainer>
             </ContentContainer>
             <ContentContainer>
-              <H2 heading={service.serviceListTitle} color='var(--grey)'></H2>
+              <H2 heading={service.serviceListTitle} color='var(--darkGreen)'></H2>
               <ListContainer>
                 <PortableText blocks={props.data.service._rawInServices} />
               </ListContainer>

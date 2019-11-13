@@ -68,6 +68,6 @@ const SubmitButton = styled.input`
 
   &:hover {
     background-color: var(--white);
-    color: var(--grey);
+    color: var(--darkGreen);
   }
 `

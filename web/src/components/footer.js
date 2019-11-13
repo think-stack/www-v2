@@ -46,7 +46,7 @@ export default function Footer () {
 }
 
 const StyledFooter = styled.footer`
-  background-color: var(--grey);
+  background-color: var(--darkGreen);
   color: var(--white);
   padding: 2rem 0;
 `
@@ -84,7 +84,7 @@ const MailLink = styled.a`
 
   &:hover {
     background-color: var(--white);
-    color: var(--grey);
+    color: var(--darkGreen);
   }
 `
 

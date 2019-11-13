@@ -22,7 +22,7 @@ const StyledBgImage = styled(BackgroundImage)`
 `
 
 const H1 = styled.h1`
-  color: var(--grey);
+  color: var(--darkGreen);
   font-size: 2rem;
   font-weight: 700;
   line-height: 2.4375rem;
@@ -31,7 +31,7 @@ const H1 = styled.h1`
 `
 
 const Span = styled.span`
-  color: var(--grey);
+  color: var(--darkGreen);
   display: block;
   font-family: var(--headingFont);
   font-size: 3rem;

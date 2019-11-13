@@ -72,7 +72,7 @@ const { allSanityPage, allSanityService } = data
 }
 
 const StyledNav = styled.nav`
-  background-color: var(--grey);
+  background-color: var(--darkGreen);
   height: 100%;
   left: 0;
   opacity: ${props => props.navActive ? `1` : `0`};

@@ -10,7 +10,7 @@ export default function Partners () {
   return (
     <StyledSection>
       <ContentContainer>
-        <H2 heading='tech partners' color='var(--grey)' align='center' />
+        <H2 heading='tech partners' color='var(--darkGreen)' align='center' />
         <StyledContent>
           <div></div>
           <div></div>
@@ -46,7 +46,7 @@ const StyledContent = styled.div`
 `
 
 const StyledLink = styled(Link)`
-  color: var(--grey);
+  color: var(--darkGreen);
   display: block;
   font-size: 1rem;
   font-weight: 700;

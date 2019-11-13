@@ -50,7 +50,7 @@ const TextContainer = styled.div`
 `
 
 const Heading = styled.h2`
-  color: var(--grey);
+  color: var(--darkGreen);
   font-size: 2rem;
   font-weight: 900;
   line-height: 2.375rem;
@@ -61,7 +61,7 @@ const List = styled.ul`
 `
 
 const ListItem = styled.li`
-  color: var(--grey);
+  color: var(--darkGreen);
   font-family: var(--headingFont);
   font-size: 2.4375rem;
   font-weight: 300;
@@ -69,7 +69,7 @@ const ListItem = styled.li`
 `
 
 const StyledLink = styled(Link)`
-  color: var(--grey);
+  color: var(--darkGreen);
   display: inline;
   font-size: 1rem;
   font-weight: 900;

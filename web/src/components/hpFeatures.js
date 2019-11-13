@@ -11,7 +11,7 @@ export default function HpFeatures ({data: { title, features }}) {
   return (
     <Section>
       <Container>
-        <H2 heading={title} color='var(--grey)' />
+        <H2 heading={title} color='var(--darkGreen)' />
         <GridList>
           {features.map(item => {
             return (
@@ -44,7 +44,7 @@ const GridList = styled.ul`
 `
 
 const Title = styled.h3`
-  color: var(--grey);
+  color: var(--darkGreen);
   font-family: var(--headingFont);
   font-size: 2rem;
   font-weight: 900;
@@ -56,7 +56,7 @@ const P = styled.p`
 `
 
 const StyledLink = styled(Link)`
-  color: var(--grey);
+  color: var(--darkGreen);
   font-size: 1rem;
   font-weight: 700;
   line-height: 150%;

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 // import Image from "../components/image"
@@ -24,6 +24,7 @@ const IndexPage = ({ data }) => {
     cta,
   } = data
   const heroImage = bgImage.asset.fluid
+
   return (
     <Layout showFooter={true}>
       <SEO title="Home" />

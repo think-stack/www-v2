@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     --lightGreen: #dbe6df;
     --red: #b12029;
     --blue: #004877;
-    --grey: #d3d3d3;
+    --grey: #757575;
     --headingFont: 'TTSupermolot-Regular';
   }
 

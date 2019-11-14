@@ -1,14 +1,66 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, {css} from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import ContentContainer from '../components/uContentContainer'
 
 export default function BgImageHero ({ imgData, heading, body }) {
+
+  const [ typing, isTyping ] = useState(true)
+  const [ displayText, setDisplayText ] = useState('')
+  const [ index, setIndex ] = useState(0)
+
+  // split body text and remove white space
+  const bodyArr = body.split(',').map(item => item.trim()/*.split('')*/)
+
+  useEffect(() => {
+    startTyping()
+  })
+
+  function startTyping () {
+    if (typing) {
+      setTimeout(() => {
+        type()
+      }, 400)
+    } else {
+      setTimeout(() => {
+        erase()
+      }, 250)
+    }
+  }
+
+  function type() {
+    const text = bodyArr[index]
+
+    if (text.length > displayText.length) {
+      setDisplayText(text.substr(0, displayText.length + 1))
+    } else {
+      if (index === bodyArr.length - 1) {
+        return null
+      } else {
+        isTyping(false)
+        erase()
+      }
+    }
+  }
+
+  function erase () {
+    if (displayText.length === 0) {
+      if (index === bodyArr.length) {
+        return null
+      } else {
+        isTyping(true)
+        setIndex(index + 1)
+      }
+    } else {
+      setDisplayText(displayText.substr(-displayText.length, (displayText.length - 1)))
+    }
+  }
+
   return (
     <StyledBgImage fluid={imgData}>
       <ContentContainer>
         <H1>{heading}
-        <Span>{body}</Span>
+        <Span>{displayText}</Span>
         </H1>
       </ContentContainer>
     </StyledBgImage>

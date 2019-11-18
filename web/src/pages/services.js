@@ -11,10 +11,11 @@ import ServiceList from '../components/serviceList'
 import CtaBgImage from "../components/ctaBgImage"
 import FullWidthEditorial from '../components/fullWidthEditorial'
 import Partners from '../components/partners'
+import ModalCta from '../components/modalCta'
 
 export default function ServicesPage({ data }) {
 
-  const { hero, services, fullWidthCta, editorial, partners } = data
+  const { hero, services, fullWidthCta, editorial, partners, modalCtaImg } = data
   const imageData = hero.imgLg.asset.fluid
 
   return(
@@ -27,6 +28,7 @@ export default function ServicesPage({ data }) {
         </ContentContainer>
       </StyledBgImage>
       <ServiceList services={services.edges}/>
+      <ModalCta icon={modalCtaImg} />
       <CtaBgImage cta={fullWidthCta} link='/services/incident-and-disaster-response' />
       <FullWidthEditorial content={editorial} centered={false} />
       <Partners partners={partners} />
@@ -149,6 +151,14 @@ export const query = graphql`
               }
             }
           }
+        }
+      }
+    }
+
+    modalCtaImg: file(relativePath: {eq: "BOTS-Badge 2.png"}) {
+      childImageSharp {
+        fluid(maxWidth: 150) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

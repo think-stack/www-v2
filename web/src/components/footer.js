@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 
 import Container from '../components/uContentContainer'
@@ -9,13 +10,24 @@ import Twitter from '../components/icons/twitter'
 import logo from '../images/ts-monogram-green.svg'
 
 export default function Footer () {
+
+  const data = useStaticQuery(graphql`
+    query {
+      heading: sanityGlobals(component: {regex: "/footer/i"}) {
+        heading
+      }
+    }
+  `)
+
+  console.log(data.heading.heading)
+
   return (
     <StyledFooter>
       <Container>
         <GridContainer>
           <FlexContainer>
             <div>
-              <P>Experience design thinking with a free journey exploration session.</P>
+              <P>{data.heading.heading}</P>
               <MailLink href='mailto:sales@thinkstack.co'>work with us</MailLink>
             </div>
           </FlexContainer>

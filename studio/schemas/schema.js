@@ -5,6 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import featuredBgImage from './documents/featuredBgImage'
+import globals from './documents/globals'
 import hpFeaturesSection from './documents/hpFeaturesSection'
 import page from './documents/page'
 import partner from './documents/partner'
@@ -32,6 +33,7 @@ export default createSchema({
     featuredBgImage,
     fullWidthCta,
     fullWidthEditorial,
+    globals,
     hero,
     hpFeature,
     hpFeaturesSection,

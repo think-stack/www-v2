@@ -25,6 +25,7 @@ export default function ServiceItem ({ service: { node } }) {
 
 const ListItem = styled.li`
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: .25rem;
   cursor: pointer;
   flex: 1 1 auto;
   max-width: calc(25% - 1rem);
@@ -49,6 +50,10 @@ const ListItem = styled.li`
       box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.25);
       transform: scale(1.05)
     }
+  }
+
+  .gatsby-image-wrapper {
+    border-radius: .25rem;
   }
 `
 

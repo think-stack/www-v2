@@ -19,8 +19,6 @@ export default function Footer () {
     }
   `)
 
-  console.log(data.heading.heading)
-
   return (
     <StyledFooter>
       <Container>

@@ -13,7 +13,7 @@ export default function Footer () {
 
   const data = useStaticQuery(graphql`
     query {
-      heading: sanityGlobals(component: {regex: "/footer/i"}) {
+      heading: sanityGlobals(title: {regex: "/footer/i"}) {
         heading
       }
     }

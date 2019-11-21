@@ -22,7 +22,7 @@ export default function HpFeatures ({data: { title, features }}) {
                   <Title>{item.title}</Title>
                   <P>{item.featBody}</P>
                   { extLink ? (
-                    <StyledExtLink href={item.link}>Read More</StyledExtLink>
+                    <StyledExtLink href={item.link} target='_blank'>Read More</StyledExtLink>
                   ) : (
                     <StyledIntLink to={item.link}>Read More</StyledIntLink>
                   )}

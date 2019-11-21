@@ -22,9 +22,9 @@ export default function HpFeatures ({data: { title, features }}) {
                   <Title>{item.title}</Title>
                   <P>{item.featBody}</P>
                   { extLink ? (
-                    <a href={item.link}>Read More</a>
+                    <StyledExtLink href={item.link}>Read More</StyledExtLink>
                   ) : (
-                    <StyledLink to={item.link}>Read More</StyledLink>
+                    <StyledIntLink to={item.link}>Read More</StyledIntLink>
                   )}
                 </Body>
               </li>
@@ -66,7 +66,28 @@ const P = styled.p`
   max-width: 90%;
 `
 
-const StyledLink = styled(Link)`
+const StyledIntLink = styled(Link)`
+  color: var(--darkGreen);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 150%;
+  position: relative;
+
+  &:after {
+    background-image: url(${linkArrow});
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: '';
+    height: .75rem;
+    left: 105%;
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 1rem;
+  }
+`
+
+const StyledExtLink = styled.a`
   color: var(--darkGreen);
   font-size: 1rem;
   font-weight: 700;

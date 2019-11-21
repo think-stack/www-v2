@@ -20,11 +20,11 @@ export default function BgImageHero ({ imgData, heading, body }) {
     if (typing) {
       setTimeout(() => {
         type()
-      }, 400)
+      }, 100)
     } else {
       setTimeout(() => {
         erase()
-      }, 250)
+      }, 50)
     }
   }
 

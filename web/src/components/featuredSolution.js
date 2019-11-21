@@ -20,7 +20,7 @@ export default function FeaturedSolution ({ node }) {
             {node.services.map(item => <li key={item._key}>{item.children[0].text}</li>)}
           </List>
         }
-        <CardCTA>get info sheet</CardCTA>
+        {/* <CardCTA>get info sheet</CardCTA> */}
       </BodyContainer>
     </BundleCard>
   )

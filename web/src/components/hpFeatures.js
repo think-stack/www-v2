@@ -14,13 +14,19 @@ export default function HpFeatures ({data: { title, features }}) {
         <H2 heading={title} color='var(--darkGreen)' />
         <GridList>
           {features.map(item => {
+            const extLink = item.extLink
+
             return (
               <li>
-                <div>
+                <Body>
                   <Title>{item.title}</Title>
                   <P>{item.featBody}</P>
-                  <StyledLink to='#'>Read More</StyledLink>
-                </div>
+                  { extLink ? (
+                    <a href={item.link}>Read More</a>
+                  ) : (
+                    <StyledLink to={item.link}>Read More</StyledLink>
+                  )}
+                </Body>
               </li>
             )}
           )}
@@ -41,6 +47,11 @@ const GridList = styled.ul`
   grid-row-gap: 3.125rem;
   list-style: none;
   margin-top: 1rem;
+`
+
+const Body = styled.div`
+  height: 100%;
+  position: relative;
 `
 
 const Title = styled.h3`

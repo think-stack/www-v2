@@ -62,6 +62,8 @@ export const query = graphql`
             _key
             title
             featBody
+            link
+            extLink
           }
         }
       }

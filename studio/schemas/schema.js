@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import featuredBgImage from './documents/featuredBgImage'
 import globals from './documents/globals'
 import hpFeaturesSection from './documents/hpFeaturesSection'
+import modalCta from './documents/modalCta'
 import page from './documents/page'
 import partner from './documents/partner'
 import service from './documents/service'
@@ -38,6 +39,7 @@ export default createSchema({
     hpFeature,
     hpFeaturesSection,
     listItem,
+    modalCta,
     page,
     partner,
     service,

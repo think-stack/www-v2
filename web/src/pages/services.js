@@ -15,7 +15,7 @@ import ModalCta from '../components/modalCta'
 
 export default function ServicesPage({ data }) {
 
-  const { hero, services, fullWidthCta, editorial, partners, modalCtaImg } = data
+  const { hero, services, fullWidthCta, editorial, partners, modalCtaImg, modalBody } = data
   const imageData = hero.imgLg.asset.fluid
 
   return(
@@ -28,7 +28,7 @@ export default function ServicesPage({ data }) {
         </ContentContainer>
       </StyledBgImage>
       <ServiceList services={services.edges}/>
-      <ModalCta icon={modalCtaImg} />
+      <ModalCta icon={modalCtaImg} content={modalBody} />
       <CtaBgImage cta={fullWidthCta} link='/services/incident-and-disaster-response' />
       <FullWidthEditorial content={editorial} centered={false} />
       <Partners partners={partners} />
@@ -162,6 +162,14 @@ export const query = graphql`
           ...GatsbyImageSharpFluid
         }
       }
+    }
+
+    modalBody: sanityModalCta(title: {regex: "/services/i"}) {
+      title
+      closedHeading
+      openHeading
+      closedBody
+      openBody
     }
   }
 `

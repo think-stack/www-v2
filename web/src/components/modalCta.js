@@ -6,24 +6,27 @@ import Container from '../components/uContentContainer'
 import H2 from '../components/headings/h2'
 
 
-export default function ModalCta ({icon}) {
+export default function ModalCta ({icon, content}) {
 
   const [modalIsActive, setModalState] = useState(false)
 
   const toggle = () => setModalState(!modalIsActive)
 
+  const body = content.openBody.split(/\r?\n/)
+  console.log(body)
+
   return (
     <Section>
       <Container>
-        <H2 heading='Service is all in the delivery' color='var(--darkGreen)' align='center' weight='700'></H2>
-        <Body>We put people before tech.</Body>
+        <H2 heading={content.closedHeading} color='var(--darkGreen)' align='center' weight='700'></H2>
+        <Body>{content.closedBody}</Body>
         <Img fluid={icon.childImageSharp.fluid} style={{width: `3.4375rem`, cursor: `pointer`}} onClick={toggle} />
       </Container>
       <Modal isActive={modalIsActive}>
         <ModalContainer>
           <Img fluid={icon.childImageSharp.fluid} style={{width: `3.4375rem`, cursor: `pointer`, marginBottom: `2rem` }} onClick={toggle} />
-          <H2 heading='Service is all in the delivery' color='var(--darkGreen)' align='center' weight='700'></H2>
-          <ModalBody>Pellentesque libero nulla, rhoncus ultrices rhoncus vel, efficitur ac ligula. Sed ipsum risus, suscipit et diam in, feugiat pretium nisi</ModalBody>
+          <H2 heading={content.openHeading} color='var(--darkGreen)' align='center' weight='700'></H2>
+          {body.map(item => <ModalBody>{item}</ModalBody> )}
         </ModalContainer>
       </Modal>
     </Section>
@@ -87,7 +90,7 @@ const ModalBody = styled.p`
   color: var(--darkGreen);
   font-family: var(--headingFont);
   font-size: 1.5rem;
-  margin: .5rem auto 2.625rem;
-  max-width: 30rem;
+  margin: .5rem auto 1.3125rem;
+  max-width: 60rem;
   text-align: center;
 `

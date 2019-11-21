@@ -19,7 +19,7 @@ export default function Partners () {
           <div></div>
           <div></div>
         </StyledContent>
-        <StyledLink to='/#'>tech stack</StyledLink>
+        {/* <StyledLink to='/#'>tech stack</StyledLink> */}
       </ContentContainer>
     </StyledSection>
   )

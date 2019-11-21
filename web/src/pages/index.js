@@ -79,6 +79,7 @@ export const query = graphql`
           }
         }
       }
+      link
     }
 
     featureBgImage: sanityFeaturedBgImage(title: {regex: "/home/i"}) {

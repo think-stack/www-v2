@@ -139,6 +139,7 @@ export const query = graphql`
           }
         }
       }
+      link
     }
     partners: allSanityPartner {
       edges {

@@ -7,7 +7,9 @@ import ContentContainer from '../components/uContentContainer'
 import H2 from '../components/headings/h2'
 import linkArrow from '../images/link-arrow.svg'
 
-export default function FullWidthEditorial ({ content: { heading, body, img }, centered}) {
+export default function FullWidthEditorial ({ content: { heading, body, img, link }, centered}) {
+  const hasLink = link === null || link === '' ? false : true
+  console.log(hasLink)
   return (
     <StyledSection>
       <ContentContainer>
@@ -15,7 +17,9 @@ export default function FullWidthEditorial ({ content: { heading, body, img }, c
           <StyledContentContainer>
             <H2 heading={heading} color='var(--darkGreen)' />
             <StyledP>{body}</StyledP>
-            <StyledLink to='/#'>Read More</StyledLink>
+
+            { hasLink && <StyledLink to={link}>Read More</StyledLink> }
+
           </StyledContentContainer>
           <StyledImgContainer centered={centered}>
             <Img fluid={img.asset.fluid} />

@@ -23,5 +23,10 @@ export default {
       name: 'img',
       type: 'image',
     },
+    {
+      title: 'Link',
+      name: 'link',
+      type: 'string',
+    },
   ],
 }

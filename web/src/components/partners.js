@@ -1,23 +1,26 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 import ContentContainer from './uContentContainer'
 import H2 from './headings/h2'
 import linkArrow from '../images/link-arrow.svg'
 
-export default function Partners () {
+export default function Partners ({partners}) {
+
   return (
     <StyledSection>
       <ContentContainer>
         <H2 heading='tech partners' color='var(--darkGreen)' align='center' />
         <StyledContent>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          {partners.edges.map(item => {
+            return (
+              <figure>
+                <Img fluid={item.node.logo.asset.fluid} />
+              </figure>
+            )
+          })}
         </StyledContent>
         {/* <StyledLink to='/#'>tech stack</StyledLink> */}
       </ContentContainer>
@@ -29,20 +32,32 @@ const StyledSection = styled.section`
   padding: 3.5rem 0 5.9375rem;
 `
 
-const StyledContent = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 2rem 0 1.75rem;
-  max-width: 100%;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-around;
+  // margin: 2rem 0 1.75rem;
+  // max-width: 100%;
 
-  div {
-    background-color: #c4c4c4;
-    border-radius: 5rem;
-    height: 8.875rem;
-    margin-bottom: 3rem;
-    width: 8.875rem;
+const StyledContent = styled.div`
+  display: grid;
+  grid-column-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(calc(72rem / 6),1fr));
+  margin-top: 2rem;
+
+  figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
+
+  .gatsby-image-wrapper {
+    margin-bottom: 3rem;
+    width: 200px;
+  }
+`
+
+const Figure = styled.figure`
+
 `
 
 const StyledLink = styled(Link)`

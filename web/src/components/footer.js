@@ -35,13 +35,13 @@ export default function Footer () {
             </Wrapper>
             <SocialList>
               <SocialListItem>
-                <SocialLink href='#'><Linkedin /></SocialLink>
+                <SocialLink href='https://www.linkedin.com/company/11195699/'><Linkedin /></SocialLink>
               </SocialListItem>
               <SocialListItem>
-                <SocialLink href='#'><Facebook /></SocialLink>
+                <SocialLink href='https://www.facebook.com/thinkstacktech/'><Facebook /></SocialLink>
               </SocialListItem>
               <SocialListItem>
-                <SocialLink href='#'><Twitter /></SocialLink>
+                <SocialLink href='https://twitter.com/thinkstacktech'><Twitter /></SocialLink>
               </SocialListItem>
             </SocialList>
             <CopyRight>&copy; 2019 Think|Stack</CopyRight>

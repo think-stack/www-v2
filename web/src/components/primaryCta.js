@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from "gatsby"
 import styled from 'styled-components'
 
-export default function Cta ({ content: {heading, body, cta}}) {
+export default function Cta ({ content: {heading, body, cta, link}}) {
   return (
     <StyledContainer>
       <StyledHeading>{heading}</StyledHeading>
       <StyledP>{body}</StyledP>
-      <StyledLink to='#'>{cta}</StyledLink>
+      <StyledLink to={link}>{cta}</StyledLink>
     </StyledContainer>
   )
 }

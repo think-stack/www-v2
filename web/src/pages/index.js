@@ -103,6 +103,7 @@ export const query = graphql`
       heading
       body
       cta
+      link
     }
   }
 `

@@ -23,5 +23,10 @@ export default {
       name: 'cta',
       type: 'string',
     },
+    {
+      title: 'Link',
+      name: 'link',
+      type: 'string',
+    },
   ],
 }

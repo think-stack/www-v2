@@ -5,7 +5,7 @@ import H2 from '../components/headings/h2'
 export default function ContactCTA () {
   return(
     <Section>
-      <H2 heading='just need a quick fix' color='var(--white)' align='center' />
+      <H2 heading='Talk to one of our experts today' color='var(--white)' align='center' />
       <Form>
         <Label>
           <span>email</span>

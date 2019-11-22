@@ -67,6 +67,7 @@ const SubHead = styled.div`
     font-size: 1.25rem;
     line-height: 170%;
     margin-top: .5rem;
+    max-width: 95%;
     text-decoration: none;
     width: 38.125rem;
   }

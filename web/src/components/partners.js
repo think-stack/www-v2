@@ -32,12 +32,6 @@ const StyledSection = styled.section`
   padding: 3.5rem 0 5.9375rem;
 `
 
-  // display: flex;
-  // flex-wrap: wrap;
-  // justify-content: space-around;
-  // margin: 2rem 0 1.75rem;
-  // max-width: 100%;
-
 const StyledContent = styled.div`
   display: grid;
   grid-column-gap: 2rem;
@@ -45,6 +39,7 @@ const StyledContent = styled.div`
   margin-top: 2rem;
 
   figure {
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;

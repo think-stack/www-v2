@@ -29,7 +29,7 @@ export default function Footer () {
               <MailLink href='mailto:sales@thinkstack.co'>work with us</MailLink>
             </div>
           </FlexContainer>
-          <div>
+          <SocialContainer>
             <Wrapper>
               <Logo src={logo} />
             </Wrapper>
@@ -45,7 +45,7 @@ export default function Footer () {
               </SocialListItem>
             </SocialList>
             <CopyRight>&copy; 2019 Think|Stack</CopyRight>
-          </div>
+          </SocialContainer>
           <FlexContainer justify='end'>
             <McSignup />
           </FlexContainer>
@@ -63,12 +63,17 @@ const StyledFooter = styled.footer`
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc(72rem / 3),1fr));
+  grid-template-columns: repeat(auto-fill, minmax(calc(62rem / 3),1fr));
 `
 
 const FlexContainer = styled.div`
   display: flex;
   justify-content: ${props => props.justify ? `flex-${props.justify}` : `flex-start`};
+
+  @media screen and (max-width: 600px) {
+    margin: 0 auto 2rem;
+    max-width: 90%;
+  }
 `
 
 const P = styled.p`
@@ -104,6 +109,12 @@ const Wrapper = styled.figure`
 
 const Logo = styled.img`
   width: 5rem;
+`
+
+const SocialContainer = styled.div`
+  @media screen and (max-width: 600px) {
+    order: 3;
+  }
 `
 
 const SocialList = styled.ul`

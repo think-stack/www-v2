@@ -38,9 +38,9 @@ const BgImage = styled(BackgroundImage)`
 
 const TextContainer = styled.div`
   background-color: var(--white);
-  margin: auto;
-  padding: 2rem;
-  max-width: 90%;
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 95%;
   width: 41.0625rem;
 
   @media screen and (min-width: 50rem) {
@@ -63,9 +63,14 @@ const List = styled.ul`
 const ListItem = styled.li`
   color: var(--darkGreen);
   font-family: var(--headingFont);
-  font-size: 2.4375rem;
+  font-size: 1.4375rem;
   font-weight: 300;
-  line-height: 3rem;
+  line-height: 2rem;
+
+  @media screen and (min-width: 40rem) {
+    font-size: 2.4375rem;
+    line-height: 3rem;
+  }
 `
 
 const StyledLink = styled(Link)`

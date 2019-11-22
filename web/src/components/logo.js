@@ -68,6 +68,10 @@ const SVG = styled.svg`
   margin: 2.125rem 0 2.8125rem 1.9375rem;
   width: 18.1875rem;
 
+  @media screen and (max-width: 30rem) {
+    width: 12.1875rem;
+  }
+
   .st0 {
     fill: ${props => props.navActive ? `#ffffff` : `#244B5A`};
   }

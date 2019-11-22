@@ -58,7 +58,6 @@ const Header = ({ siteTitle, navActive, navToggle }) => {
 }
 
 const StyledHeader = styled.header`
-  background: ${props => props.navActive ? `transparent` : props.isScrolled ? `transparent` : `linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.30) 50%, rgba(0,0,0,0.0) 100%)`};
   background-color: ${props => !props.navActive && props.isScrolled ? `var(--white)` : `transparent`};
   height: ${props => props.isScrolled ? `7.75rem` : `8.75rem`};
   position: fixed;

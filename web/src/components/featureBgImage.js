@@ -22,7 +22,7 @@ export default function FeatureBgImage ({content: { bgImage, body, heading, list
               )
             })}
           </List>
-          <StyledLink to='/#'>{ctaText}</StyledLink>
+          <StyledLink to='/services'>{ctaText}</StyledLink>
         </TextContainer>
       </Container>
     </BgImage>

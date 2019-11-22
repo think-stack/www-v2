@@ -32,7 +32,17 @@ const BundleCard = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  max-width: 37.5rem;
+  max-width: 300px;
+
+  @media screen and (min-width: 400px) {
+    max-width: 400px;
+  }
+
+  @media screen and (min-width: 600px) {
+    max-width: 37.5rem;
+  }
+
+
 `
 
 const Figure = styled.figure`
@@ -43,11 +53,16 @@ const CardHeading = styled.h3`
   bottom: 1.25rem;
   color: var(--white);
   font-family: 'TTSupermolot-Regular';
-  font-size: 2rem;
-  line-height: 2.25rem;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
   left: 1.5rem;
   margin-bottom: 0;
   position: absolute;
+
+  @media screen and (min-width: 600px) {
+    font-size: 2rem;
+    line-height: 2.25rem;
+  }
 `
 
 const CardImage = styled.img`

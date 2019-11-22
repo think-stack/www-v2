@@ -27,6 +27,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin: 1.5625rem auto 2.0625rem;
+  max-width: 95%;
   width: 28.875rem;
 `
 
@@ -35,6 +36,7 @@ const Input = styled.input`
   border: 2px solid var(--white);
   color: var(--white);
   display: inline-block;
+  max-width: 100%;
   padding: 1rem;
   width: 28.875rem;
 `
@@ -42,6 +44,7 @@ const Input = styled.input`
 const Label = styled.label`
   display: block;
   margin: 0 0 2.0625rem;
+  max-width: 100%;
   position: relative;
   width: 28.875rem;
 

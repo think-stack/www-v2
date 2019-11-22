@@ -22,6 +22,7 @@ const StyledBgImage = styled(BackgroundImage)`
   flex-direction: column;
   justify-content: center;
   min-height: 20rem;
+  padding: 2rem 0;
 `
 
 const StyledContainer = styled.div`

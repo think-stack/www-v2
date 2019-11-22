@@ -60,7 +60,7 @@ const StyledSection = styled.section`
   overflow: hidden;
 
   ${below.med`
-    max-height: 50vh;
+    max-height: 90vh;
   `}
 `
 
@@ -72,6 +72,10 @@ const StyledGridContainer = styled.section`
 
   @media screen and (min-width: 900px) {
     padding-top: 2rem;
+  }
+
+  @media screen and (max-width: 330px) {
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   }
 `
 

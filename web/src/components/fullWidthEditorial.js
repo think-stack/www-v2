@@ -67,7 +67,7 @@ const StyledSection = styled.section`
 const StyledGridContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-template-rows: 350px;
 
   @media screen and (min-width: 900px) {
@@ -76,6 +76,10 @@ const StyledGridContainer = styled.section`
 
   @media screen and (max-width: 330px) {
     grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  }
+
+  @media screen and (max-width: 420px) {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 `
 
@@ -86,7 +90,15 @@ const StyledContentContainer = styled.div`
 
   p {
     margin-bottom: 0;
-    max-width: 450px;
+    max-width: 300px;
+
+    @media screen and (min-width: 410px) {
+      max-width: 400px;
+    }
+
+    @media screen and (min-width: 500px) {
+      max-width: 400px;
+    }
   }
 `
 

@@ -41,21 +41,31 @@ const HeroHeading = styled.h1`
   align-self: flex-start;
   bottom: ${props => props.truncate ? '63%' : '1rem'};
   color: var(--white);
-  font-size: 48px;
-  line-height: 60px;
+  font-size: 38px;
+  line-height: 50px;
   position: absolute;
+
+  @media screen and (min-width: 600px) {
+    font-size: 48px;
+    line-height: 60px;
+  }
 
   &:after {
     background-image: url(${linkArrow});
     background-repeat: no-repeat;
     content: '';
     display: ${props => props.truncate ? 'block' : 'none'};
-    height: 3rem;
+    height: 2rem;
     position: absolute;
     right: -3rem;
     top: 50%;
     transform: rotate(.25turn) translatex(-50%);
-    width: 3rem;
+    width: 2rem;
+
+    @media screen and (min-width: 600px) {
+      height: 3rem;
+      width: 3rem;
+    }
   }
 `
 

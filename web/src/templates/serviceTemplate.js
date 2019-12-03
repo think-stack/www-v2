@@ -149,7 +149,7 @@ const SlidingHeader = posed.div({
 const GridContainer = styled.div`
   margin-bottom: 5.3125rem;
 
-  > div {
+  > div:first-child {
     border-radius: .25rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(31.25rem, 1fr));
@@ -157,6 +157,8 @@ const GridContainer = styled.div`
     grid-row-gap: 1.25rem;
   }
 `
+
+
 
 const ListContainer = styled.div`
   margin: 2rem 0;

@@ -16,7 +16,7 @@ export default function ModalCta ({icon, content}) {
   console.log(body)
 
   return (
-    <Section>
+    <Section onClick={toggle} >
       <Container>
         <H2 heading={content.closedHeading} color='var(--darkGreen)' align='center' weight='700'></H2>
         <Body>{content.closedBody}</Body>

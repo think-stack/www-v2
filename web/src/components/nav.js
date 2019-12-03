@@ -42,7 +42,7 @@ const { allSanityPage, allSanityService } = data
             if (item.node.title.toLowerCase() === 'services') {
               return (
                 <ListItem key={item.node.id}>
-                  <MainLink to={`/${item.node.slug.current}`}>{item.node.title}</MainLink>
+                  <MainLink activeStyle={{ pointerEvents: `none`}} to={`/${item.node.slug.current}`}>{item.node.title}</MainLink>
                   <SubList>
                   {
                     allSanityService.edges.map(item => {

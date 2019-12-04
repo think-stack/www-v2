@@ -44,10 +44,7 @@ const pulse = keyframes`
 `
 
 const StyledImg = styled(Img)`
-
-  .gatsby-image-wrapper {
-    overflow: visible !important;
-  }
+  overflow: visible !important;
 
   img {
     animation: 1s ease-in .5s alternate infinite ${pulse};

@@ -1,11 +1,14 @@
 import React from "react"
+import { graphql } from "gatsby"
 import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Container from '../components/uContentContainer'
+import H2 from '../components/headings/h2'
 
-export default function ContactPage () {
+export default function ContactPage ({ data }) {
+  const { hero: { heroTitle: title, body }} = data
   return (
     <Layout showFooter={true}>
       <SEO title='Contact' />
@@ -13,6 +16,8 @@ export default function ContactPage () {
         <Container>
           <GridContainer>
             <Form>
+              <H2 heading={title} color='var(--darkGreen)'></H2>
+              <p>{ body }</p>
               <HiddenLabel>name</HiddenLabel>
               <Input type='text' placeholder='Name' pattern="\S+" />
               <HiddenLabel>email</HiddenLabel>
@@ -119,4 +124,12 @@ const Phone = styled.a`
   margin-bottom: 1em;
   text-align: right;
   text-transform: capitalize;
+`
+export const query = graphql`
+  query ContactQuery {
+    hero: sanityPageHero(title: {regex: "/contact/i"}) {
+      heroTitle
+      body
+    }
+  }
 `

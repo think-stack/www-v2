@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Img from 'gatsby-image'
 import Container from '../components/uContentContainer'
@@ -20,11 +20,11 @@ export default function ModalCta ({icon, content}) {
       <Container>
         <H2 heading={content.closedHeading} color='var(--darkGreen)' align='center' weight='700'></H2>
         <Body>{content.closedBody}</Body>
-        <Img fluid={icon.childImageSharp.fluid} style={{width: `3.4375rem`, cursor: `pointer`}} onClick={toggle} />
+        <StyledImg fluid={icon.childImageSharp.fluid} style={{width: `3.4375rem`, cursor: `pointer`}} onClick={toggle} />
       </Container>
       <Modal isActive={modalIsActive}>
         <ModalContainer>
-          <Img fluid={icon.childImageSharp.fluid} style={{width: `3.4375rem`, cursor: `pointer`, marginBottom: `2rem` }} onClick={toggle} />
+          <StyledImg fluid={icon.childImageSharp.fluid} style={{width: `3.4375rem`, cursor: `pointer`, marginBottom: `2rem` }} onClick={toggle} />
           <H2 heading={content.openHeading} color='var(--darkGreen)' align='center' weight='700'></H2>
           {body.map(item => <ModalBody>{item}</ModalBody> )}
         </ModalContainer>
@@ -32,6 +32,27 @@ export default function ModalCta ({icon, content}) {
     </Section>
   )
 }
+
+const pulse = keyframes`
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+`
+
+const StyledImg = styled(Img)`
+
+  .gatsby-image-wrapper {
+    overflow: visible !important;
+  }
+
+  img {
+    animation: 1s ease-in .5s alternate infinite ${pulse};
+  }
+`
 
 const Section = styled.section`
   margin: 0 0 2.625rem;

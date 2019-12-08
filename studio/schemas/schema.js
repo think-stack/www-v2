@@ -4,6 +4,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
+import caseStudy from './documents/caseStudies'
 import featuredBgImage from './documents/featuredBgImage'
 import globals from './documents/globals'
 import hpFeaturesSection from './documents/hpFeaturesSection'
@@ -14,6 +15,10 @@ import service from './documents/service'
 import standardCta from './documents/standardCta'
 
 // import img from './objects/img'
+import caseStudyFeature from './objects/caseStudyFeature'
+import caseStudyStatistic from './objects/caseStudyStatistics'
+import caseStudyQuote from './objects/caseStudyQuote'
+import caseStudyWideGraphic from './objects/caseStudyWideGraphic'
 import hero from './objects/hero'
 import hpFeature from './objects/hpFeature'
 import fullWidthCta from './objects/fullWidthCta'
@@ -21,6 +26,7 @@ import fullWidthEditorial from './objects/fullWidthEditorial'
 import featuredSolution from './objects/featuredSolution'
 import listItem from './objects/listItem'
 import serviceList from './objects/serviceList'
+import statistic from './objects/statistic'
 
 // Then we give our schema to the builder and provide the result to Sanity
 // TODO: add validation to docs and objs
@@ -31,6 +37,11 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
+    caseStudy,
+    caseStudyFeature,
+    caseStudyStatistic,
+    caseStudyQuote,
+    caseStudyWideGraphic,
     featuredBgImage,
     fullWidthCta,
     fullWidthEditorial,
@@ -45,6 +56,7 @@ export default createSchema({
     service,
     serviceList,
     standardCta,
+    statistic,
     // img,
     featuredSolution,
   ])

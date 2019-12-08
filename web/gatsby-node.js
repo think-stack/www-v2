@@ -26,6 +26,17 @@ exports.createPages = async ({graphql, actions, reporter}) => {
           }
         }
       }
+
+      allSanityCaseStudy {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -34,6 +45,7 @@ exports.createPages = async ({graphql, actions, reporter}) => {
   }
 
   const serviceEdges = result.data.allSanityService.edges || []
+  const caseStudies = result.data.allSanityCaseStudy.edges || []
 
   serviceEdges.forEach((edge, index) => {
     const path = `/services/${edge.node.slug.current}`
@@ -47,6 +59,19 @@ exports.createPages = async ({graphql, actions, reporter}) => {
         slug: edge.node.slug.current,
         id: edge.node.id,
         nextSlug,
+      }
+    })
+  })
+
+  caseStudies.forEach((edge, index) => {
+    const path = `/work/${edge.node.slug.current}`
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/caseStudyTemplate.js'),
+      context: {
+        slug: edge.node.slug.current,
+        id: edge.node.id,
       }
     })
   })

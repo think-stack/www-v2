@@ -4,6 +4,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
+import campaign from './documents/campaigns'
 import caseStudy from './documents/caseStudies'
 import featuredBgImage from './documents/featuredBgImage'
 import globals from './documents/globals'
@@ -15,6 +16,8 @@ import service from './documents/service'
 import standardCta from './documents/standardCta'
 
 // import img from './objects/img'
+import campaignContact from './objects/campaignContact'
+import campaignEvent from './objects/campaignEvent'
 import caseStudyFeature from './objects/caseStudyFeature'
 import caseStudyStatistic from './objects/caseStudyStatistics'
 import caseStudyQuote from './objects/caseStudyQuote'
@@ -37,12 +40,16 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
+    campaign,
+    campaignContact,
+    campaignEvent,
     caseStudy,
     caseStudyFeature,
     caseStudyStatistic,
     caseStudyQuote,
     caseStudyWideGraphic,
     featuredBgImage,
+    featuredSolution,
     fullWidthCta,
     fullWidthEditorial,
     globals,
@@ -58,6 +65,5 @@ export default createSchema({
     standardCta,
     statistic,
     // img,
-    featuredSolution,
   ])
 })

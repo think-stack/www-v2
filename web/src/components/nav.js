@@ -29,10 +29,18 @@ export default function Nav ({ navActive }) {
           }
         }
       }
+
+      sanityCampaign(id: {regex: "/e1ff7dbf-567b-5d8f-9a22-43fbadd0ca87/"}) {
+        slug {
+          current
+        }
+        id
+        title
+      }
     }
   `)
 
-const { allSanityPage, allSanityService } = data
+const { allSanityPage, allSanityService, sanityCampaign } = data
 
   return (
     <StyledNav navActive={navActive}>
@@ -65,6 +73,9 @@ const { allSanityPage, allSanityService } = data
             }
             })
           }
+          <ListItem key={sanityCampaign.id}>
+            <MainLink to={`/${sanityCampaign.slug.current}`}>{sanityCampaign.title}</MainLink>
+          </ListItem>
         </List>
       </Container>
     </StyledNav>

@@ -36,6 +36,7 @@ export default function Nav ({ navActive }) {
         }
         id
         title
+        shortTitle
       }
     }
   `)
@@ -74,7 +75,7 @@ const { allSanityPage, allSanityService, sanityCampaign } = data
             })
           }
           <ListItem key={sanityCampaign.id}>
-            <MainLink to={`/${sanityCampaign.slug.current}`}>{sanityCampaign.title}</MainLink>
+            <MainLink to={`/${sanityCampaign.slug.current}`}>{sanityCampaign.shortTitle}</MainLink>
           </ListItem>
         </List>
       </Container>

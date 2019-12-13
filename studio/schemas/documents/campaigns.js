@@ -17,6 +17,11 @@ export default {
       },
     },
     {
+      title: 'Short Title',
+      name: 'shortTitle',
+      type: 'string',
+    },
+    {
       title: 'Hero Body',
       name: 'heroBody',
       type: 'text',

@@ -37,6 +37,18 @@ exports.createPages = async ({graphql, actions, reporter}) => {
           }
         }
       }
+
+      allSanityCampaign {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
+
     }
   `)
 
@@ -44,21 +56,19 @@ exports.createPages = async ({graphql, actions, reporter}) => {
     throw result.errors
   }
 
-  const serviceEdges = result.data.allSanityService.edges || []
+  const campaigns = result.data.allSanityCampaign.edges || []
   const caseStudies = result.data.allSanityCaseStudy.edges || []
+  const serviceEdges = result.data.allSanityService.edges || []
 
-  serviceEdges.forEach((edge, index) => {
-    const path = `/services/${edge.node.slug.current}`
-
-    const nextSlug = edge.next ? edge.next.slug.current : serviceEdges[0].node.slug.current
+  campaigns.forEach((edge, index) => {
+    const path = `/${edge.node.slug.current}`
 
     createPage({
       path,
-      component: require.resolve('./src/templates/serviceTemplate.js'),
+      component: require.resolve('./src/templates/campaignTemplate.js'),
       context: {
         slug: edge.node.slug.current,
         id: edge.node.id,
-        nextSlug,
       }
     })
   })
@@ -72,6 +82,22 @@ exports.createPages = async ({graphql, actions, reporter}) => {
       context: {
         slug: edge.node.slug.current,
         id: edge.node.id,
+      }
+    })
+  })
+
+  serviceEdges.forEach((edge, index) => {
+    const path = `/services/${edge.node.slug.current}`
+
+    const nextSlug = edge.next ? edge.next.slug.current : serviceEdges[0].node.slug.current
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/serviceTemplate.js'),
+      context: {
+        slug: edge.node.slug.current,
+        id: edge.node.id,
+        nextSlug,
       }
     })
   })

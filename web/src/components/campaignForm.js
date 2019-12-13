@@ -36,7 +36,11 @@ const Input = styled.input`
   font-size: 1.2rem;
   margin: 0 auto 1rem;
   text-align: left;
-  width: 50%;
+  width: 80%;
+
+  @media screen and (min-width: 48rem) {
+    width: 50%;
+  }
 `
 
 const TextArea = styled.textarea`
@@ -46,7 +50,11 @@ const TextArea = styled.textarea`
   height: 2rem;
   margin: 0 auto 1rem;
   text-align: left;
-  width: 50%;
+  width: 80%;
+
+  @media screen and (min-width: 48rem) {
+    width: 50%;
+  }
 
   &:focus {
     height: 4rem;

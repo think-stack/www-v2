@@ -25,14 +25,15 @@ export default function Campaign({ data }) {
           </HeroContainer>
         </Hero>
         <H2 heading={campaign.featTitle} color={`var(--darkGreen)`} align={`center`} />
-      </Container>
-        <Img style={{margin: `3rem 0 5rem`, height: `85vh`, overflow: `visible`}} fluid={campaign.featImage.asset.fluid} />
-      <Container>
+
+        <Img style={{margin: `3rem 0 5rem`, height: `85vh`, overflow: `visible`}} imgStyle={{objectFit: `contain`}} fluid={campaign.featImage.asset.fluid} />
+
         <H2 heading={campaign.formHeading} color={`var(--darkGreen)`} align={`center`} />
         {/* <H2 heading={campaign.formHeading} color={`var(--darkGreen`} align={`center`} /> */}
         <Form />
         <FlexContainer>
           <EventContainer>
+            <H2 heading={`Happy People`} color={`var(--darkGreen)`} align={`left`} />
             {campaign.events.map(event => {
               return (
                 <CampaignEvent content={event} />
@@ -40,6 +41,7 @@ export default function Campaign({ data }) {
             })}
           </EventContainer>
           <ContactContainer>
+            <H2 heading={campaign.contact[0].heading} color={`var(--darkGreen)`} align={`center`} />
             <Contact content={campaign.contact[0]} />
           </ContactContainer>
         </FlexContainer>
@@ -57,8 +59,12 @@ const Hero = styled.section`
 `
 
 const HeroContainer = styled.div`
-  margin: auto auto 3rem auto;
+  margin: 10rem auto 3rem auto;
   max-width: 90%;
+
+  @media screen and (min-width: 48rem) {
+    margin: auto auto 3rem auto;
+  }
 
   p {
     margin: 1.5rem auto 0;
@@ -68,18 +74,23 @@ const HeroContainer = styled.div`
 `
 
 const FlexContainer = styled.section`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-column-gap: 2%;
+  display: flex;
+  flex-wrap: wrap;
 `
 
 const EventContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  flex: 1 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(301px, 1fr));
   grid-column-gap: 2%;
+
+  h2 {
+    grid-column: 1/-1;
+  }
 `
 
 const ContactContainer = styled.div`
+  margin: auto;
 `
 
 export const query = graphql`

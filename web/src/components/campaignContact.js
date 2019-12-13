@@ -20,12 +20,14 @@ export default function CampaignContact ({ content }) {
 const GridContainer = styled.div`
   align-items: center;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
   height: 100%;
 `
 
 const Detail = styled.div`
+  text-align: center;
 `
 
 const H3 = styled.h3`

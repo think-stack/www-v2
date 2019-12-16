@@ -41,7 +41,7 @@ const HeroHeading = styled.h1`
   align-self: flex-start;
   bottom: ${props => props.truncate ? '63%' : '1rem'};
   color: var(--white);
-  font-size: 38px;
+  font-size: 28px;
   line-height: 50px;
   position: absolute;
 

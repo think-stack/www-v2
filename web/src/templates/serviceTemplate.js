@@ -152,7 +152,7 @@ const GridContainer = styled.div`
   > div:first-child {
     border-radius: .25rem;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(31.25rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(19.375rem, 1fr));
     grid-column-gap: 1.25rem;
     grid-row-gap: 1.25rem;
   }

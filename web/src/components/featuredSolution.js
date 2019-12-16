@@ -32,7 +32,7 @@ const BundleCard = styled.div`
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  max-width: 90%;
+  max-width: 100%;
 
 
   @media screen and (min-width: 600px) {

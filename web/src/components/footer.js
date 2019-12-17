@@ -63,12 +63,16 @@ const StyledFooter = styled.footer`
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc(62rem / 3),1fr));
+  grid-template-columns: repeat(auto-fill, minmax(19.375rem,1fr));
 `
 
 const FlexContainer = styled.div`
   display: flex;
   justify-content: ${props => props.justify ? `flex-${props.justify}` : `flex-start`};
+
+  @media screen and (max-width: 37.5rem) {
+    text-align: center;
+  }
 
   @media screen and (max-width: 600px) {
     margin: 0 auto 2rem;
@@ -77,8 +81,12 @@ const FlexContainer = styled.div`
 `
 
 const P = styled.p`
-  margin: .5rem auto 0 0;
+  margin: .5rem auto 0;
   max-width: 90%;
+
+  @media screen and (min-width: 37.5rem) {
+    margin: .5rem auto 0 0;
+  }
 `
 
 const MailLink = styled.a`

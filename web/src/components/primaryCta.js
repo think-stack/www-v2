@@ -48,7 +48,7 @@ const StyledLink = styled(Link)`
   line-height: 150%;
   margin-top: 2rem;
   max-width: 10.3125rem;
-  min-width: 6.5625rem;
+  min-width: 7.5625rem;
   padding: .75rem 2rem;
   text-transform: uppercase;
 

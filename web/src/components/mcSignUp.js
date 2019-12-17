@@ -36,7 +36,11 @@ export default function McSignup () {
 }
 
 const Form = styled.form`
-  text-align: right;
+  text-align: center;
+
+  @media screen and (min-width: 40rem) {
+    text-align: right;
+  }
 `
 
 const EmailInput = styled.input`

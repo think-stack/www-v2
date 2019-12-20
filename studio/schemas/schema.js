@@ -15,6 +15,7 @@ import page from './documents/page'
 import partner from './documents/partner'
 import service from './documents/service'
 import standardCta from './documents/standardCta'
+import team from './documents/team'
 import values from './documents/values'
 
 // import img from './objects/img'
@@ -67,6 +68,7 @@ export default createSchema({
     serviceList,
     standardCta,
     statistic,
+    team,
     values,
     // img,
   ])

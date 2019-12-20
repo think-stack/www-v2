@@ -9,14 +9,14 @@ export default function ValueCard ({content}) {
         <Img fixed={content.icon.asset.fixed} />
       </ImgContainer>
       <Body>
-        <h3>{content.title}</h3>
+        <h2>{content.title}</h2>
         <p>{content.body}</p>
       </Body>
     </FlexContainer>
   )
 }
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.li`
   display: flex;
 `
 

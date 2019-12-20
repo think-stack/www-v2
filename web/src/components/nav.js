@@ -6,7 +6,7 @@ import Container from '../components/uContentContainer'
 export default function Nav ({ navActive }) {
   const data = useStaticQuery(graphql`
     query {
-      allSanityPage(filter: {slug: {current: {regex: "/services|contact/"}}}) {
+      allSanityPage(filter: {slug: {current: {regex: "/about|contact|services/"}}}) {
         edges {
           node {
             id

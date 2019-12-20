@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Think|Stack`,
-    description: `something here`,
+    description: `We design meaningful customer experiences and innovative technology solutions for conscious brands`,
     author: `Asa Smith <smith.asa.la@gmail.com`,
   },
   plugins: [

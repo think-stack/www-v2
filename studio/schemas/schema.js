@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import campaign from './documents/campaigns'
 import caseStudy from './documents/caseStudies'
+import collideProduct from './documents/collideProduct'
 import featuredBgImage from './documents/featuredBgImage'
 import globals from './documents/globals'
 import hpFeaturesSection from './documents/hpFeaturesSection'
@@ -48,6 +49,7 @@ export default createSchema({
     caseStudyStatistic,
     caseStudyQuote,
     caseStudyWideGraphic,
+    collideProduct,
     featuredBgImage,
     featuredSolution,
     fullWidthCta,

@@ -3,11 +3,15 @@ import { Link } from "gatsby"
 import styled from 'styled-components'
 
 export default function Cta ({ content: {heading, body, cta, link}}) {
+  // when using this component without a link
+  // check if prop has cta text
+  const hasLink = cta === undefined ? false : true
+
   return (
     <StyledContainer>
       <StyledHeading>{heading}</StyledHeading>
       <StyledP>{body}</StyledP>
-      <StyledLink to={link}>{cta}</StyledLink>
+      {hasLink && <StyledLink to={link}>{cta}</StyledLink> }
     </StyledContainer>
   )
 }

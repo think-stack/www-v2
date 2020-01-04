@@ -19,12 +19,15 @@
     "gatsby-plugin-transition-link": "^1.13.0",
     "gatsby-source-filesystem": "^2.1.31",
     "gatsby-source-sanity": "^5.0.3",
+    "gatsby-source-stripe": "^3.0.5",
     "gatsby-transformer-sharp": "^2.2.21",
+    "netlify-lambda": "^1.6.3",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-pose": "^4.0.9",
+    "react-stripe-checkout": "^2.6.3",
     "styled-components": "^4.4.0"
   },
   "devDependencies": {
@@ -40,7 +43,9 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
+    "start:lambda": "netlify-lambda serve src/functions",
+    "build:lambda": "netlify-lambda build src/functions"
   },
   "repository": {
     "type": "git",

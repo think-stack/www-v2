@@ -122,7 +122,7 @@ button,
 input {
   overflow: visible;
 }
-button,
+/* button, */
 select {
   text-transform: none;
 }

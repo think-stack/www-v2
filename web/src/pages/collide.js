@@ -38,6 +38,7 @@ export const query = graphql`
           desc
           price
           sku
+          order
           image {
             asset {
               fluid(maxWidth: 400) {
@@ -94,7 +95,7 @@ export default function CollidePage ({ data }) {
       <section>
         <Container>
           <GridContainer>
-            {products.edges.map(item => {
+            {products.edges.sort((a, b) => a.node.order - b.node.order).map(item => {
               return (
                 <Product product={item} addProduct={addProductToCart} />
               )

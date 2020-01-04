@@ -27,6 +27,11 @@ export default {
       title: 'SKU',
       name: 'sku',
       type: 'string',
-    }
+    },
+    {
+      title: 'Display Order',
+      name: 'order',
+      type: 'number',
+    },
   ]
 }

@@ -29,7 +29,12 @@ export default function Cart ({products, isCartVisible, toggleCartVisibility}) {
     )
   } else {
     return (
-      <CartContainer></CartContainer>
+      <>
+        <CartToggle type='button' onClick={toggleCartVisibility} isVisible={isCartVisible}>{isCartVisible ? `Close`: `Cart`}</CartToggle>
+        <CartContainer isVisible={isCartVisible}>
+          <p>Cart is empty</p>
+        </CartContainer>
+      </>
     )
   }
 }

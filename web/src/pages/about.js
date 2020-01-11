@@ -116,8 +116,8 @@ export const query = graphql`
           id
           image{
             asset {
-              fluid(maxWidth: 400) {
-                ...GatsbySanityImageFluid_noBase64
+              fixed(width: 400, height: 400) {
+                ...GatsbySanityImageFixed_noBase64
               }
             }
           }

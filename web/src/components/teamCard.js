@@ -6,7 +6,7 @@ export default function TeamCard ({content}) {
   return (
     <li>
       <Figure after={content.bio}>
-        <Img fluid={content.image.asset.fluid} />
+        <Img fixed={content.image.asset.fixed} style={{maxWidth: `100%`}} />
         <BioContainer className='bio-container'>
           <p>{content.bio}</p>
         </BioContainer>
@@ -20,6 +20,7 @@ export default function TeamCard ({content}) {
 const Figure = styled.figure`
   position: relative;
 
+  /*
   &:hover {
     .bio-container {
       background-color: rgba(36, 76, 90, .85);
@@ -29,6 +30,7 @@ const Figure = styled.figure`
       }
     }
   }
+  */
 `
 
 const BioContainer = styled.div`

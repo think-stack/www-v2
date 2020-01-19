@@ -1,22 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import styled, {css} from 'styled-components'
-import BackgroundImage from 'gatsby-background-image'
-import ContentContainer from '../components/uContentContainer'
+import React, { useState, useEffect } from "react"
+import styled, { css } from "styled-components"
+import BackgroundImage from "gatsby-background-image"
+import ContentContainer from "../components/uContentContainer"
 
-export default function BgImageHero ({ imgData, heading, body }) {
-
-  const [ typing, isTyping ] = useState(true)
-  const [ displayText, setDisplayText ] = useState('')
-  const [ index, setIndex ] = useState(0)
+export default function BgImageHero({ imgData, heading, body }) {
+  const [typing, isTyping] = useState(true)
+  const [displayText, setDisplayText] = useState("")
+  const [index, setIndex] = useState(0)
 
   // split body text and remove white space
-  const bodyArr = body.split(',').map(item => item.trim()/*.split('')*/)
+  const bodyArr = body.split(",").map(item => item.trim() /*.split('')*/)
 
   useEffect(() => {
     startTyping()
   })
 
-  function startTyping () {
+  function startTyping() {
     if (typing) {
       setTimeout(() => {
         type()
@@ -37,13 +36,15 @@ export default function BgImageHero ({ imgData, heading, body }) {
       if (index === bodyArr.length - 1) {
         return null
       } else {
-        isTyping(false)
-        erase()
+        setTimeout(() => {
+          isTyping(false)
+          erase()
+        }, 2000)
       }
     }
   }
 
-  function erase () {
+  function erase() {
     if (displayText.length === 0) {
       if (index === bodyArr.length) {
         return null
@@ -52,15 +53,18 @@ export default function BgImageHero ({ imgData, heading, body }) {
         setIndex(index + 1)
       }
     } else {
-      setDisplayText(displayText.substr(-displayText.length, (displayText.length - 1)))
+      setDisplayText(
+        displayText.substr(-displayText.length, displayText.length - 1)
+      )
     }
   }
 
   return (
     <StyledBgImage fluid={imgData}>
       <ContentContainer>
-        <H1>{heading}
-        <Span>{displayText}</Span>
+        <H1>
+          {heading}
+          <Span>{displayText}</Span>
         </H1>
       </ContentContainer>
     </StyledBgImage>

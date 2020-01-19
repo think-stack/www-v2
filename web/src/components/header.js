@@ -81,6 +81,9 @@ const Container = styled.div`
   position: fixed;
   transform: translateX(-50%);
   width: 100%;
+  @media screen and (max-width: 1240px) {
+    padding-right: 10px;
+  }
 `
 
 Header.propTypes = {

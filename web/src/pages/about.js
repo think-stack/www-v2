@@ -53,8 +53,12 @@ const ValueSection = styled.section`
 
 const ValueGridContainer = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-row-gap: 2rem;
+
+  @media screen and (min-width: 37.5rem) {
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  }
 `
 
 const TeamSection = styled.section`
@@ -83,8 +87,8 @@ export const query = graphql`
       body
       bgImage {
         asset {
-          fixed(width: 500) {
-            ...GatsbySanityImageFixed_noBase64
+          fluid(maxWidth: 500) {
+            ...GatsbySanityImageFluid_noBase64
           }
         }
       }
@@ -98,8 +102,8 @@ export const query = graphql`
           body
           icon {
             asset {
-              fixed(width: 120) {
-                ...GatsbySanityImageFixed_noBase64
+              fluid(maxWidth: 600) {
+                ...GatsbySanityImageFluid_noBase64
               }
             }
           }
@@ -132,6 +136,14 @@ export const query = graphql`
       bgImage {
         asset {
           fluid(maxWidth: 1920) {
+            ...GatsbySanityImageFluid_noBase64
+          }
+        }
+      }
+
+      secImage {
+        asset {
+          fluid(maxWidth: 500) {
             ...GatsbySanityImageFluid_noBase64
           }
         }

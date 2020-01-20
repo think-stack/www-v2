@@ -12,7 +12,7 @@ export default function AltHero ({ hero }) {
           <P>{hero.body}</P>
         </Body>
         {/* <ImgWrap> */}
-          <Img fixed={hero.bgImage.asset.fixed} style={{alignSelf: `center`, justifySelf: `center`}}/>
+          <Img fluid={hero.bgImage.asset.fluid} style={{alignSelf: `center`, justifySelf: `center`, width: `100%`}}/>
         {/* </ImgWrap> */}
       </GridSection>
     </Container>
@@ -21,10 +21,14 @@ export default function AltHero ({ hero }) {
 
 const GridSection = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-row-gap: 2rem;
   min-height: 90vh;
   padding: 2rem;
+
+  @media screen and (max-width: 37.5rem) {
+    padding: 0;
+  }
 `
 const Body = styled.div`
   display: flex;

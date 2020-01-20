@@ -1,23 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
+import Img from 'gatsby-image'
 import Container from '../components/uContentContainer'
 
 export default function AltFeatureBgImg ({content}) {
   return (
-    <BgImage fluid={content.bgImage.asset.fluid}>
+    <BgImage fluid={content.bgImage.asset.fluid} style={{position: `relative`}}>
       <Container>
-        <TextContainer>
-          <Heading>{content.heading}</Heading>
-          <p>{content.body}</p>
-          <CTA>
-            <p>Want to read more? Get your digital Book of Think|Stack for free.</p>
-            <Form>
-              <input placeholder='email'/>
-              <button>get your book</button>
-            </Form>
-          </CTA>
-        </TextContainer>
+        <GridContainer>
+          <TextContainer>
+            <Heading>{content.heading}</Heading>
+            <p>{content.body}</p>
+            <CTA>
+              <p>Want to read more? Get your digital Book of Think|Stack for free.</p>
+              <Form>
+                <input placeholder='email'/>
+                <button>get your book</button>
+                  {/* <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                  <script>
+                    hbspt.forms.create({
+                  portalId: "6503958",
+                  formId: "035553fc-2d30-4361-a690-d04ec4dfaa9f"
+                  });
+                  </script> */}
+              </Form>
+            </CTA>
+          </TextContainer>
+          <ImgWrapper>
+            <Img fluid={content.secImage.asset.fluid}  />
+          </ImgWrapper>
+        </GridContainer>
       </Container>
     </BgImage>
   )
@@ -27,6 +40,10 @@ const Form = styled.form`
   display: flex;
   justify-content: space-between;
   margin-bottom: 0;
+
+  @media screen and (max-width: 37.5rem) {
+    flex-direction: column;
+  }
 
   input {
     border: 2px solid var(--darkGreen);
@@ -44,6 +61,12 @@ const Form = styled.form`
     line-height: 1.25rem;
     letter-spacing: .1rem;
     text-transform: capitalize;
+
+    @media screen and (max-width: 37.5rem) {
+      margin-top: 1.5rem;
+      max-height: 3.125rem;
+      max-width: 75%;
+    }
   }
 `
 
@@ -51,7 +74,15 @@ const BgImage = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 65vh;
+`
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-row-gap: 2rem;
+  margin: 4rem auto 0;
+  padding-bottom: 2rem;
+  overflow: hidden;s
 `
 
 const TextContainer = styled.div`
@@ -63,6 +94,23 @@ const TextContainer = styled.div`
 
   @media screen and (min-width: 50rem) {
     margin: auto auto auto 0;
+  }
+`
+
+const ImgWrapper = styled.div`
+  position: relative;
+  width: 100%;
+
+  .gatsby-image-wrapper {
+    margin: auto;
+    top: -.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 23.125rem;
+
+    @media screen and (min-width: 37.5rem) {
+      position: absolute !important;
+    }
   }
 `
 

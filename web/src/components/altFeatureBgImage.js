@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import BackgroundImage from 'gatsby-background-image'
 import Img from 'gatsby-image'
 import Container from '../components/uContentContainer'
+import HubspotForm from 'react-hubspot-form'
 
 export default function AltFeatureBgImg ({content}) {
   return (
@@ -15,15 +16,13 @@ export default function AltFeatureBgImg ({content}) {
             <CTA>
               <p>Want to read more? Get your digital Book of Think|Stack for free.</p>
               <Form>
-                <input placeholder='email'/>
-                <button>get your book</button>
-                  {/* <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-                  <script>
-                    hbspt.forms.create({
-                  portalId: "6503958",
-                  formId: "035553fc-2d30-4361-a690-d04ec4dfaa9f"
-                  });
-                  </script> */}
+                <HubspotForm
+                  portalId="6503958"
+                  formId="035553fc-2d30-4361-a690-d04ec4dfaa9f"
+                  onSubmit={() => console.log("Submit!")}
+                  onReady={form => console.log("Form ready!")}
+                  loading={<div>Loading...</div>}
+                />
               </Form>
             </CTA>
           </TextContainer>

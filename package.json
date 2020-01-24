@@ -1,18 +1,20 @@
 {
-  "name": "thinkstack-gatsby-sanity",
-  "version": "1.0.0",
-  "description": "Moving thinkstack.co to gatsby.js",
+  "private": true,
+  "name": "sanity-gatsby-blog",
+  "version": "1.0.6",
   "scripts": {
-    "dev": "cd web && npm run dev",
-    "dev-studio": "cd studio && sanity start",
-    "build-studio": "cd studio && npm run build",
-    "build-web": "(cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)",
+    "build": "lerna run build --parallel",
+    "dev": "lerna run dev --parallel",
+    "format": "lerna run format",
+    "build-studio": "lerna bootstrap && cd studio && npm run build",
+    "build-web": "lerna bootstrap && (cd studio && SANITY_AUTH_TOKEN=$SANITY_DEPLOY_STUDIO_TOKEN npm run graphql-deploy) && (cd web && npm run build)",
     "graphql-deploy": "lerna run graphql-deploy",
+    "lint": "lerna run lint",
+    "postinstall": "lerna bootstrap",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@sanity/cli": "^0.142.7"
-  },
-  "author": "Asa Smith <asa@asasmith.com>",
-  "license": "MIT"
+    "@sanity/cli": "^0.147.3",
+    "lerna": "^3.13.1"
+  }
 }

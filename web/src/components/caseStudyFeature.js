@@ -23,7 +23,7 @@ export default function CaseStudyFeature ({ node }) {
         <H2 heading={node.peopleTitle} />
         <P>{node.peopleBody}</P>
         <FeatureImage fluid={fluidProps} />
-        <H2 heading={node.techTitle} align='right'/>
+        <H2 heading={node.techTitle} />
         <P marginLeft='auto' marginRight='0'>{node.techBody}</P>
       </Container>
     </Section>
@@ -32,6 +32,13 @@ export default function CaseStudyFeature ({ node }) {
 
 const Section = styled.section`
   margin-bottom: 5rem;
+
+  h2 {
+    &:nth-child(2n) {
+      margin-left: auto;
+      max-width: 40rem;
+    }
+  }
 `
 
 const FeatureImage = styled(Img)`

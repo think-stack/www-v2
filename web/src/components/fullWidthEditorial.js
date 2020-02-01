@@ -67,7 +67,7 @@ const StyledSection = styled.section`
 const StyledGridContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   grid-template-rows: 350px;
 
   @media screen and (min-width: 900px) {

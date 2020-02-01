@@ -18,18 +18,6 @@ export default {
       name: 'body',
       type: 'text',
     },
-    // {
-    //   title: 'List',
-    //   name: 'list',
-    //   type: 'array',
-    //   of: [
-    //     {
-    //       title: 'List Item',
-    //       name: 'listItem',
-    //       type: 'string',
-    //     },
-    //   ],
-    // },
     {
       title: 'List',
       name: 'list',
@@ -49,6 +37,11 @@ export default {
       title: 'Cta Text',
       name: 'ctaText',
       type: 'string',
+    },
+    {
+      title: 'Secondary Image',
+      name: 'secImage',
+      type: 'image',
     },
   ],
 }

@@ -1,19 +1,18 @@
-import React from 'react'
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import Container from '../components/uContentContainer'
-import McSignup from '../components/mcSignUp'
-import Linkedin from '../components/icons/linkedin'
-import Facebook from '../components/icons/facebook'
-import Twitter from '../components/icons/twitter'
-import logo from '../images/ts-monogram-green.svg'
+import Container from "../components/uContentContainer"
+import McSignup from "../components/mcSignUp"
+import Linkedin from "../components/icons/linkedin"
+import Facebook from "../components/icons/facebook"
+import Twitter from "../components/icons/twitter"
+import logo from "../images/ts-monogram-green.svg"
 
-export default function Footer () {
-
+export default function Footer() {
   const data = useStaticQuery(graphql`
     query {
-      heading: sanityGlobals(title: {regex: "/footer/i"}) {
+      heading: sanityGlobals(title: { regex: "/footer/i" }) {
         heading
       }
     }
@@ -26,7 +25,9 @@ export default function Footer () {
           <FlexContainer>
             <div>
               <P>{data.heading.heading}</P>
-              <MailLink href='mailto:sales@thinkstack.co'>work with us</MailLink>
+              <MailLink href="mailto:sales@thinkstack.co">
+                work with us
+              </MailLink>
             </div>
           </FlexContainer>
           <SocialContainer>
@@ -35,18 +36,33 @@ export default function Footer () {
             </Wrapper>
             <SocialList>
               <SocialListItem>
-                <SocialLink href='https://www.linkedin.com/company/11195699/' target='_blank'><Linkedin/></SocialLink>
+                <SocialLink
+                  href="https://www.linkedin.com/company/11195699/"
+                  target="_blank"
+                >
+                  <Linkedin />
+                </SocialLink>
               </SocialListItem>
               <SocialListItem>
-                <SocialLink href='https://www.facebook.com/thinkstacktech/' target='_blank'><Facebook/></SocialLink>
+                <SocialLink
+                  href="https://www.facebook.com/thinkstacktech/"
+                  target="_blank"
+                >
+                  <Facebook />
+                </SocialLink>
               </SocialListItem>
               <SocialListItem>
-                <SocialLink href='https://twitter.com/thinkstacktech' target='_blank'><Twitter/></SocialLink>
+                <SocialLink
+                  href="https://twitter.com/thinkstacktech"
+                  target="_blank"
+                >
+                  <Twitter />
+                </SocialLink>
               </SocialListItem>
             </SocialList>
             <CopyRight>&copy; 2019 Think|Stack</CopyRight>
           </SocialContainer>
-          <FlexContainer justify='end'>
+          <FlexContainer justify="end">
             <McSignup />
           </FlexContainer>
         </GridContainer>
@@ -63,12 +79,13 @@ const StyledFooter = styled.footer`
 
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19.375rem,1fr));
+  grid-template-columns: repeat(auto-fill, minmax(20.375rem, 1fr));
 `
 
 const FlexContainer = styled.div`
   display: flex;
-  justify-content: ${props => props.justify ? `flex-${props.justify}` : `flex-start`};
+  justify-content: ${props =>
+    props.justify ? `flex-${props.justify}` : `flex-start`};
 
   @media screen and (max-width: 37.5rem) {
     text-align: center;
@@ -81,11 +98,11 @@ const FlexContainer = styled.div`
 `
 
 const P = styled.p`
-  margin: .5rem auto 0;
+  margin: 0.5rem auto 0;
   max-width: 90%;
 
   @media screen and (min-width: 37.5rem) {
-    margin: .5rem auto 0 0;
+    margin: 0.5rem auto 0 0;
   }
 `
 
@@ -127,7 +144,7 @@ const SocialContainer = styled.div`
 
 const SocialList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(calc(100% / 3), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(calc(100% / 3), 1fr));
   justify-items: center;
   list-style: none;
   margin: 0 auto 2rem;
@@ -148,7 +165,7 @@ const SocialLink = styled.a`
   display: flex;
   justify-content: center;
   height: 100%;
-  padding: .5rem;
+  padding: 0.5rem;
   width: 100%;
 
   svg {

@@ -60,7 +60,7 @@ export default function Footer() {
                 </SocialLink>
               </SocialListItem>
             </SocialList>
-            <CopyRight>&copy; 2019 Think|Stack</CopyRight>
+            <CopyRight>&copy; {new Date().getFullYear()} Think|Stack</CopyRight>
           </SocialContainer>
           <FlexContainer justify="end">
             <McSignup />

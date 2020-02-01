@@ -62,6 +62,10 @@ const FlexContainer = styled.div`
   margin: auto;
   text-align: center;
   width: 100%;
+
+  @media screen and (max-width: 37.5rem) {
+    flex-direction: column;
+  }
 `
 
 const FlexItem = styled.div`

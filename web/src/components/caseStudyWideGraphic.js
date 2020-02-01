@@ -1,6 +1,7 @@
 import React from 'react'
 import {getFluidGatsbyImage} from 'gatsby-source-sanity'
 import Img from 'gatsby-image'
+import styled from 'styled-components'
 
 export default function CaseStudyWideGraphic ({node}) {
 
@@ -13,6 +14,19 @@ export default function CaseStudyWideGraphic ({node}) {
   const fluidProps = getFluidGatsbyImage(imageAssetId, {maxWidth: 3000}, sanityConfig)
 
   return (
-    <Img fluid={fluidProps} />
+    <Div>
+      <ImgContainer>
+        <Img fluid={fluidProps} />
+      </ImgContainer>
+    </Div>
   )
 }
+
+const Div = styled.div`
+  overflow: scroll;
+  width: 100%;
+`
+
+const ImgContainer = styled.div`
+  width: 2500px;
+`

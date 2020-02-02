@@ -22,6 +22,11 @@ export default {
       type: 'string',
     },
     {
+      title: 'Hero Image',
+      name: 'heroImage',
+      type: 'image',
+    },
+    {
       title: 'Hero Body',
       name: 'heroBody',
       type: 'text',

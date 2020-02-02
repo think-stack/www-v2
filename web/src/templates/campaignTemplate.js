@@ -25,7 +25,12 @@ export default function Campaign({ data }) {
               <H2 heading={campaign.title} color={`var(--darkGreen)`} />
               <Box mt={4}>{campaign.heroBody}</Box>
             </Grid>
-            <Grid item xs={12} lg={6}></Grid>
+            <Grid item xs={12} lg={6}>
+              <Img
+                imgStyle={{ objectFit: `contain` }}
+                fluid={campaign.heroImage.asset.fluid}
+              />
+            </Grid>
           </Grid>
         </Box>
         <Box mt={10}>
@@ -90,6 +95,13 @@ export const query = graphql`
   query Campaign($id: String!) {
     campaign: sanityCampaign(id: { eq: $id }) {
       title
+      heroImage {
+        asset {
+          fluid(maxWidth: 920) {
+            ...GatsbySanityImageFluid_noBase64
+          }
+        }
+      }
       heroBody
       featTitle
       featImage {

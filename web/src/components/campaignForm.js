@@ -4,10 +4,10 @@ import styled from "styled-components"
 export default function CampaignForm() {
   return (
     <Form
-      name="contact"
+      method="post" 
+      netlify-honeypot="bot-field" 
+      data-netlify="true"
       action="/thank-you"
-      netlify=""
-      netlify-honeypot="bot-field"
     >
       <label htmlFor="cf-name"></label>
       <Input

@@ -4,7 +4,7 @@ import styled from "styled-components"
 export default function CampaignForm() {
   return (
     <Form
-      name="contact"
+      name="campaignContact"
       method="post" 
       netlify-honeypot="bot-field" 
       data-netlify="true"

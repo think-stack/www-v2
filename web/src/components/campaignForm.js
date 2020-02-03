@@ -1,17 +1,46 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from "react"
+import styled from "styled-components"
 
-export default function CampaignForm () {
+export default function CampaignForm() {
   return (
-    <Form  name="contact" action="/thank-you" netlify="" netlify-honeypot="bot-field">
+    <Form
+      name="contact"
+      action="/thank-you"
+      netlify=""
+      netlify-honeypot="bot-field"
+    >
       <label htmlFor="cf-name"></label>
-      <Input type="text" name="name" id="cf-name" placeholder="Name" required="" />
+      <Input
+        type="text"
+        name="name"
+        id="cf-name"
+        placeholder="Name"
+        required=""
+      />
       <label htmlFor="cf-email" aria-label="email"></label>
-      <Input type="email" name="email" id="cf-email" placeholder="Email" required="" />
+      <Input
+        type="email"
+        name="email"
+        id="cf-email"
+        placeholder="Email"
+        required=""
+      />
       <label htmlFor="cf-phone" aria-label="phone"></label>
-      <Input type="text" name="phone" id="cf-phone" placeholder="Phone Number" required="" />
+      <Input
+        type="text"
+        name="phone"
+        id="cf-phone"
+        placeholder="Phone Number"
+        required=""
+      />
       <label htmlFor="cf-message" aria-label="message"></label>
-      <TextArea name="message" id="cf-message" rows="10" cols="50" placeholder="Ask us something"></TextArea>
+      <TextArea
+        name="message"
+        id="cf-message"
+        rows="10"
+        cols="50"
+        placeholder="Ask us something"
+      ></TextArea>
       <label htmlFor="bot-field" aria-label="bot-field"></label>
       <input name="bot-field" type="hidden" />
       <Button type="submit">submit</Button>
@@ -66,16 +95,17 @@ const Button = styled.button`
   background-color: var(--green);
   border-radius: 2rem;
   color: var(--white);
-  font-family: 'TTSupermolot-Regular';
-  font-size: .75rem;
+  font-family: "TTSupermolot-Regular";
+  font-size: 0.75rem;
   font-weight: 900;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   line-height: 150%;
   margin-top: 2rem;
   max-width: 10.3125rem;
   min-width: 6.5625rem;
-  padding: .75rem 2rem;
+  padding: 0.75rem 2rem;
   text-transform: uppercase;
+  border: 0;
 
   &:hover {
     cursor: pointer;

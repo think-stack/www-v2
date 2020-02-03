@@ -5,8 +5,7 @@ export default function CampaignForm() {
   return (
     <Form
       name="campaignContact"
-      method="post" 
-      netlify-honeypot="bot-field" 
+      method="post"  
       data-netlify="true"
       action="/"
     >

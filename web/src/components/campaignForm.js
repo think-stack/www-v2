@@ -1,49 +1,17 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import HubspotForm from 'react-hubspot-form'
 
 export default function CampaignForm() {
   return (
-    <Form
-      name="campaignContact"
-      method="post"  
-      data-netlify="true"
-      action="/"
-    >
-      <label htmlFor="cf-name"></label>
-      <Input
-        type="text"
-        name="name"
-        id="cf-name"
-        placeholder="Name"
-        required=""
+    <Form>
+      <HubspotForm
+        portalId="6503958"
+        formId="90789743-fb50-4018-9e17-c66061e6dec8"
+        onSubmit={() => console.log("Submit!")}
+        onReady={form => console.log("Form ready!")}
+        loading={<div>Loading...</div>}
       />
-      <label htmlFor="cf-email" aria-label="email"></label>
-      <Input
-        type="email"
-        name="email"
-        id="cf-email"
-        placeholder="Email"
-        required=""
-      />
-      <label htmlFor="cf-phone" aria-label="phone"></label>
-      <Input
-        type="text"
-        name="phone"
-        id="cf-phone"
-        placeholder="Phone Number"
-        required=""
-      />
-      <label htmlFor="cf-message" aria-label="message"></label>
-      <TextArea
-        name="message"
-        id="cf-message"
-        rows="10"
-        cols="50"
-        placeholder="Ask us something"
-      ></TextArea>
-      <label htmlFor="bot-field" aria-label="bot-field"></label>
-      <input name="bot-field" type="hidden" />
-      <Button type="submit">submit</Button>
     </Form>
   )
 }

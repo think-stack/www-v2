@@ -20,12 +20,11 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     overflow: "auto",
     zIndex: 1,
-  },
-  container: {
     height: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    paddingBottom: 50,
   },
   list: {
     textAlign: "right",
@@ -110,49 +109,20 @@ function Nav({ navActive, navToggle }) {
   return (
     <Dialog fullScreen open={navActive} className={classes.dialog}>
       <Box className={classes.root}>
-        <Box className={classes.container}>
-          <Box>
-            <Header
-              navActive={navActive}
-              navToggle={navToggle}
-              position="static"
-            />
-            <Container>
-              <ul className={classes.list}>
-                {allSanityPage.edges.map(item => (
-                  <li key={item.node.id} className={classes.listItem}>
-                    {item.node.title.toLowerCase() === "services" ? (
-                      <>
-                        <Link
-                          activeStyle={{ pointerEvents: `none` }}
-                          to={`/${item.node.slug.current}`}
-                          className={classes.link}
-                        >
-                          <Typography variant="subtitle1" component="span">
-                            {item.node.title}
-                          </Typography>
-                        </Link>
-                        <ul className={classes.submenu}>
-                          {allSanityService.edges.map(item => (
-                            <li key={item.node.id}>
-                              <Link
-                                key={item.id}
-                                to={`/services/${item.node.slug.current}`}
-                                className={classes.link}
-                              >
-                                <Typography
-                                  variant="subtitle2"
-                                  component="span"
-                                >
-                                  {item.node.title}
-                                </Typography>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </>
-                    ) : (
+        <Box>
+          <Header
+            navActive={navActive}
+            navToggle={navToggle}
+            position="static"
+          />
+          <Container>
+            <ul className={classes.list}>
+              {allSanityPage.edges.map(item => (
+                <li key={item.node.id} className={classes.listItem}>
+                  {item.node.title.toLowerCase() === "services" ? (
+                    <>
                       <Link
+                        activeStyle={{ pointerEvents: `none` }}
                         to={`/${item.node.slug.current}`}
                         className={classes.link}
                       >
@@ -160,24 +130,48 @@ function Nav({ navActive, navToggle }) {
                           {item.node.title}
                         </Typography>
                       </Link>
-                    )}
-                  </li>
-                ))}
-                <li key={sanityCampaign.id} className={classes.listItem}>
-                  <Link
-                    to={`/${sanityCampaign.slug.current}`}
-                    className={classes.link}
-                  >
-                    <Typography variant="subtitle1" component="span">
-                      {sanityCampaign.shortTitle}
-                    </Typography>
-                  </Link>
+                      <ul className={classes.submenu}>
+                        {allSanityService.edges.map(item => (
+                          <li key={item.node.id}>
+                            <Link
+                              key={item.id}
+                              to={`/services/${item.node.slug.current}`}
+                              className={classes.link}
+                            >
+                              <Typography variant="subtitle2" component="span">
+                                {item.node.title}
+                              </Typography>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : (
+                    <Link
+                      to={`/${item.node.slug.current}`}
+                      className={classes.link}
+                    >
+                      <Typography variant="subtitle1" component="span">
+                        {item.node.title}
+                      </Typography>
+                    </Link>
+                  )}
                 </li>
-              </ul>
-            </Container>
-          </Box>
-          <Footer />
+              ))}
+              <li key={sanityCampaign.id} className={classes.listItem}>
+                <Link
+                  to={`/${sanityCampaign.slug.current}`}
+                  className={classes.link}
+                >
+                  <Typography variant="subtitle1" component="span">
+                    {sanityCampaign.shortTitle}
+                  </Typography>
+                </Link>
+              </li>
+            </ul>
+          </Container>
         </Box>
+        <Footer />
       </Box>
     </Dialog>
   )

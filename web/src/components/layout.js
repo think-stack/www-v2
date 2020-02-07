@@ -72,6 +72,11 @@ const theme = createMuiTheme({
     primary: {
       main: "#244c5a",
     },
+    secondary: {
+      light: "#dbe6df",
+      main: "#80b09c",
+      dark: "#244c5a",
+    },
   },
   typography: {
     fontFamily: ["Open Sans", "sans-serif"].join(","),
@@ -83,6 +88,13 @@ const theme = createMuiTheme({
       letterSpacing: "0.00938em",
     },
     subtitle2: {
+      fontFamily: "TTSupermolot-Regular",
+      fontWeight: 400,
+      fontSize: "1rem",
+      lineHeight: 1.3,
+      letterSpacing: "0.00938em",
+    },
+    button: {
       fontFamily: "TTSupermolot-Regular",
       fontWeight: 400,
       fontSize: "1rem",

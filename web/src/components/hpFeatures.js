@@ -1,36 +1,36 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from 'styled-components'
-import Container from '../components/uContentContainer'
-import H2 from '../components/headings/h2'
+import styled from "styled-components"
+import Container from "../components/uContentContainer"
+import H2 from "../components/headings/h2"
 
-import linkArrow from '../images/link-arrow.svg'
+import linkArrow from "../images/link-arrow.svg"
 
-export default function HpFeatures ({data: { title, features }}) {
-
+export default function HpFeatures({ data: { title, features } }) {
   return (
     <Section>
       <Container>
-        <H2 heading={title} color='var(--darkGreen)' />
+        <H2 heading={title} color="var(--darkGreen)" />
         <GridList>
           {features.map(item => {
             const extLink = item.extLink
-            const link = extLink ? item.link : item.link.split('co')[1]
-
+            const link = extLink ? item.link : item.link.split("co")[1]
             return (
-              <li>
+              <li key={item._key}>
                 <Body>
                   <Title>{item.title}</Title>
                   <P>{item.featBody}</P>
-                  { extLink ? (
-                    <StyledExtLink href={link} target='_blank'>Read More</StyledExtLink>
+                  {extLink ? (
+                    <StyledExtLink href={link} target="_blank">
+                      Read More
+                    </StyledExtLink>
                   ) : (
                     <StyledIntLink to={link}>Read More</StyledIntLink>
                   )}
                 </Body>
               </li>
-            )}
-          )}
+            )
+          })}
         </GridList>
       </Container>
     </Section>
@@ -43,7 +43,7 @@ const Section = styled.section`
 
 const GridList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc(72rem / 4),1fr));
+  grid-template-columns: repeat(auto-fill, minmax(calc(72rem / 4), 1fr));
   grid-column-gap: 1.25rem;
   grid-row-gap: 3.125rem;
   list-style: none;
@@ -78,8 +78,8 @@ const StyledIntLink = styled(Link)`
     background-image: url(${linkArrow});
     background-size: contain;
     background-repeat: no-repeat;
-    content: '';
-    height: .75rem;
+    content: "";
+    height: 0.75rem;
     left: 105%;
     position: absolute;
     top: 55%;
@@ -99,8 +99,8 @@ const StyledExtLink = styled.a`
     background-image: url(${linkArrow});
     background-size: contain;
     background-repeat: no-repeat;
-    content: '';
-    height: .75rem;
+    content: "";
+    height: 0.75rem;
     left: 105%;
     position: absolute;
     top: 55%;

@@ -9,13 +9,15 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from '../components/header'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
+import Header from "../components/header"
+import Nav from "../components/nav"
+import Footer from "../components/footer"
 
-import { createGlobalStyle } from 'styled-components'
-import * as fonts from '../fonts'
+import { ThemeProvider } from "@material-ui/styles"
+import { createGlobalStyle } from "styled-components"
+import { createMuiTheme } from "@material-ui/core/styles"
 
+import * as fonts from "../fonts"
 import "./layout.css"
 
 const GlobalStyle = createGlobalStyle`
@@ -54,9 +56,44 @@ const GlobalStyle = createGlobalStyle`
 
 `
 
-const Layout = ({ children, showFooter }) => {
+const TTSupermolot = {
+  fontFamily: "TTSupermolot-Regular",
+  fontStyle: "normal",
+  fontDisplay: "swap",
+  fontWeight: 400,
+  src: `
+    local('TTSupermolot-Regular'),
+    url(${fonts.TTSupermolotRegular}) format('opentype')
+  `,
+}
 
-  const [navActive, setNavActive ] = useState(false)
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#244c5a",
+    },
+  },
+  typography: {
+    fontFamily: ["Open Sans", "sans-serif"].join(","),
+    subtitle1: {
+      fontFamily: "TTSupermolot-Regular",
+      fontWeight: 700,
+      fontSize: "1.6rem",
+      lineHeight: 1.5,
+      letterSpacing: "0.00938em",
+    },
+    subtitle2: {
+      fontFamily: "TTSupermolot-Regular",
+      fontWeight: 400,
+      fontSize: "1rem",
+      lineHeight: 1.3,
+      letterSpacing: "0.00938em",
+    },
+  },
+})
+
+const Layout = ({ children, showFooter }) => {
+  const [navActive, setNavActive] = useState(false)
   const toggle = () => setNavActive(!navActive)
 
   const data = useStaticQuery(graphql`
@@ -70,9 +107,14 @@ const Layout = ({ children, showFooter }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} navActive={navActive} navToggle={toggle} />
-      <Nav navActive={navActive}></Nav>
+    <ThemeProvider theme={theme}>
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        navActive={navActive}
+        navToggle={toggle}
+        position="fixed"
+      />
+      <Nav navActive={navActive} navToggle={toggle}></Nav>
 
       {/* <div
         style={{
@@ -82,13 +124,10 @@ const Layout = ({ children, showFooter }) => {
           paddingTop: 0,
         }}
       > */}
-        <GlobalStyle />
-        <main>{children}</main>
+      <GlobalStyle />
+      <main>{children}</main>
       {/* </div> */}
-      {
-        showFooter && <Footer />
-      }
-    </>
+    </ThemeProvider>
   )
 }
 

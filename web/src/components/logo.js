@@ -6,28 +6,20 @@ export default function Logo({ navActive }) {
     <SVG navActive={navActive} viewBox="0 0 617.5 153.5">
       <g>
         <path
-          navActive={navActive}
           className="st0"
           d="M42.71,94.44h-4.24V58.57H26.05V54.9h29.09v2.54l-1.13,1.13h-11.3V94.44z"
         />
         <path
-          navActive={navActive}
           className="st0"
           d="M98.61,94.44h-4.24V76.08l-19.49,0v18.36h-4.24V54.9h4.24v17.51h19.49V54.9h4.24V94.44z"
         />
+        <path className="st0" d="M121.96,94.44V54.9h4.24v39.54H121.96z" />
         <path
-          navActive={navActive}
-          className="st0"
-          d="M121.96,94.44V54.9h4.24v39.54H121.96z"
-        />
-        <path
-          navActive={navActive}
           className="st0"
           d="M153.5,61.96h-0.28l0.56,7.34v25.14h-4.24V54.9h4.52l19.21,32.48h0.28l-0.56-7.34V54.9h4.24v39.54h-4.52
           L153.5,61.96z"
         />
         <path
-          navActive={navActive}
           className="st0"
           d="M204.81,72.41h9.32l9.6-17.51h4.24v1.69L217.52,74.1l11.01,18.64v1.7h-4.24l-10.17-18.36h-9.32v18.36h-4.24
           V54.9h4.24V72.41z"
@@ -35,31 +27,26 @@ export default function Logo({ navActive }) {
       </g>
       <g>
         <path
-          navActive={navActive}
           className="st0"
           d="M390.03,64.22c0-5.37,3.96-9.32,9.89-9.32h15.53v2.54l-1.13,1.13h-14.4c-3.11,0-5.65,2.54-5.65,5.65v1.69
           c0,3.11,1.7,4.75,4.52,5.37l10.45,2.26c3.95,0.85,7.06,3.95,7.06,9.04v2.54c0,5.37-3.96,9.32-9.88,9.32h-16.95v-3.67h16.95
           c3.11,0,5.65-2.54,5.65-5.65v-2.54c0-3.11-1.69-4.75-4.52-5.37l-10.45-2.26c-3.96-0.85-7.06-3.95-7.06-9.04V64.22z"
         />
         <path
-          navActive={navActive}
           className="st0"
           d="M447.64,94.44h-4.24V58.57h-12.42V54.9h29.09v2.54l-1.13,1.13h-11.3V94.44z"
         />
         <path
-          navActive={navActive}
           className="st0"
           d="M475.19,94.44h-4.24v-1.7l13.84-37.84h4.8l13.84,37.84v1.7h-4.24l-3.39-10.17h-17.23L475.19,94.44z
           M487.33,59.98h-0.28l-7.06,20.62h14.4L487.33,59.98z"
         />
         <path
-          navActive={navActive}
           className="st0"
           d="M546.07,94.44h-16.38c-5.93,0-9.88-3.95-9.88-9.32v-20.9c0-5.37,3.95-9.32,9.88-9.32h16.38v2.54l-1.13,1.13
           h-15.25c-3.11,0-5.65,2.54-5.65,5.65v20.9c0,3.11,2.54,5.65,5.65,5.65h16.38V94.44z"
         />
         <path
-          navActive={navActive}
           className="st0"
           d="M568.23,72.41h9.32l9.6-17.51h4.24v1.7L580.94,74.1l11.01,18.64v1.7h-4.23l-10.17-18.36h-9.32v18.36h-4.23
           V54.9h4.23V72.41z"

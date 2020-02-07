@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 import styled, { css } from "styled-components"
 import BackgroundImage from "gatsby-background-image"
-import ContentContainer from "../components/uContentContainer"
+// import ContentContainer from "../components/uContentContainer"
+import { Container } from "@material-ui/core"
 
 export default function BgImageHero({ imgData, heading, body }) {
   const [typing, isTyping] = useState(true)
@@ -61,12 +62,12 @@ export default function BgImageHero({ imgData, heading, body }) {
 
   return (
     <StyledBgImage fluid={imgData}>
-      <ContentContainer>
+      <Container>
         <H1>
           {heading}
           <Span>{displayText}</Span>
         </H1>
-      </ContentContainer>
+      </Container>
     </StyledBgImage>
   )
 }

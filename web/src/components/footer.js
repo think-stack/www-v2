@@ -7,7 +7,7 @@ import McSignup from "../components/mcSignUp"
 import Linkedin from "../components/icons/linkedin"
 import Facebook from "../components/icons/facebook"
 import Twitter from "../components/icons/twitter"
-import logo from "../images/ts-monogram-green.svg"
+// import logo from "../images/ts-monogram-green.svg"
 
 export default function Footer() {
   const data = useStaticQuery(graphql`
@@ -24,16 +24,13 @@ export default function Footer() {
         <GridContainer>
           <FlexContainer>
             <div>
-              <P>{data.heading.heading}</P>
+              {data.heading.heading}
               <MailLink href="mailto:sales@thinkstack.co">
                 work with us
               </MailLink>
             </div>
           </FlexContainer>
           <SocialContainer>
-            <Wrapper>
-              <Logo src={logo} />
-            </Wrapper>
             <SocialList>
               <SocialListItem>
                 <SocialLink
@@ -59,8 +56,15 @@ export default function Footer() {
                   <Twitter />
                 </SocialLink>
               </SocialListItem>
+              <SocialListItem>
+                <SocialLink
+                  href="https://twitter.com/thinkstacktech"
+                  target="_blank"
+                >
+                  <Twitter />
+                </SocialLink>
+              </SocialListItem>
             </SocialList>
-            <CopyRight>&copy; {new Date().getFullYear()} Think|Stack</CopyRight>
           </SocialContainer>
           <FlexContainer justify="end">
             <McSignup />

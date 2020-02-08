@@ -48,6 +48,7 @@ const Header = ({ siteTitle, navActive, navToggle, position }) => {
       navActive={navActive}
       isScrolled={scrolled}
       position={position}
+      className="mui-fixed"
     >
       <Container>
         <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -74,7 +75,8 @@ const StyledHeader = styled.header`
   position: ${props => props.position || "fixed"};
   transition: background-color 600ms ease;
   z-index: 2;
-  width: 100%;
+  left: 0;
+  right: 0;
   align-items: center;
   display: flex;
 `

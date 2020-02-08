@@ -9,6 +9,20 @@ import Instagram from "../components/icons/instagram"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
+  main: {
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      marginBottom: 50,
+    },
+  },
+  socialWrapper: {
+    [theme.breakpoints.down("sm")]: {
+      position: "absolute",
+      width: 50,
+      left: 10,
+      top: 140,
+    },
+  },
   socialLink: {
     display: "inline-flex",
     width: "3rem",
@@ -21,6 +35,9 @@ const useStyles = makeStyles(theme => ({
     "& svg": {
       fill: theme.palette.common.white,
       width: "1.3rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: 15,
     },
   },
   btn: {
@@ -44,6 +61,10 @@ const useStyles = makeStyles(theme => ({
     "& label": {
       color: theme.palette.common.white,
     },
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      marginBottom: 50,
+    },
   },
 }))
 
@@ -60,18 +81,20 @@ export default function Footer() {
   return (
     <Container>
       <Grid container spacing={0} alignItems="flex-end">
-        <Grid item xs={4}>
-          <Box color="white">{data.heading.heading}</Box>
-          <Link
-            target="_blank"
-            href="mailto:sales@thinkstack.co"
-            className={classes.btn}
-          >
-            work with us
-          </Link>
+        <Grid item xs={12} md={4}>
+          <Box className={classes.main}>
+            <Box color="white">{data.heading.heading}</Box>
+            <Link
+              target="_blank"
+              href="mailto:sales@thinkstack.co"
+              className={classes.btn}
+            >
+              work with us
+            </Link>
+          </Box>
         </Grid>
-        <Grid item xs={4}>
-          <Box textAlign="center">
+        <Grid item xs={12} md={4}>
+          <Box textAlign="center" className={classes.socialWrapper}>
             <a
               href="https://www.linkedin.com/company/thinkstack/"
               target="_blank"
@@ -102,7 +125,7 @@ export default function Footer() {
             </a>
           </Box>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <Box className={classes.formWrapper}>
             <iframe
               src="/form.html"

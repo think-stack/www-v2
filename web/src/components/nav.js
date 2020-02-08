@@ -109,7 +109,7 @@ function Nav({ navActive, navToggle }) {
   return (
     <Dialog fullScreen open={navActive} className={classes.dialog}>
       <Box className={classes.root}>
-        <Box>
+        <Box mb={5}>
           <Header
             navActive={navActive}
             navToggle={navToggle}

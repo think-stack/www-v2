@@ -10,9 +10,11 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   main: {
+    textAlign: "right",
+    marginLeft: "auto",
     [theme.breakpoints.down("sm")]: {
-      textAlign: "center",
-      marginBottom: 50,
+      textAlign: "left",
+      marginLeft: 0,
     },
   },
   socialWrapper: {
@@ -62,7 +64,7 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.common.white,
     },
     [theme.breakpoints.down("sm")]: {
-      textAlign: "center",
+      marginTop: 50,
       marginBottom: 50,
     },
   },
@@ -82,15 +84,17 @@ export default function Footer() {
     <Container>
       <Grid container spacing={0} alignItems="flex-end">
         <Grid item xs={12} md={4}>
-          <Box className={classes.main}>
-            <Box color="white">{data.heading.heading}</Box>
-            <Link
-              target="_blank"
-              href="mailto:sales@thinkstack.co"
-              className={classes.btn}
-            >
-              work with us
-            </Link>
+          <Box className={classes.formWrapper}>
+            <iframe
+              src="/form.html"
+              frameBorder="0"
+              style={{
+                margin: 0,
+                width: "100%",
+                height: 96,
+                maxWidth: 320,
+              }}
+            ></iframe>
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
@@ -126,12 +130,15 @@ export default function Footer() {
           </Box>
         </Grid>
         <Grid item xs={12} md={4}>
-          <Box className={classes.formWrapper}>
-            <iframe
-              src="/form.html"
-              frameBorder="0"
-              style={{ margin: 0, width: "100%", height: "96px" }}
-            ></iframe>
+          <Box className={classes.main} maxWidth={400}>
+            <Box color="white">{data.heading.heading}</Box>
+            <Link
+              target="_blank"
+              href="mailto:sales@thinkstack.co"
+              className={classes.btn}
+            >
+              work with us
+            </Link>
           </Box>
         </Grid>
       </Grid>

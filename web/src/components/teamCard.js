@@ -26,7 +26,6 @@ const ListItem = styled.li`
 const Figure = styled.figure`
   position: relative;
 
-  /*
   &:hover {
     .bio-container {
       background-color: rgba(36, 76, 90, .85);
@@ -36,7 +35,6 @@ const Figure = styled.figure`
       }
     }
   }
-  */
 
   .gatsby-image-wrapper {
     height: 25rem !important;

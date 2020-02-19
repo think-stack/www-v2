@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "../components/header"
-import Nav from "../components/nav"
+import Nav from "../components/nav_static"
 import Footer from "../components/footer"
 
 import { ThemeProvider } from "@material-ui/styles"

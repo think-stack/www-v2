@@ -92,19 +92,11 @@ function Nav({ navActive, navToggle }) {
 
   const pages = [
     {
-      label: "Tech Stack",
-      path: "/",
-    },
-    {
-      label: "Self Made",
-      path: "/",
-    },
-    {
       label: "Who We Are",
       path: "/about",
     },
     {
-      label: "blog",
+      label: "Blog",
       path: "https://blog.thinkstack.co/",
     },
     {

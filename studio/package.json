@@ -1,19 +1,19 @@
 {
   "name": "thinkstack",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "",
   "main": "package.json",
   "author": "Asa Smith <smith.asa.la@gmail.com>",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "sanity start",
+    "dev": "sanity start",
+    "format": "prettier-eslint --write \"**/*.js\" \"!node_modules/**\"",
     "build": "sanity build",
+    "graphql-deploy": "sanity graphql deploy --playground",
+    "lint": "eslint .",
     "test": "sanity check"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
     "@sanity/cli": "^1.149.2",
     "@sanity/components": "^1.149.3",

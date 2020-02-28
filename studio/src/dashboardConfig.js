@@ -9,19 +9,13 @@ export default {
             name: "netlify",
             options: {
               description:
-                "NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.",
+                "NOTE: The site needs to be re-deployed to see the changes you made in the content.",
               sites: [
                 {
-                  buildHookId: "",
-                  title: "Think|Stack Studio",
-                  name: "thinkstack-studio",
-                  apiId: ""
-                },
-                {
-                  buildHookId: "",
+                  buildHookId: "5dd71b4d9982684c29bd96d1",
                   title: "Website",
                   name: "thinkstack-web",
-                  apiId: ""
+                  apiId: "1b626524-27c5-48cb-a8f9-ef52e8883c87"
                 }
               ]
             }
@@ -45,9 +39,41 @@ export default {
     {
       name: "document-list",
       options: {
-        title: "Recent blog posts",
+        title: "Most Recent Updates",
         order: "_createdAt desc",
-        types: ["post"]
+        types: [
+          "campaign",
+          "campaignContact",
+          "campaignEvent",
+          "caseStudy",
+          "caseStudyFeature",
+          "caseStudyStatistic",
+          "caseStudyQuote",
+          "caseStudyWideGraphic",
+          "collideProduct",
+          "featuredBgImage",
+          "featuredSolution",
+          "fullWidthCta",
+          "fullWidthEditorial",
+          "globals",
+          "hero",
+          "hpFeature",
+          "hpFeaturesSection",
+          "listItem",
+          "modalCta",
+          "page",
+          "partner",
+          "service",
+          "serviceList",
+          "standardCta",
+          "statistic",
+          "team",
+          "values",
+          "selfMadePage",
+          "techStackPage",
+          "selfMadeItem",
+          "techStackItem"
+        ]
       },
       layout: { width: "medium" }
     }

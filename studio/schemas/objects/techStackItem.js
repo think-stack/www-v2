@@ -11,7 +11,8 @@ export default {
     {
       title: "Description",
       name: "description",
-      type: "block"
+      type: "array",
+      of: [{ type: "block" }]
     }
   ]
 };

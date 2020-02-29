@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import { Box, Container, Typography } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import BlockContent from "@sanity/block-content-to-react"
+import Img from "gatsby-image"
 
 const useStyles = makeStyles(theme => ({
   hero: {
@@ -48,15 +49,9 @@ export default function SelfMadePage({ data }) {
         </Container>
       </Box>
       {items.edges.map((item, index) => (
-        <Box
-          key={item.id}
-          py={10}
-          className={classes.item}
-          style={{
-            backgroundImage: `url(${item.node.bgImage.asset.fluid.src})`,
-          }}
-        >
+        <Box key={item.id} py={10} className={classes.item}>
           <Container>
+            <Img fluid={item.node.image.asset.fluid} />
             <Box
               display="flex"
               justifyContent={index % 2 === 0 ? "flex-end" : "flex-start"}
@@ -73,8 +68,8 @@ export default function SelfMadePage({ data }) {
 }
 
 export const query = graphql`
-  query SelfMadeQuery {
-    hero: sanityPageHero(title: { regex: "/Self Made/i" }) {
+  query TechStackQuery {
+    hero: sanityPageHero(title: { regex: "/Tech Stack/i" }) {
       heroTitle
       body
       bgImage {
@@ -85,13 +80,13 @@ export const query = graphql`
         }
       }
     }
-    items: allSanitySelfMadeItem {
+    items: allSanityTechStackItem {
       edges {
         node {
           id
           title
           description: _rawDescription(resolveReferences: { maxDepth: 10 })
-          bgImage {
+          image {
             asset {
               fluid {
                 src

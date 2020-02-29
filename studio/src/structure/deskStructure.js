@@ -9,7 +9,8 @@ import {
   MdAnnouncement,
   MdAssignmentTurnedIn,
   MdSettingsInputComponent,
-  MdInsertDriveFile
+  MdInsertDriveFile,
+  MdPeople
 } from "react-icons/lib/md";
 import IframePreview from "../previews/IframePreview";
 
@@ -72,12 +73,23 @@ export default () =>
             .schemaType("techStackPage")
             .documentId("techStackPage")
         ),
+      S.listItem()
+        .title("Team Members")
+        .icon(MdPeople)
+        .child(
+          S.editor()
+            .id("teamMembers")
+            .schemaType("teamMembers")
+            .documentId("teamMembers")
+        ),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       S.divider(),
       ...S.documentTypeListItems().filter(
         listItem =>
-          !["selfMadePage", "techStackPage"].includes(listItem.getId())
+          !["selfMadePage", "techStackPage", "teamMembers"].includes(
+            listItem.getId()
+          )
       )
     ]);

@@ -43,7 +43,8 @@ export default function SelfMadePage({ data }) {
         className={classes.hero}
         py={5}
         style={{
-          backgroundImage: `url(${hero.bgImage.asset.fluid.src})`,
+          backgroundImage: `url(${hero.bgImage &&
+            hero.bgImage.asset.fluid.src})`,
         }}
       >
         <Container>
@@ -65,7 +66,8 @@ export default function SelfMadePage({ data }) {
           py={10}
           className={classes.item}
           style={{
-            backgroundImage: `url(${item.bgImage.asset.fluid.src})`,
+            backgroundImage: `url(${item.bgImage &&
+              item.bgImage.asset.fluid.src})`,
           }}
         >
           <Container>

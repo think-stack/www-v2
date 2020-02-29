@@ -44,7 +44,8 @@ export default function SelfMadePage({ data }) {
         className={classes.hero}
         py={5}
         style={{
-          backgroundImage: `url(${hero.bgImage.asset.fluid.src})`,
+          backgroundImage: `url(${hero.bgImage &&
+            hero.bgImage.asset.fluid.src})`,
         }}
       >
         <Container>
@@ -91,14 +92,16 @@ export default function SelfMadePage({ data }) {
                   maxWidth={500}
                   justifyContent={index % 2 === 0 ? "flex-end" : ""}
                 >
-                  <Img
-                    fluid={item.image.asset.fluid}
-                    style={{
-                      alignSelf: `center`,
-                      justifySelf: `center`,
-                      width: 200,
-                    }}
-                  />
+                  {item.image && (
+                    <Img
+                      fluid={item.image.asset.fluid}
+                      style={{
+                        alignSelf: `center`,
+                        justifySelf: `center`,
+                        width: 200,
+                      }}
+                    />
+                  )}
                 </Box>
               </Grid>
             </Grid>

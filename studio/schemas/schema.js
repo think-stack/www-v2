@@ -16,6 +16,7 @@ import partner from "./documents/partner";
 import service from "./documents/service";
 import standardCta from "./documents/standardCta";
 import team from "./documents/team";
+import teamMembers from "./documents/teamMembers";
 import values from "./documents/values";
 import selfMadePage from "./documents/selfMadePage";
 import techStackPage from "./documents/techStackPage";
@@ -73,6 +74,7 @@ export default createSchema({
     standardCta,
     statistic,
     team,
+    teamMembers,
     values,
     selfMadePage,
     techStackPage,

@@ -1,25 +1,26 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-import styled, { css } from 'styled-components'
+import React from "react"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
+import styled, { css } from "styled-components"
 
-import ContentContainer from '../components/uContentContainer'
-import H2 from '../components/headings/h2'
-import linkArrow from '../images/link-arrow.svg'
+import ContentContainer from "../components/uContentContainer"
+import H2 from "../components/headings/h2"
+import linkArrow from "../images/link-arrow.svg"
 
-export default function FullWidthEditorial ({ content: { heading, body, img, link }, centered}) {
-  const hasLink = link === null || link === '' ? false : true
-  console.log(hasLink)
+export default function FullWidthEditorial({
+  content: { heading, body, img, link },
+  centered,
+}) {
+  const hasLink = link === null || link === "" ? false : true
   return (
     <StyledSection>
       <ContentContainer>
         <StyledGridContainer>
           <StyledContentContainer>
-            <H2 heading={heading} color='var(--darkGreen)' />
+            <H2 heading={heading} color="var(--darkGreen)" />
             <StyledP>{body}</StyledP>
 
-            { hasLink && <StyledLink to={link}>Read More</StyledLink> }
-
+            {hasLink && <StyledLink to={link}>Read More</StyledLink>}
           </StyledContentContainer>
           <StyledImgContainer centered={centered}>
             <Img fluid={img.asset.fluid} />
@@ -122,7 +123,7 @@ const StyledLink = styled(Link)`
   font-size: 1rem;
   font-weight: 900;
   line-height: 150%;
-  margin-top: .875rem;
+  margin-top: 0.875rem;
   position: relative;
   width: max-content;
 
@@ -130,8 +131,8 @@ const StyledLink = styled(Link)`
     background-image: url(${linkArrow});
     background-size: contain;
     background-repeat: no-repeat;
-    content: '';
-    height: .75rem;
+    content: "";
+    height: 0.75rem;
     left: 105%;
     position: absolute;
     top: 55%;
@@ -143,13 +144,15 @@ const StyledLink = styled(Link)`
 const StyledImgContainer = styled.div`
   width: 100%;
 
-  ${props => props.centered && css`
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  ${props =>
+    props.centered &&
+    css`
+      align-items: center;
+      display: flex;
+      justify-content: center;
 
-    .gatsby-image-wrapper {
-      width: 75%;
-    }
-  `}
+      .gatsby-image-wrapper {
+        width: 75%;
+      }
+    `}
 `

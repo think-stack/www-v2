@@ -1,17 +1,22 @@
-import React from 'react'
-import styled from 'styled-components'
-import H2 from '../components/headings/h2'
+import React from "react"
+import styled from "styled-components"
+import H2 from "../components/headings/h2"
+import BgImg from "../images/TS-QuickFix-BG.jpg"
 
-export default function ContactCTA () {
-  return(
+export default function ContactCTA() {
+  return (
     <Section>
-      <H2 heading='Talk to one of our experts today' color='var(--white)' align='center' />
+      <H2
+        heading="Talk to one of our experts today"
+        color="var(--white)"
+        align="center"
+      />
       <Form>
         <Label>
           <span>email</span>
           <Input></Input>
         </Label>
-        <Button type='button'>get in touch</Button>
+        <Button type="button">get in touch</Button>
       </Form>
     </Section>
   )
@@ -19,14 +24,16 @@ export default function ContactCTA () {
 
 const Section = styled.section`
   background-color: var(--darkGreen);
-  margin-bottom: 4.75rem;
-  padding: 1.6875rem 0 3.1875rem;
+  margin: 4.75rem auto;
+  padding: 18rem 0 4rem;
+  background-image: url(${BgImg});
+  background-size: cover;
 `
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 1.5625rem auto 2.0625rem;
+  margin: 1.5625rem auto 0;
   max-width: 95%;
   width: 28.875rem;
 `
@@ -66,7 +73,7 @@ const Button = styled.button`
   border: 2px solid var(--white);
   border-radius: 2rem;
   color: var(--darkGreen);
-  font-family: 'TTSupermolot-Regular';
+  font-family: "TTSupermolot-Regular";
   font-weight: 600;
   padding: 0.6875rem 0;
   text-align: center;

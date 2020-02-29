@@ -1,12 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
-import {Link} from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
-import Container from '../components/uContentContainer'
+import React from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
+import BackgroundImage from "gatsby-background-image"
+import Container from "../components/uContentContainer"
 
-import linkArrow from '../images/link-arrow.svg'
+import linkArrow from "../images/link-arrow.svg"
 
-export default function FeatureBgImage ({content: { bgImage, body, heading, list, ctaText}}) {
+export default function FeatureBgImage({
+  content: { bgImage, body, heading, list, ctaText },
+}) {
   const imgData = bgImage.asset.fluid
 
   return (
@@ -16,13 +18,11 @@ export default function FeatureBgImage ({content: { bgImage, body, heading, list
           <Heading>{heading}</Heading>
           <p>{body}</p>
           <List>
-            {list.map(item => {
-              return (
-                <ListItem key={item._key}>{item.item}</ListItem>
-              )
-            })}
+            {list.map(item => (
+              <ListItem key={item._key}>{item.item}</ListItem>
+            ))}
           </List>
-          <StyledLink to='/services'>{ctaText}</StyledLink>
+          <StyledLink to="/services">{ctaText}</StyledLink>
         </TextContainer>
       </Container>
     </BgImage>
@@ -42,6 +42,7 @@ const TextContainer = styled.div`
   padding: 1rem;
   max-width: 95%;
   width: 41.0625rem;
+  border-radius: 5px;
 
   @media screen and (min-width: 50rem) {
     margin: auto auto auto 0;
@@ -79,7 +80,7 @@ const StyledLink = styled(Link)`
   font-size: 1rem;
   font-weight: 900;
   line-height: 150%;
-  margin-top: .875rem;
+  margin-top: 0.875rem;
   position: relative;
   width: max-content;
 
@@ -87,8 +88,8 @@ const StyledLink = styled(Link)`
     background-image: url(${linkArrow});
     background-size: contain;
     background-repeat: no-repeat;
-    content: '';
-    height: .75rem;
+    content: "";
+    height: 0.75rem;
     left: 105%;
     position: absolute;
     top: 55%;

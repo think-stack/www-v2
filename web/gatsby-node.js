@@ -6,8 +6,14 @@
 
 // You can delete this file if you're not using it
 
-exports.createPages = async ({graphql, actions, reporter}) => {
-  const {createPage} = actions
+const express = require("express")
+
+exports.onCreateDevServer = ({ app }) => {
+  app.use(express.static("public"))
+}
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
 
   const result = await graphql(`
     {
@@ -48,7 +54,6 @@ exports.createPages = async ({graphql, actions, reporter}) => {
           }
         }
       }
-
     }
   `)
 
@@ -65,11 +70,11 @@ exports.createPages = async ({graphql, actions, reporter}) => {
 
     createPage({
       path,
-      component: require.resolve('./src/templates/campaignTemplate.js'),
+      component: require.resolve("./src/templates/campaignTemplate.js"),
       context: {
         slug: edge.node.slug.current,
         id: edge.node.id,
-      }
+      },
     })
   })
 
@@ -78,27 +83,29 @@ exports.createPages = async ({graphql, actions, reporter}) => {
 
     createPage({
       path,
-      component: require.resolve('./src/templates/caseStudyTemplate.js'),
+      component: require.resolve("./src/templates/caseStudyTemplate.js"),
       context: {
         slug: edge.node.slug.current,
         id: edge.node.id,
-      }
+      },
     })
   })
 
   serviceEdges.forEach((edge, index) => {
     const path = `/services/${edge.node.slug.current}`
 
-    const nextSlug = edge.next ? edge.next.slug.current : serviceEdges[0].node.slug.current
+    const nextSlug = edge.next
+      ? edge.next.slug.current
+      : serviceEdges[0].node.slug.current
 
     createPage({
       path,
-      component: require.resolve('./src/templates/serviceTemplate.js'),
+      component: require.resolve("./src/templates/serviceTemplate.js"),
       context: {
         slug: edge.node.slug.current,
         id: edge.node.id,
         nextSlug,
-      }
+      },
     })
   })
 }

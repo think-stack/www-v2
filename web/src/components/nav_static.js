@@ -132,7 +132,7 @@ function Nav({ navActive, navToggle }) {
                 </Link>
                 <ul className={classes.submenu}>
                   {services.map(service => (
-                    <li>
+                    <li key={service.label}>
                       <Link to={service.path} className={classes.link}>
                         <Typography variant="subtitle2" component="span">
                           {service.label}
@@ -143,7 +143,7 @@ function Nav({ navActive, navToggle }) {
                 </ul>
               </li>
               {pages.map(page => (
-                <li className={classes.listItem}>
+                <li key={page.label} className={classes.listItem}>
                   <Link to={page.path} className={classes.link}>
                     <Typography variant="subtitle1" component="span">
                       {page.label}

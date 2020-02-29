@@ -15,7 +15,7 @@ import Contact from "../components/campaignContact"
 export default function CampaignOld({ data }) {
   const { campaign } = data
   return (
-    <Layout showFooter={true}>
+    <Layout>
       <Container>
         <Hero>
           <HeroContainer>

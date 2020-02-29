@@ -14,10 +14,9 @@ import H2 from "../components/headings/h2"
 export default function AboutPage({ data }) {
   const { feature, hero, values } = data
   const team = data.team.nodes[0].member
-  console.log(team)
 
   return (
-    <Layout showFooter={true}>
+    <Layout>
       <SEO title="Who We Are" />
       <AltHero hero={hero} />
       <ValueSection>

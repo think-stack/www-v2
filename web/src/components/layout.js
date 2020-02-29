@@ -104,7 +104,7 @@ const theme = createMuiTheme({
   },
 })
 
-const Layout = ({ children, showFooter }) => {
+const Layout = ({ children }) => {
   const [navActive, setNavActive] = useState(false)
   const toggle = () => setNavActive(!navActive)
 

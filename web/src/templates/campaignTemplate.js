@@ -17,7 +17,7 @@ export default function Campaign({ data }) {
   const { campaign } = data
   // color={`var(--darkGreen)`}
   return (
-    <Layout showFooter={true}>
+    <Layout>
       <Container>
         <Box mt={30}>
           <Grid container spacing={10}>

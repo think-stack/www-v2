@@ -1,13 +1,13 @@
-import React from 'react'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
+import React from "react"
+import Img from "gatsby-image"
+import styled from "styled-components"
 
-export default function TeamCard ({content}) {
+export default function TeamCard({ content }) {
   return (
     <ListItem>
       <Figure after={content.bio}>
-        <Img fixed={content.image.asset.fixed} style={{maxWidth: `100%`}} />
-        <BioContainer className='bio-container'>
+        <Img fluid={content.image.asset.fluid} style={{ maxWidth: `100%` }} />
+        <BioContainer className="bio-container">
           <p>{content.bio}</p>
         </BioContainer>
       </Figure>
@@ -28,7 +28,7 @@ const Figure = styled.figure`
 
   &:hover {
     .bio-container {
-      background-color: rgba(36, 76, 90, .85);
+      background-color: rgba(36, 76, 90, 0.85);
 
       p {
         visibility: visible;
@@ -50,7 +50,7 @@ const Figure = styled.figure`
 `
 
 const BioContainer = styled.div`
-  background-color: rgba(36, 76, 90, .0);
+  background-color: rgba(36, 76, 90, 0);
   height: 100%;
   left: 0;
   padding: 1.25rem;
@@ -65,7 +65,6 @@ const BioContainer = styled.div`
     visibility: hidden;
   }
 `
-
 
 const H2 = styled.h2`
   font-size: 2rem;

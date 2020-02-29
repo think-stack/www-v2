@@ -1,31 +1,31 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import Container from '../components/uContentContainer'
-import AltHero from '../components/alternateHero'
-import ValueCard from '../components/valueCard'
-import TeamCard from '../components/teamCard'
-import AltFeature from '../components/altFeatureBgImage'
-import H2 from '../components/headings/h2'
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Container from "../components/uContentContainer"
+import AltHero from "../components/alternateHero"
+import ValueCard from "../components/valueCard"
+import TeamCard from "../components/teamCard"
+import AltFeature from "../components/altFeatureBgImage"
+import H2 from "../components/headings/h2"
 
-export default function AboutPage ({data}) {
-  const { feature, hero, team, values } = data
+export default function AboutPage({ data }) {
+  const { feature, hero, values } = data
+  const team = data.team.nodes[0].member
+  console.log(team)
 
   return (
     <Layout showFooter={true}>
-      <SEO title='Who We Are' />
+      <SEO title="Who We Are" />
       <AltHero hero={hero} />
       <ValueSection>
         <Container>
           <ValueGridContainer>
-            {values.edges.map(item => {
-              return (
-                <ValueCard content={item.node} />
-              )
-            })}
+            {values.edges.map(item => (
+              <ValueCard key={item.node.id} content={item.node} />
+            ))}
           </ValueGridContainer>
         </Container>
       </ValueSection>
@@ -33,11 +33,9 @@ export default function AboutPage ({data}) {
         <Container>
           <TeamHeading>Team</TeamHeading>
           <TeamGridContainer>
-            {team.edges.map(item => {
-              return (
-                <TeamCard content={item.node} />
-              )
-            })}
+            {team.map(item => (
+              <TeamCard key={item.id} content={item} />
+            ))}
           </TeamGridContainer>
         </Container>
       </TeamSection>
@@ -82,7 +80,7 @@ const TeamGridContainer = styled.ul`
 
 export const query = graphql`
   query AboutQuery {
-    hero: sanityPageHero(title: {regex: "/who/i"}) {
+    hero: sanityPageHero(title: { regex: "/who/i" }) {
       heroTitle
       body
       bgImage {
@@ -111,25 +109,25 @@ export const query = graphql`
       }
     }
 
-    team: allSanityTeam {
-      edges {
-        node {
+    team: allSanityTeamMembers {
+      nodes {
+        member {
+          image {
+            asset {
+              fluid(maxWidth: 500) {
+                ...GatsbySanityImageFluid_noBase64
+              }
+            }
+          }
           name
           jobTitle
           bio
           id
-          image{
-            asset {
-              fixed(width: 400, height: 400) {
-                ...GatsbySanityImageFixed_noBase64
-              }
-            }
-          }
         }
       }
     }
 
-    feature: sanityFeaturedBgImage(title: {regex: "/who/i"}) {
+    feature: sanityFeaturedBgImage(title: { regex: "/who/i" }) {
       title
       heading
       body

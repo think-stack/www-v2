@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Box, Container, Typography } from "@material-ui/core"
+import { Box, Container, Typography, Grid } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import BlockContent from "@sanity/block-content-to-react"
 import Img from "gatsby-image"
@@ -14,12 +14,20 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "50%",
     color: theme.palette.common.white,
   },
+  heroTitle: {
+    fontSize: "2.5rem",
+  },
   item: {
     backgroundSize: "cover",
     backgroundPosition: "50%",
     "& p:last-child": {
       margin: 0,
     },
+  },
+  itemTitle: {
+    fontSize: "2rem",
+    color: "#244b5a",
+    fontWeight: 400,
   },
 }))
 
@@ -40,26 +48,60 @@ export default function SelfMadePage({ data }) {
         }}
       >
         <Container>
-          <Typography variant="h4" component="h1">
+          <Typography
+            variant="subtitle1"
+            component="h1"
+            className={classes.heroTitle}
+          >
             {hero.heroTitle}
           </Typography>
           <Box maxWidth={600}>
-            <Typography variant="body">{hero.body}</Typography>
+            <Typography variant="body1">{hero.body}</Typography>
           </Box>
         </Container>
       </Box>
-      {items.edges.map((item, index) => (
-        <Box key={item.id} py={10} className={classes.item}>
+      {items.nodes.map((item, index) => (
+        <Box
+          key={item.id}
+          py={10}
+          className={classes.item}
+          bgcolor={index % 2 === 0 ? "" : "#EEE"}
+        >
           <Container>
-            <Img fluid={item.node.image.asset.fluid} />
-            <Box
-              display="flex"
-              justifyContent={index % 2 === 0 ? "flex-end" : "flex-start"}
+            <Grid
+              container
+              direction={index % 2 === 0 ? "row-reverse" : "row"}
+              justify="space-between"
             >
-              <Box p={5} bgcolor="white" maxWidth={500}>
-                <BlockContent blocks={item.node.description} />
-              </Box>
-            </Box>
+              <Grid item lg={5}>
+                <Box py={5} textAlign={index % 2 === 0 ? "right" : ""}>
+                  <Typography
+                    variant="subtitle1"
+                    component="h2"
+                    className={classes.itemTitle}
+                  >
+                    {item.title}
+                  </Typography>
+                  <BlockContent blocks={item.description} />
+                </Box>
+              </Grid>
+              <Grid item lg={5}>
+                <Box
+                  display="flex"
+                  maxWidth={500}
+                  justifyContent={index % 2 === 0 ? "flex-end" : ""}
+                >
+                  <Img
+                    fluid={item.image.asset.fluid}
+                    style={{
+                      alignSelf: `center`,
+                      justifySelf: `center`,
+                      width: 200,
+                    }}
+                  />
+                </Box>
+              </Grid>
+            </Grid>
           </Container>
         </Box>
       ))}
@@ -81,16 +123,14 @@ export const query = graphql`
       }
     }
     items: allSanityTechStackItem {
-      edges {
-        node {
-          id
-          title
-          description: _rawDescription(resolveReferences: { maxDepth: 10 })
-          image {
-            asset {
-              fluid {
-                src
-              }
+      nodes {
+        id
+        title
+        description: _rawDescription(resolveReferences: { maxDepth: 10 })
+        image {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid_noBase64
             }
           }
         }

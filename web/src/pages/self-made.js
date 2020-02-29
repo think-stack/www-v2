@@ -13,12 +13,20 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: "50%",
     color: theme.palette.common.white,
   },
+  heroTitle: {
+    fontSize: "2.5rem",
+  },
   item: {
     backgroundSize: "cover",
     backgroundPosition: "50%",
     "& p:last-child": {
       margin: 0,
     },
+  },
+  itemTitle: {
+    fontSize: "2rem",
+    color: "#244b5a",
+    fontWeight: 400,
   },
 }))
 
@@ -39,21 +47,25 @@ export default function SelfMadePage({ data }) {
         }}
       >
         <Container>
-          <Typography variant="h4" component="h1">
+          <Typography
+            variant="subtitle1"
+            component="h1"
+            className={classes.heroTitle}
+          >
             {hero.heroTitle}
           </Typography>
           <Box maxWidth={600}>
-            <Typography variant="body">{hero.body}</Typography>
+            <Typography variant="body1">{hero.body}</Typography>
           </Box>
         </Container>
       </Box>
-      {items.edges.map((item, index) => (
+      {items.nodes.map((item, index) => (
         <Box
           key={item.id}
           py={10}
           className={classes.item}
           style={{
-            backgroundImage: `url(${item.node.bgImage.asset.fluid.src})`,
+            backgroundImage: `url(${item.bgImage.asset.fluid.src})`,
           }}
         >
           <Container>
@@ -62,7 +74,14 @@ export default function SelfMadePage({ data }) {
               justifyContent={index % 2 === 0 ? "flex-end" : "flex-start"}
             >
               <Box p={5} bgcolor="white" maxWidth={500}>
-                <BlockContent blocks={item.node.description} />
+                <Typography
+                  variant="subtitle1"
+                  component="h2"
+                  className={classes.itemTitle}
+                >
+                  {item.title}
+                </Typography>
+                <BlockContent blocks={item.description} />
               </Box>
             </Box>
           </Container>
@@ -86,16 +105,14 @@ export const query = graphql`
       }
     }
     items: allSanitySelfMadeItem {
-      edges {
-        node {
-          id
-          title
-          description: _rawDescription(resolveReferences: { maxDepth: 10 })
-          bgImage {
-            asset {
-              fluid {
-                src
-              }
+      nodes {
+        id
+        title
+        description: _rawDescription(resolveReferences: { maxDepth: 10 })
+        bgImage {
+          asset {
+            fluid {
+              src
             }
           }
         }

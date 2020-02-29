@@ -144,11 +144,19 @@ function Nav({ navActive, navToggle }) {
               </li>
               {pages.map(page => (
                 <li key={page.label} className={classes.listItem}>
-                  <Link to={page.path} className={classes.link}>
-                    <Typography variant="subtitle1" component="span">
-                      {page.label}
-                    </Typography>
-                  </Link>
+                  {page.path.indexOf("http") !== -1 ? (
+                    <a href={page.path} className={classes.link}>
+                      <Typography variant="subtitle1" component="span">
+                        {page.label}
+                      </Typography>
+                    </a>
+                  ) : (
+                    <Link to={page.path} className={classes.link}>
+                      <Typography variant="subtitle1" component="span">
+                        {page.label}
+                      </Typography>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

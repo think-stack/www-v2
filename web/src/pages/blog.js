@@ -52,7 +52,7 @@ function Blog({ data }) {
         <Container>
           <Grid container spacing={5}>
             {posts.map(post => (
-              <Grid item xs={12} lg={4}>
+              <Grid item xs={12} md={6} lg={4}>
                 <Box mt={3}>
                   <img
                     src={post.feature_image.url}

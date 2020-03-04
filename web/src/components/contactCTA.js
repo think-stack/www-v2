@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     },
     "& input[type='email']": {
       borderWidth: "0 0 2px",
-      borderColor: theme.palette.secondary.main,
+      borderColor: theme.palette.primary.main,
       backgroundColor: "transparent",
       width: "100%",
       padding: 5,
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
   btn: {
     border: 0,
     display: "inline-block",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
     borderRadius: "2rem",
     padding: "0.75rem 2rem",
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       textDecoration: "none",
       backgroundColor: theme.palette.common.white,
-      color: theme.palette.secondary.dark,
+      color: theme.palette.primary.dark,
     },
   },
   errors: {

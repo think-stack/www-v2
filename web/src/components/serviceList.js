@@ -1,22 +1,17 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
+import ContentContainer from "./uContentContainer"
+import ServiceItem from "./serviceItem"
 
-import ContentContainer from './uContentContainer'
-import ServiceItem from './serviceItem'
-
-export default function ServiceList ({ services }) {
-
+export default function ServiceList({ services }) {
   return (
     <StyledSection>
       <ContentContainer>
         <StyledHeading>service buckets</StyledHeading>
         <StyledList>
           {services.map((item, index) => {
-            return (
-                <ServiceItem service={item} key={item.node.id} />
-              )
-            })
-          }
+            return <ServiceItem service={item} key={item.node.id} />
+          })}
         </StyledList>
       </ContentContainer>
     </StyledSection>
@@ -43,8 +38,4 @@ const StyledList = styled.ul`
   @media screen and (max-width: 1080px) {
     overflow: scroll;
   }
-`
-
-const Container = styled(ContentContainer)`
-  overflow: hidden;
 `

@@ -65,7 +65,7 @@ module.exports = {
     {
       resolve: "gatsby-source-hubspot",
       options: {
-        key: "f4909e49-db8a-4ffd-8512-e68832327968",
+        key: process.env.HUBSPOT_API_KEY,
         filters: {
           state: "PUBLISHED",
         },

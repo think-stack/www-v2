@@ -38,14 +38,14 @@ const size = {
   large: 1280,
 }
 
-const above = Object.keys(size).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (min-width: ${size[label]}px) {
-      ${css(...args)}
-    }
-  `
-  return acc
-}, {})
+// const above = Object.keys(size).reduce((acc, label) => {
+//   acc[label] = (...args) => css`
+//     @media (min-width: ${size[label]}px) {
+//       ${css(...args)}
+//     }
+//   `
+//   return acc
+// }, {})
 
 const below = Object.keys(size).reduce((acc, label) => {
   acc[label] = (...args) => css`
@@ -103,13 +103,13 @@ const StyledContentContainer = styled.div`
   }
 `
 
-const StyledHeading = styled.h2`
-  color: var(--darkGreen);
-  font-size: 39px;
-  font-weight: 300;
-  line-height: 48px;
-  margin-bottom: 0;
-`
+// const StyledHeading = styled.h2`
+//   color: var(--darkGreen);
+//   font-size: 39px;
+//   font-weight: 300;
+//   line-height: 48px;
+//   margin-bottom: 0;
+// `
 
 const StyledP = styled.p`
   color: var(--black);

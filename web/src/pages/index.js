@@ -1,15 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
-
 import Layout from "../components/layout"
-// import Image from "../components/image"
 import SEO from "../components/seo"
 import BgImageHero from "../components/bgImageHero"
 import HpFeatures from "../components/hpFeatures"
 import FullWidthEditorial from "../components/fullWidthEditorial"
 import FeatureBgImage from "../components/featureBgImage"
 import Cta from "../components/primaryCta"
-import featuredBgImage from "../../../studio/schemas/documents/featuredBgImage"
 
 const IndexPage = ({ data }) => {
   const {

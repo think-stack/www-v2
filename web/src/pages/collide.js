@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
@@ -143,28 +143,4 @@ const GridContainer = styled.ul`
   grid-column-gap: 1.25rem;
   grid-row-gap: 1.25rem;
   list-style: none;
-`
-const Figure = styled.figure`
-  margin: auto;
-  max-width: 80%;
-`
-
-const Body = styled.div`
-  margin: auto;
-  text-align: center;
-  width: 80%;
-
-  h2 {
-    font-size: 1.602rem;
-  }
-`
-
-const Counter = styled.div`
-  display: flex;
-  flex: 0 1 auto;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 5rem;
-  text-align: center;
-  width: 100%;
 `

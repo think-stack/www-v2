@@ -1,40 +1,39 @@
-import React from 'react'
-import styled from 'styled-components'
-import StripeCheckout from 'react-stripe-checkout'
-import icon from '../images/ts-monogram-green.svg'
+import React from "react"
+import styled from "styled-components"
+import StripeCheckout from "react-stripe-checkout"
+import icon from "../images/ts-monogram-green.svg"
 
-export default function Checkout ({cart, cartTotal}) {
+export default function Checkout({ cart, cartTotal }) {
   const onToken = async (token, addresses) => {
     const items = cart.map(([sku, quantity]) => ({
-      type: 'sku',
+      type: "sku",
       parent: sku.id,
-      quantity
+      quantity,
     }))
 
-    console.log(items)
+    // console.log(items)
 
-    let response
     try {
-      response = await fetch('/.netlify/functions/orderCreate', {
-        method: 'POST',
+      await fetch("/.netlify/functions/orderCreate", {
+        method: "POST",
         body: JSON.stringify({
           token,
           order: {
-            currency: 'usd',
+            currency: "usd",
             items,
             shipping: {
               name: addresses.shipping_name,
               address: {
                 line1: addresses.shipping_address_line1,
-                line2: addresses.shipping_address_line2 || '',
+                line2: addresses.shipping_address_line2 || "",
                 city: addresses.shipping_address_city,
                 state: addresses.shipping_address_state,
                 postal_code: addresses.shipping_address_zip,
-                country: addresses.shipping_address_country_code
-              }
-            }
-          }
-        })
+                country: addresses.shipping_address_country_code,
+              },
+            },
+          },
+        }),
       }).then(response => response.json())
     } catch (err) {
       alert(err.message)
@@ -46,7 +45,7 @@ export default function Checkout ({cart, cartTotal}) {
   return (
     <StripeCheckout
       token={onToken}
-      stripeKey='pk_live_VGxOYq85r4MUMojIWSoDIEDv00STYOLccO'
+      stripeKey="pk_live_VGxOYq85r4MUMojIWSoDIEDv00STYOLccO"
       name="Collide" // the pop-in header title
       description={`${cart.length} Items`} // the pop-in header subtitle
       image={icon} // the pop-in header image (default none)
@@ -70,14 +69,14 @@ const Button = styled.button`
   border: none;
   border-radius: 2rem;
   color: var(--white);
-  font-family: 'TTSupermolot-Regular';
-  font-size: .75rem;
+  font-family: "TTSupermolot-Regular";
+  font-size: 0.75rem;
   font-weight: 900;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
   line-height: 150%;
   margin-top: 2rem;
   min-width: 6.5625rem;
-  padding: .75rem 2rem;
+  padding: 0.75rem 2rem;
   text-transform: uppercase;
 
   &:hover {

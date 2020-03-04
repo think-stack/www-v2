@@ -1,21 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from "styled-components"
 import Layout from "../components/layout"
 import Container from "../components/uContentContainer"
 import Img from "gatsby-image"
-import BackgroundImage from "gatsby-background-image"
 import H2 from "../components/headings/h2"
 import Form from "../components/campaignForm"
-import Event from "../components/campaignEvents"
 import CampaignEvent from "../components/campaignEvents"
 import Contact from "../components/campaignContact"
-// import PortableText from '../components/portableText/portableText'
 import { Grid, Box } from "@material-ui/core"
 
 export default function Campaign({ data }) {
   const { campaign } = data
-  // color={`var(--darkGreen)`}
   return (
     <Layout>
       <Container>

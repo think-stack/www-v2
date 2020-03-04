@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import HubspotForm from 'react-hubspot-form'
+import HubspotForm from "react-hubspot-form"
 
 export default function CampaignForm() {
   return (
@@ -16,7 +16,7 @@ export default function CampaignForm() {
   )
 }
 
-const Form = styled.form`
+const Form = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem auto 5rem;

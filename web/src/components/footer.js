@@ -7,6 +7,7 @@ import Twitter from "../components/icons/twitter"
 import Instagram from "../components/icons/instagram"
 // import logo from "../images/ts-monogram-green.svg"
 import { makeStyles } from "@material-ui/core/styles"
+import HubspotForm from "react-hubspot-form"
 
 const useStyles = makeStyles(theme => ({
   main: {
@@ -43,6 +44,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   btn: {
+    border: 0,
     display: "inline-block",
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.common.white,
@@ -62,14 +64,30 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.secondary.dark,
     },
   },
-  formWrapper: {
+  form: {
+    margin: 0,
+    color: "white",
+    maxWidth: 300,
     "& label": {
-      color: theme.palette.common.white,
+      display: "none",
+    },
+    "& input[type='email']": {
+      backgroundColor: "transparent",
+      border: 0,
+      borderBottom: "2px #80b09c solid",
+      width: "100%",
+      color: "white",
+      fontFamily: '"Open Sans", serif',
+      fontSize: "1rem",
+      outline: "none",
     },
     [theme.breakpoints.down("sm")]: {
       marginTop: 50,
       marginBottom: 50,
     },
+  },
+  errors: {
+    display: ["none", "!important"],
   },
 }))
 
@@ -87,18 +105,16 @@ export default function Footer() {
     <Container>
       <Grid container spacing={0} alignItems="flex-end">
         <Grid item xs={12} md={4}>
-          <Box className={classes.formWrapper}>
-            <iframe
-              src="/form.html"
-              frameBorder="0"
-              style={{
-                margin: 0,
-                width: "100%",
-                height: 88,
-                maxWidth: 320,
-              }}
-            ></iframe>
-          </Box>
+          <HubspotForm
+            portalId="6503958"
+            formId="f5d160c9-743b-4705-8ff8-ca20a5a7d7b3"
+            onSubmit={() => console.log("Submit!")}
+            onReady={form => console.log("Form ready!")}
+            loading={<div></div>}
+            cssClass={classes.form}
+            submitButtonClass={classes.btn}
+            errorMessageClass={classes.errors}
+          />
         </Grid>
         <Grid item xs={12} md={4}>
           <Box textAlign="center" className={classes.socialWrapper}>

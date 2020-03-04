@@ -1,19 +1,19 @@
 import React, { useState, Component } from "react"
 import { graphql } from "gatsby"
-import styled from 'styled-components'
+import styled from "styled-components"
 
 import Layout from "../components/layout"
-import Container from '../components/uContentContainer'
-import Img from 'gatsby-image'
+import Container from "../components/uContentContainer"
+import Img from "gatsby-image"
 import SEO from "../components/seo"
-import CTA from '../components/primaryCta'
-import Product from '../components/collideProduct'
-import Cart from '../components/cart'
+import CTA from "../components/primaryCta"
+import Product from "../components/collideProduct"
+import Cart from "../components/cart"
 import ContentContainer from "../components/uContentContainer"
 
 export const query = graphql`
   query MyQuery {
-    hero: sanityPageHero(title: {regex: "/collide/i"}) {
+    hero: sanityPageHero(title: { regex: "/collide/i" }) {
       heroTitle
       body
       bgImage {
@@ -25,7 +25,7 @@ export const query = graphql`
       }
     }
 
-    subHead: sanityStandardCta(title: {regex: "/collide/i"}) {
+    subHead: sanityStandardCta(title: { regex: "/collide/i" }) {
       heading
       body
     }
@@ -52,17 +52,16 @@ export const query = graphql`
   }
 `
 
-
-export default function CollidePage ({ data }) {
-  const [ cart, setCart ] = useState([])
+export default function CollidePage({ data }) {
+  const [cart, setCart] = useState([])
   const { hero, products, subHead } = data
 
-  const [ isCartVisible, setCartVisibility ] = useState(false)
+  const [isCartVisible, setCartVisibility] = useState(false)
   const toggleCartVisibility = () => {
     setCartVisibility(!isCartVisible)
   }
 
-  const addProductToCart = (e) => {
+  const addProductToCart = e => {
     const { dataset } = e.target
     const item = {
       name: dataset.name,
@@ -77,8 +76,8 @@ export default function CollidePage ({ data }) {
   }
 
   return (
-    <Layout showFooter={true}>
-      <SEO title='Collide' />
+    <Layout>
+      <SEO title="Collide" />
       <Hero>
         <FlexContainer>
           <ContentContainer>
@@ -90,16 +89,20 @@ export default function CollidePage ({ data }) {
           </ContentContainer>
         </FlexContainer>
       </Hero>
-      <Cart products={cart} isCartVisible={isCartVisible} toggleCartVisibility={toggleCartVisibility}/>
+      <Cart
+        products={cart}
+        isCartVisible={isCartVisible}
+        toggleCartVisibility={toggleCartVisibility}
+      />
       <CTA content={subHead} />
       <section>
         <Container>
           <GridContainer>
-            {products.edges.sort((a, b) => a.node.order - b.node.order).map(item => {
-              return (
-                <Product product={item} addProduct={addProductToCart} />
-              )
-            })}
+            {products.edges
+              .sort((a, b) => a.node.order - b.node.order)
+              .map(item => {
+                return <Product product={item} addProduct={addProductToCart} />
+              })}
           </GridContainer>
         </Container>
       </section>
@@ -107,8 +110,7 @@ export default function CollidePage ({ data }) {
   )
 }
 
-const Hero = styled.section`
-`
+const Hero = styled.section``
 
 const FlexContainer = styled.div`
   display: flex;
@@ -166,4 +168,3 @@ const Counter = styled.div`
   text-align: center;
   width: 100%;
 `
-

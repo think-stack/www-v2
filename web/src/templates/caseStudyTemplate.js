@@ -1,17 +1,16 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import styled from 'styled-components'
-import Layout from '../components/layout'
-import Container from '../components/uContentContainer'
-import BackgroundImage from 'gatsby-background-image'
-import H2 from '../components/headings/h2'
-import PortableText from '../components/portableText/portableText'
+import React from "react"
+import { graphql } from "gatsby"
+import styled from "styled-components"
+import Layout from "../components/layout"
+import Container from "../components/uContentContainer"
+import BackgroundImage from "gatsby-background-image"
+import H2 from "../components/headings/h2"
+import PortableText from "../components/portableText/portableText"
 
 export default function CaseStudy({ data }) {
-
   const { caseStudy: cs } = data
   return (
-    <Layout showFooter={true}>
+    <Layout>
       <Hero fluid={cs.heroImage.asset.fluid}>
         <Container>
           <H2 heading={cs.title} color={`var(--white)`} />
@@ -40,7 +39,7 @@ const Hero = styled(BackgroundImage)`
 
 export const query = graphql`
   query CaseStudyQuery($id: String!) {
-    caseStudy: sanityCaseStudy(id: {eq: $id}) {
+    caseStudy: sanityCaseStudy(id: { eq: $id }) {
       title
       hero
       heroImage {
@@ -50,7 +49,7 @@ export const query = graphql`
           }
         }
       }
-      _rawContent(resolveReferences: {maxDepth: 10})
+      _rawContent(resolveReferences: { maxDepth: 10 })
     }
   }
 `

@@ -17,7 +17,7 @@ export default function Campaign({ data }) {
   const { campaign } = data
   // color={`var(--darkGreen)`}
   return (
-    <Layout showFooter={true}>
+    <Layout>
       <Container>
         <Box mt={30}>
           <Grid container spacing={10}>
@@ -26,10 +26,14 @@ export default function Campaign({ data }) {
               <Box mt={4}>{campaign.heroBody}</Box>
             </Grid>
             <Grid item xs={12} lg={6}>
-              <Img
-                imgStyle={{ objectFit: `contain` }}
-                fluid={campaign.heroImage.asset.fluid}
-              />
+              <Box maxWidth={300} marginX="auto">
+                <Img
+                  imgStyle={{
+                    objectFit: "contain",
+                  }}
+                  fluid={campaign.heroImage.asset.fluid}
+                />
+              </Box>
             </Grid>
           </Grid>
         </Box>

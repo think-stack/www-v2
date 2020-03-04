@@ -627,3 +627,7 @@ a {
     font-size: 100%;
   }
 }
+
+.tl-edges {
+  overflow: hidden;
+}

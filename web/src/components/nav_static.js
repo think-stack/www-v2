@@ -1,6 +1,6 @@
 import React from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import Header from "./header"
 import Footer from "../components/footer"
 import { Dialog, Box, Container, Typography } from "@material-ui/core"
@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
   root: {
     position: "fixed",
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.dark,
     top: 0,
     bottom: 0,
     left: 0,
@@ -97,7 +97,7 @@ function Nav({ navActive, navToggle }) {
     },
     {
       label: "Blog",
-      path: "https://blog.thinkstack.co/",
+      path: "/blog",
     },
     {
       label: "Contact",

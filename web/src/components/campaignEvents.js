@@ -1,10 +1,9 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-import BackgroundImage from 'gatsby-background-image'
-import styled from 'styled-components'
+import React from "react"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
+import styled from "styled-components"
 
-export default function CampaignEvent ({content}) {
+export default function CampaignEvent({ content }) {
   return (
     <StyledLink to={content.url}>
       <Figure>

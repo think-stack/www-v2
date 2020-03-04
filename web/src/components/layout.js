@@ -8,15 +8,9 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
 import Header from "../components/header"
 import Nav from "../components/nav_static"
-import Footer from "../components/footer"
-
-import { ThemeProvider } from "@material-ui/styles"
 import { createGlobalStyle } from "styled-components"
-import { createMuiTheme } from "@material-ui/core/styles"
-
 import * as fonts from "../fonts"
 import "./layout.css"
 
@@ -55,55 +49,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
 `
-
-const TTSupermolot = {
-  fontFamily: "TTSupermolot-Regular",
-  fontStyle: "normal",
-  fontDisplay: "swap",
-  fontWeight: 400,
-  src: `
-    local('TTSupermolot-Regular'),
-    url(${fonts.TTSupermolotRegular}) format('opentype')
-  `,
-}
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: "#244c5a",
-    },
-    secondary: {
-      light: "#dbe6df",
-      main: "#80b09c",
-      dark: "#244c5a",
-    },
-  },
-  typography: {
-    fontFamily: ["Open Sans", "sans-serif"].join(","),
-    subtitle1: {
-      fontFamily: "TTSupermolot-Regular",
-      fontWeight: 700,
-      fontSize: "1.6rem",
-      lineHeight: 1.5,
-      letterSpacing: "0.00938em",
-    },
-    subtitle2: {
-      fontFamily: "TTSupermolot-Regular",
-      fontWeight: 400,
-      fontSize: "1rem",
-      lineHeight: 1.3,
-      letterSpacing: "0.00938em",
-    },
-    button: {
-      fontFamily: "TTSupermolot-Regular",
-      fontWeight: 400,
-      fontSize: "1rem",
-      lineHeight: 1.3,
-      letterSpacing: "0.00938em",
-    },
-  },
-})
-
 const Layout = ({ children }) => {
   const [navActive, setNavActive] = useState(false)
   const toggle = () => setNavActive(!navActive)
@@ -119,7 +64,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Header
         siteTitle={data.site.siteMetadata.title}
         navActive={navActive}
@@ -129,7 +74,7 @@ const Layout = ({ children }) => {
       <Nav navActive={navActive} navToggle={toggle}></Nav>
       <GlobalStyle />
       <main>{children}</main>
-    </ThemeProvider>
+    </>
   )
 }
 

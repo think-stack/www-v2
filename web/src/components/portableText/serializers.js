@@ -1,13 +1,11 @@
 // import { Styled } from 'theme-ui';
 // import BlockRenderer from './block-renderer';
 // import Figure from './figure';
-import React from 'react'
-import FeaturedSolution from '../featuredSolution'
-import CaseStudyFeature from '../caseStudyFeature'
-import CaseStudyStats from '../caseStudyStats'
-import CaseStudyWideGraphic from '../caseStudyWideGraphic'
-import Services from '../services'
-import Quote from '../caseStudyQuote'
+import FeaturedSolution from "../featuredSolution"
+import CaseStudyFeature from "../caseStudyFeature"
+import CaseStudyStats from "../caseStudyStats"
+import CaseStudyWideGraphic from "../caseStudyWideGraphic"
+import Quote from "../caseStudyQuote"
 
 export default {
   // marks: {
@@ -18,11 +16,11 @@ export default {
     // block: BlockRenderer,
     // 'page-image': Figure,
     // 'featuredSolution': ({ node }) => <pre>{JSON.stringify(node, null, 2)}</pre>,
-    'caseStudyFeature': CaseStudyFeature,
-    'featuredSolution': FeaturedSolution,
-    'caseStudyStats': CaseStudyStats,
-    'wideGraphic': CaseStudyWideGraphic,
-    'quote': Quote,
+    caseStudyFeature: CaseStudyFeature,
+    featuredSolution: FeaturedSolution,
+    caseStudyStats: CaseStudyStats,
+    wideGraphic: CaseStudyWideGraphic,
+    quote: Quote,
     // 'caseStudyFeature': ({node}) => <pre>{JSON.stringify(node, null, 2)}</pre>
     // 'test': ({node}) => <pre>{JSON.stringify(node, null, 2)}</pre>,
     // 'serviceList': Services,
@@ -32,4 +30,4 @@ export default {
   // see: https://github.com/sanity-io/block-content-to-react#proptypes
   // list: Styled.ul,
   // listItem: Styled.li,
-};
+}

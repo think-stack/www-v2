@@ -1,22 +1,30 @@
-import React from 'react'
-import {getFluidGatsbyImage} from 'gatsby-source-sanity'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
-import H2 from './headings/h2'
+import React from "react"
+import { getFluidGatsbyImage } from "gatsby-source-sanity"
+import Img from "gatsby-image"
+import styled from "styled-components"
+import H2 from "./headings/h2"
 
-export default function CaseStudyWideGraphic ({node}) {
-
+export default function CaseStudyWideGraphic({ node }) {
   const sanityConfig = {
     projectId: `5k1h3ecs`,
     dataset: `prod`,
   }
 
   const imageAssetId = node.graphic.asset.id
-  const fluidProps = getFluidGatsbyImage(imageAssetId, {maxWidth: 3000}, sanityConfig)
+  const fluidProps = getFluidGatsbyImage(
+    imageAssetId,
+    { maxWidth: 3000 },
+    sanityConfig
+  )
 
   return (
     <section>
-      <H2 heading={node.title} color='var(--darkGreen)' align='center' weight='700'></H2>
+      <H2
+        heading={node.title}
+        color="var(--darkGreen)"
+        align="center"
+        weight="700"
+      ></H2>
       <Div>
         <ImgContainer>
           <Img fluid={fluidProps} />
@@ -28,7 +36,7 @@ export default function CaseStudyWideGraphic ({node}) {
 
 const Div = styled.div`
   margin-top: 4rem;
-  overflow: scroll;
+  overflow-x: scroll;
   width: 100%;
 `
 

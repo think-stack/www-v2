@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Container from "../components/uContentContainer"
@@ -9,7 +8,6 @@ import AltHero from "../components/alternateHero"
 import ValueCard from "../components/valueCard"
 import TeamCard from "../components/teamCard"
 import AltFeature from "../components/altFeatureBgImage"
-import H2 from "../components/headings/h2"
 
 export default function AboutPage({ data }) {
   const { feature, hero, values } = data

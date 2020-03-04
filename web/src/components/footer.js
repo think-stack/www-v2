@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { Container, Grid, Box, Button, Link } from "@material-ui/core"
+import { Container, Grid, Box, Link } from "@material-ui/core"
 import Linkedin from "../components/icons/linkedin"
 import Facebook from "../components/icons/facebook"
 import Twitter from "../components/icons/twitter"
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   btn: {
     border: 0,
     display: "inline-block",
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
     borderRadius: "2rem",
     padding: "0.75rem 2rem",
@@ -58,10 +58,11 @@ const useStyles = makeStyles(theme => ({
     letterSpacing: "0.2em",
     transition: "background-color 600ms ease, color 600ms ease",
     marginTop: 18,
+    cursor: "pointer",
     "&:hover": {
       textDecoration: "none",
       backgroundColor: theme.palette.common.white,
-      color: theme.palette.secondary.dark,
+      color: theme.palette.primary.dark,
     },
   },
   form: {
@@ -121,6 +122,7 @@ export default function Footer() {
             <a
               href="https://www.linkedin.com/company/thinkstack/"
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.socialLink}
             >
               <Linkedin />
@@ -128,6 +130,7 @@ export default function Footer() {
             <a
               href="https://www.facebook.com/thinkstacktech/"
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.socialLink}
             >
               <Facebook />
@@ -135,6 +138,7 @@ export default function Footer() {
             <a
               href="https://twitter.com/thinkstacktech"
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.socialLink}
             >
               <Twitter />
@@ -142,6 +146,7 @@ export default function Footer() {
             <a
               href="https://www.instagram.com/thinkstack/"
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.socialLink}
             >
               <Instagram />
@@ -153,6 +158,7 @@ export default function Footer() {
             <Box color="white">{data.heading.heading}</Box>
             <Link
               target="_blank"
+              rel="noopener noreferrer"
               href="mailto:sales@thinkstack.co"
               className={classes.btn}
             >

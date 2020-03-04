@@ -1,24 +1,29 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from 'styled-components'
-
-import BackgroundImage from 'gatsby-background-image'
+import styled from "styled-components"
+import BackgroundImage from "gatsby-background-image"
 import Layout from "../components/layout"
-import ContentContainer from '../components/uContentContainer'
+import ContentContainer from "../components/uContentContainer"
 import SEO from "../components/seo"
-// import Img from "gatsby-image"
-import ServiceList from '../components/serviceList'
+import ServiceList from "../components/serviceList"
 import CtaBgImage from "../components/ctaBgImage"
-import FullWidthEditorial from '../components/fullWidthEditorial'
-import Partners from '../components/partners'
-import ModalCta from '../components/modalCta'
+import FullWidthEditorial from "../components/fullWidthEditorial"
+import Partners from "../components/partners"
+import ModalCta from "../components/modalCta"
 
 export default function ServicesPage({ data }) {
-
-  const { hero, services, fullWidthCta, editorial, partners, modalCtaImg, modalBody } = data
+  const {
+    hero,
+    services,
+    fullWidthCta,
+    editorial,
+    partners,
+    modalCtaImg,
+    modalBody,
+  } = data
   const imageData = hero.imgLg.asset.fluid
 
-  return(
+  return (
     <Layout footer={true}>
       <SEO title="Services" />
       <StyledBgImage fluid={imageData}>
@@ -27,9 +32,12 @@ export default function ServicesPage({ data }) {
           <StyledBody>{hero.body}</StyledBody>
         </ContentContainer>
       </StyledBgImage>
-      <ServiceList services={services.edges}/>
+      <ServiceList services={services.edges} />
       <ModalCta icon={modalCtaImg} content={modalBody} />
-      <CtaBgImage cta={fullWidthCta} link='/services/incident-and-disaster-response' />
+      <CtaBgImage
+        cta={fullWidthCta}
+        link="/services/incident-and-disaster-response"
+      />
       <FullWidthEditorial content={editorial} centered={false} />
       <Partners partners={partners} />
     </Layout>
@@ -43,11 +51,6 @@ const StyledBgImage = styled(BackgroundImage)`
   min-height: 90vh;
   padding-bottom: 4rem;
 `
-const StyledContainer = styled.div`
-  margin-bottom: 48px;
-  margin-left: 100px;
-`
-
 const StyledHeading = styled.h1`
   color: var(--white);
   font-size: 48px;
@@ -65,7 +68,7 @@ const StyledBody = styled.p`
 
 export const query = graphql`
   query ServicesQuery {
-    hero: sanityPageHero(title: {eq: "Services"}) {
+    hero: sanityPageHero(title: { eq: "Services" }) {
       title
       body
 
@@ -78,7 +81,7 @@ export const query = graphql`
       }
     }
 
-    desktop: file(relativePath: {eq: "mario-gogh-VBLHICVh-lI-unsplash.jpg"}) {
+    desktop: file(relativePath: { eq: "mario-gogh-VBLHICVh-lI-unsplash.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 2400, quality: 100) {
           ...GatsbyImageSharpFluid
@@ -86,7 +89,9 @@ export const query = graphql`
       }
     }
 
-    services: allSanityService(filter: {slug: {current: {ne: "incident-and-disaster-response"}}}) {
+    services: allSanityService(
+      filter: { slug: { current: { ne: "incident-and-disaster-response" } } }
+    ) {
       edges {
         node {
           body
@@ -116,7 +121,7 @@ export const query = graphql`
       }
     }
 
-    fullWidthCta: sanityFullWidthCta(title: {regex: "/services/i"}) {
+    fullWidthCta: sanityFullWidthCta(title: { regex: "/services/i" }) {
       heading
       body
       ctaText
@@ -129,7 +134,7 @@ export const query = graphql`
       }
     }
 
-    editorial: sanityEditorial(title: {regex: "/services/i"}) {
+    editorial: sanityEditorial(title: { regex: "/services/i" }) {
       heading
       body
       img {
@@ -156,7 +161,7 @@ export const query = graphql`
       }
     }
 
-    modalCtaImg: file(relativePath: {eq: "BOTS-Badge 2.png"}) {
+    modalCtaImg: file(relativePath: { eq: "BOTS-Badge 2.png" }) {
       childImageSharp {
         fluid(maxWidth: 150) {
           ...GatsbyImageSharpFluid
@@ -164,7 +169,7 @@ export const query = graphql`
       }
     }
 
-    modalBody: sanityModalCta(title: {regex: "/services/i"}) {
+    modalBody: sanityModalCta(title: { regex: "/services/i" }) {
       title
       closedHeading
       openHeading

@@ -1,17 +1,16 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import TransitionLink, { TransitionState } from 'gatsby-plugin-transition-link'
-import posed from 'react-pose'
-import styled from 'styled-components'
-import BackgroundImage from 'gatsby-background-image'
-import Layout from '../components/layout'
-import ServicesHero from '../components/servicesHero'
+import React from "react"
+import { graphql } from "gatsby"
+import TransitionLink, { TransitionState } from "gatsby-plugin-transition-link"
+import posed from "react-pose"
+import styled from "styled-components"
+import Layout from "../components/layout"
+import ServicesHero from "../components/servicesHero"
 // TODO: add seo data
 // import SEO from "../components/seo"
-import ContentContainer from '../components/uContentContainer'
-import PortableText from '../components/portableText/portableText'
-import H2 from '../components/headings/h2'
-import ContactCTA from '../components/contactCTA'
+import ContentContainer from "../components/uContentContainer"
+import PortableText from "../components/portableText/portableText"
+import H2 from "../components/headings/h2"
+import ContactCTA from "../components/contactCTA"
 
 const transitionLength = 1.5
 
@@ -20,7 +19,7 @@ const exitTransition = {
   trigger: () => {
     if (document) {
       // Preventing overflow here make the animation smoother IMO
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden"
     }
   },
 }
@@ -32,14 +31,15 @@ const entryTransition = {
       // Ensuring we're at the top of the page when the page loads
       // prevents any additional JANK when the transition ends.
       window.scrollTo(0, 0)
-      document.body.style.overflow = 'visible'
+      document.body.style.overflow = "visible"
     }
   },
 }
 
-
 export default function ServiceTemplate(props) {
-  const {data: {service, nextPage}} = props
+  const {
+    data: { service, nextPage },
+  } = props
 
   return (
     <TransitionState>
@@ -58,7 +58,10 @@ export default function ServiceTemplate(props) {
               </GridContainer>
             </ContentContainer>
             <ContentContainer>
-              <H2 heading={service.serviceListTitle} color='var(--darkGreen)'></H2>
+              <H2
+                heading={service.serviceListTitle}
+                color="var(--darkGreen)"
+              ></H2>
               <ListContainer>
                 <PortableText blocks={props.data.service._rawInServices} />
               </ListContainer>
@@ -80,16 +83,16 @@ export default function ServiceTemplate(props) {
               />
             </SlidingHeader>
           </TransitionLink>
-            {/* {errors && <SEO title='GraphQL Error' />} */}
-            {/* {project && <SEO title={project.title || 'Untitled'} />} */}
+          {/* {errors && <SEO title='GraphQL Error' />} */}
+          {/* {project && <SEO title={project.title || 'Untitled'} />} */}
 
-            {/* {errors && ( */}
-              {/* <ContentContainer> */}
-                {/* <GraphQLErrorList errors={errors} /> */}
-              {/* </ContentContainer> */}
-            {/* )} */}
+          {/* {errors && ( */}
+          {/* <ContentContainer> */}
+          {/* <GraphQLErrorList errors={errors} /> */}
+          {/* </ContentContainer> */}
+          {/* )} */}
 
-            {/* {project && <Project {...project} />} */}
+          {/* {project && <Project {...project} />} */}
         </Layout>
       )}
     </TransitionState>
@@ -108,8 +111,7 @@ const SlidingHeader = posed.div({
       // When scrolling back to the top, how far should we actually go? Let's factor the height of our site's header into the equation.
       // const navbar = document.querySelector('header')
       // const navbarDimensions = navbar.getBoundingClientRect()
-      const distanceToTop =
-        element.getBoundingClientRect().top
+      const distanceToTop = element.getBoundingClientRect().top
 
       // And return that aggregate distance as the dynamic "y" value.
       return distanceToTop * -1
@@ -150,15 +152,13 @@ const GridContainer = styled.div`
   margin-bottom: 5.3125rem;
 
   > div:first-child {
-    border-radius: .25rem;
+    border-radius: 0.25rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(19.375rem, 1fr));
     grid-column-gap: 1.25rem;
     grid-row-gap: 1.25rem;
   }
 `
-
-
 
 const ListContainer = styled.div`
   margin: 2rem 0;
@@ -196,7 +196,7 @@ const ListContainer = styled.div`
 
 export const query = graphql`
   query ServiceTemplateQuery($id: String!, $nextSlug: String!) {
-    service: sanityService(id: {eq: $id}) {
+    service: sanityService(id: { eq: $id }) {
       title
       heroImage {
         asset {
@@ -207,10 +207,9 @@ export const query = graphql`
       }
       pageSubHead
       pageExcerpt
-      _rawBundles(resolveReferences: {maxDepth: 15})
+      _rawBundles(resolveReferences: { maxDepth: 15 })
       serviceListTitle
-      _rawInServices(resolveReferences: {maxDepth: 10})
-
+      _rawInServices(resolveReferences: { maxDepth: 10 })
 
       bundles {
         _key
@@ -223,9 +222,8 @@ export const query = graphql`
           }
         }
       }
-
     }
-    nextPage: sanityService(slug: {current: {eq: $nextSlug}}) {
+    nextPage: sanityService(slug: { current: { eq: $nextSlug } }) {
       title
       slug {
         current

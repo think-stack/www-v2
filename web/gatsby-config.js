@@ -62,6 +62,15 @@ module.exports = {
         auth: false,
       },
     },
+    {
+      resolve: "gatsby-source-hubspot",
+      options: {
+        key: "f4909e49-db8a-4ffd-8512-e68832327968",
+        filters: {
+          state: "PUBLISHED",
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

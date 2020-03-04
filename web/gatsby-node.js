@@ -54,6 +54,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
+
+      allHubspotPost {
+        nodes {
+          id
+          slug
+        }
+      }
     }
   `)
 
@@ -64,6 +71,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const campaigns = result.data.allSanityCampaign.edges || []
   const caseStudies = result.data.allSanityCaseStudy.edges || []
   const serviceEdges = result.data.allSanityService.edges || []
+  const posts = result.data.allHubspotPost.nodes || []
 
   campaigns.forEach((edge, index) => {
     const path = `/${edge.node.slug.current}`
@@ -105,6 +113,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         slug: edge.node.slug.current,
         id: edge.node.id,
         nextSlug,
+      },
+    })
+  })
+
+  posts.forEach((post, index) => {
+    const path = `/blog/${post.slug}`
+
+    createPage({
+      path,
+      component: require.resolve("./src/templates/post.js"),
+      context: {
+        slug: post.slug,
+        id: post.id,
       },
     })
   })

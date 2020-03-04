@@ -3,16 +3,40 @@ import { graphql } from "gatsby"
 import { Box, Container, Grid, Typography } from "@material-ui/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 import { makeStyles } from "@material-ui/core/styles"
-import SanitizedHTML from "react-sanitized-html"
-import TextTruncate from "react-text-truncate"
+// import SanitizedHTML from "react-sanitized-html"
+// import TextTruncate from "react-text-truncate"
+import ArrowIcon from "../images/link-arrow.svg"
+import { Link } from "gatsby"
 
 const useStyles = makeStyles(theme => ({
   img: {
     width: "100%",
-    height: 300,
+    height: 250,
     objectFit: "cover",
+  },
+  title: {
+    lineHeight: 1.2,
+    color: "#254c5b",
+  },
+  moreLink: {
+    fontWeight: 700,
+    lineHeight: "150%",
+    position: "relative",
+    color: "#254c5b",
+    "&::after": {
+      content: "''",
+      display: "block",
+      height: "0.75rem",
+      left: "105%",
+      position: "absolute",
+      top: "55%",
+      transform: "translateY(-50%)",
+      width: "1rem",
+      backgroundImage: `url(${ArrowIcon})`,
+      backgroundRepeat: "no-repeat",
+    },
   },
 }))
 
@@ -29,22 +53,29 @@ function Blog({ data }) {
           <Grid container spacing={5}>
             {posts.map(post => (
               <Grid item xs={12} lg={4}>
-                <Box>
+                <Box mt={3}>
                   <img
                     src={post.feature_image.url}
                     alt={post.feature_image.alt_text}
                     className={classes.img}
                   />
-                  <Typography variant="subtitle1" component="h3">
+                  <Typography
+                    variant="subtitle1"
+                    component="h3"
+                    className={classes.title}
+                    gutterBottom
+                  >
                     {post.title}
                   </Typography>
-                  <TextTruncate
-                    line={3}
-                    element="div"
-                    truncateText="…"
-                    text={post.meta.description}
-                    textTruncateChild={<a href="#">Read on</a>}
-                  />
+                  {post.meta.description}
+                  <Box mt={2}>
+                    <Link
+                      className={classes.moreLink}
+                      to={`/blog/${post.slug}`}
+                    >
+                      Read More
+                    </Link>
+                  </Box>
                 </Box>
               </Grid>
             ))}

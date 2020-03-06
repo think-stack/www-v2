@@ -96,16 +96,16 @@ function Nav({ navActive, navToggle }) {
       path: "/about",
     },
     {
+      label: "AWS Case Studies",
+      path: "/awsnpocu",
+    },
+    {
       label: "Blog",
       path: "/blog",
     },
     {
       label: "Contact",
       path: "/contact",
-    },
-    {
-      label: "AWS Case Studies",
-      path: "/awsnpocu",
     },
   ]
 

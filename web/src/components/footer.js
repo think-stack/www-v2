@@ -81,6 +81,7 @@ const useStyles = makeStyles(theme => ({
       fontFamily: '"Open Sans", serif',
       fontSize: "1rem",
       outline: "none",
+      borderRadius: 0,
     },
     [theme.breakpoints.down("sm")]: {
       marginTop: 50,

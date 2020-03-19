@@ -1,37 +1,47 @@
-import React from 'react'
-import styled from 'styled-components'
-import BackgroundImage from 'gatsby-background-image'
-import Img from 'gatsby-image'
-import Container from '../components/uContentContainer'
-import HubspotForm from 'react-hubspot-form'
+import React from "react"
+import styled from "styled-components"
+import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
+import Container from "../components/uContentContainer"
+import HubspotForm from "react-hubspot-form"
 
-export default function AltFeatureBgImg ({content}) {
+export default function AltFeatureBgImg({ content }) {
   return (
-    <BgImage fluid={content.bgImage.asset.fluid} style={{position: `relative`}}>
-      <Container>
-        <GridContainer>
-          <TextContainer>
-            <Heading>{content.heading}</Heading>
-            <p>{content.body}</p>
-            <CTA>
-              <p>Want to read more? Get your digital Book of Think|Stack for free.</p>
-              <Form>
-                <HubspotForm
-                  portalId="6503958"
-                  formId="035553fc-2d30-4361-a690-d04ec4dfaa9f"
-                  onSubmit={() => console.log("Submit!")}
-                  onReady={form => console.log("Form ready!")}
-                  loading={<div>Loading...</div>}
-                />
-              </Form>
-            </CTA>
-          </TextContainer>
-          <ImgWrapper>
-            <Img fluid={content.secImage.asset.fluid}  />
-          </ImgWrapper>
-        </GridContainer>
-      </Container>
-    </BgImage>
+    <>
+      {content.bgImage && (
+        <BgImage
+          fluid={content.bgImage.asset.fluid}
+          style={{ position: `relative` }}
+        >
+          <Container>
+            <GridContainer>
+              <TextContainer>
+                <Heading>{content.heading}</Heading>
+                <p>{content.body}</p>
+                <CTA>
+                  <p>
+                    Want to read more? Get your digital Book of Think|Stack for
+                    free.
+                  </p>
+                  <Form>
+                    <HubspotForm
+                      portalId="6503958"
+                      formId="035553fc-2d30-4361-a690-d04ec4dfaa9f"
+                      onSubmit={() => console.log("Submit!")}
+                      onReady={form => console.log("Form ready!")}
+                      loading={<div>Loading...</div>}
+                    />
+                  </Form>
+                </CTA>
+              </TextContainer>
+              <ImgWrapper>
+                <Img fluid={content.secImage.asset.fluid} />
+              </ImgWrapper>
+            </GridContainer>
+          </Container>
+        </BgImage>
+      )}
+    </>
   )
 }
 
@@ -47,7 +57,7 @@ const Form = styled.form`
   input {
     border: 2px solid var(--darkGreen);
     flex: 0 1 50%;
-    padding: .5rem;
+    padding: 0.5rem;
   }
 
   button {
@@ -58,7 +68,7 @@ const Form = styled.form`
     font-family: var(--headingFont);
     font-size: 1rem;
     line-height: 1.25rem;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     text-transform: capitalize;
 
     @media screen and (max-width: 37.5rem) {
@@ -102,7 +112,7 @@ const ImgWrapper = styled.div`
 
   .gatsby-image-wrapper {
     margin: auto;
-    top: -.5rem;
+    top: -0.5rem;
     left: 50%;
     transform: translateX(-50%);
     width: 23.125rem;
@@ -118,12 +128,11 @@ const Heading = styled.h2`
   font-family: var(--headingFont);
   font-size: 2.4375rem;
   font-weight: 300;
-  margin-bottom: .75rem;
+  margin-bottom: 0.75rem;
   line-height: 3rem;
 `
 
 const CTA = styled.div`
-
   p {
     font-weight: 700;
     margin-left: 0;

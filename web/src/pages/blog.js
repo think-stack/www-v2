@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Box, Container, Grid, Typography } from "@material-ui/core"
+import { Box, Container, Grid, Typography, Button } from "@material-ui/core"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 // import Img from "gatsby-image"
@@ -38,6 +38,34 @@ const useStyles = makeStyles(theme => ({
       backgroundRepeat: "no-repeat",
     },
   },
+  subscribeTitle: {
+    fontSize: "2.5rem",
+    lineHeight: 1.2,
+    color: "#254c5b",
+  },
+  btn: {
+    border: 0,
+    display: "inline-block",
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.common.white,
+    borderRadius: "2rem",
+    padding: "0.9rem 2rem 0.75rem",
+    textTransform: "uppercase",
+    fontFamily: "TTSupermolot-Regular",
+    fontSize: "1rem",
+    fontWeight: 900,
+    lineHeight: "1.25rem",
+    letterSpacing: "0.2em",
+    transition: "background-color 600ms ease, color 600ms ease",
+    marginTop: 18,
+    cursor: "pointer",
+    "&:hover": {
+      textDecoration: "none",
+      // backgroundColor: theme.palette.common.white,
+      backgroundColor: theme.palette.primary.dark,
+      // color: theme.palette.primary.dark,
+    },
+  },
 }))
 
 function Blog({ data }) {
@@ -47,7 +75,6 @@ function Blog({ data }) {
   return (
     <Layout>
       <SEO title="Blog" />
-      <Box>{/* <pre>{JSON.stringify(data, null, 4)}</pre> */}</Box>
       <Box my={20}>
         <Container>
           <Grid container spacing={5}>
@@ -81,6 +108,28 @@ function Blog({ data }) {
             ))}
           </Grid>
         </Container>
+        <Box
+          height={300}
+          mt={20}
+          maxWidth={600}
+          mx="auto"
+          p={10}
+          textAlign="center"
+        >
+          <Typography
+            variant="subtitle2"
+            component="h3"
+            gutterBottom
+            className={classes.subscribeTitle}
+          >
+            Subscribe To Our Blog!
+          </Typography>
+          <Box mt={2}>
+            <Button component={Link} className={classes.btn} to="#">
+              Subscribe
+            </Button>
+          </Box>
+        </Box>
       </Box>
     </Layout>
   )

@@ -108,7 +108,7 @@ function Blog({ data }) {
             ))}
           </Grid>
         </Container>
-        <Box
+        {/* <Box
           height={300}
           mt={20}
           maxWidth={600}
@@ -129,7 +129,7 @@ function Blog({ data }) {
               Subscribe
             </Button>
           </Box>
-        </Box>
+        </Box> */}
       </Box>
     </Layout>
   )

@@ -20,6 +20,7 @@ import teamMembers from "./documents/teamMembers";
 import values from "./documents/values";
 import selfMadePage from "./documents/selfMadePage";
 import techStackPage from "./documents/techStackPage";
+import blog from "./documents/blog";
 
 // import img from './objects/img'
 import campaignContact from "./objects/campaignContact";
@@ -48,6 +49,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
+    blog,
     campaign,
     campaignContact,
     campaignEvent,
